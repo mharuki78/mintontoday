@@ -161,7 +161,7 @@ export default async function Home() {
             <div className="reading-list">
               {posts.filter(p => p.category === "뉴스").slice(0, 3).map((p, i) => (
                 <Link href={`/articles/${p.id}`} key={p.id}>
-                  <span className="reading-number">0{i + 1}</span>
+                  {p.images?.[0] ? <img className="reading-photo" src={p.images[0].url} alt="" loading="lazy" /> : <span className="reading-number">0{i + 1}</span>}
                   <span>
                     <small>{p.category}</small>
                     <h3>{p.title}</h3>

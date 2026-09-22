@@ -19,7 +19,20 @@
 .tournament-filters .selected { background: var(--ink); color: var(--paper); }
 .news-list { display: grid; gap: 28px; }
 .news-list .article-card { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
-.news-list .card-image { display: none; }
+.news-list .article-card { display: grid; grid-template-columns: 220px minmax(0, 1fr); column-gap: 24px; }
+.news-list .card-image { display: block; grid-row: 1 / span 4; align-self: start; }
+.news-list .card-photo { display: block; height: 200px; background: #edf0ec; }
+.news-list .card-category { margin-top: 0; }
+.article-card[data-category="코트 라이프"] .card-photo { display: block; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.image-origin { position: absolute; left: 10px; bottom: 10px; padding: 4px 8px; background: #172c24db; color: white; border-radius: 4px; font-size: 10px; }
+.reading-photo { flex: 0 0 110px; width: 110px; height: 90px; object-fit: contain; border-radius: 8px; background: #edf0ec; }
+@media (max-width: 600px) {
+  .news-list .article-card { grid-template-columns: 110px minmax(0, 1fr); column-gap: 16px; }
+  .news-list .card-photo { height: 130px; }
+  .news-list .article-card > p, .news-list .card-meta { grid-column: 1 / -1; }
+  .news-list .card-image { grid-row: 1 / span 2; }
+  .reading-photo { flex-basis: 76px; width: 76px; height: 82px; }
+}
 .editorial-fields { padding: 20px; border: 1px solid var(--line); border-radius: 12px; margin: 24px 0; min-width: 0; }
 .editorial-fields fieldset { padding: 16px; border: 1px solid var(--line); margin: 20px 0; min-width: 0; }
 .editorial-fields > button { margin: 10px 12px 10px 0; }

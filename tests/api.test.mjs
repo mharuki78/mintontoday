@@ -21,9 +21,14 @@ test("public pages, search and unknown article", async () => {
     await fetch(base + "/articles?q=does-not-exist-73921")
   ).text();
   assert.ok(search.includes("아직 이 이야기는 없어요."));
-  const article = await (await fetch(base + "/articles/first-racket")).text();
+  const sampleResponse = await fetch(base + "/articles/first-racket");
+  const article = await sampleResponse.text();
   assert.ok(article.includes("noindex"));
-  assert.ok(article.includes("예시 원고"));
+  if (process.env.EXPECT_EDITORIAL === "1") assert.equal(sampleResponse.status, 404, "published editorial content hides seed articles");
+  else {
+    assert.equal(sampleResponse.status, 200);
+    assert.ok(article.includes("예시 원고"));
+  }
   const sitemap = await (await fetch(base + "/sitemap.xml")).text();
   assert.ok(!sitemap.includes("first-racket"));
 });

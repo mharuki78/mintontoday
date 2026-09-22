@@ -12,6 +12,8 @@ export function EditorialFields({ post, update }: { post: Article; update: <K ex
     {images.map((img, i) => <fieldset key={i}><legend>이미지 {i + 1}</legend>
       {([['url', '이미지 URL'], ['alt', '대체 텍스트'], ['caption', '사진 설명'], ['credit', '저작자·제공처'], ['sourceUrl', '원본 출처 URL'], ['rights', '사용 근거·라이선스']] as const).map(([key, label]) => <label key={key} className="form-field">{label}<input value={img[key]} onChange={e => update("images", images.map((v, j) => j === i ? { ...v, [key]: e.target.value } : v))} /></label>)}
       <label className="form-field">종류<select value={img.kind} onChange={e => update("images", images.map((v, j) => j === i ? { ...v, kind: e.target.value as typeof img.kind } : v))}><option value="photo">실제 사진</option><option value="poster">대회 포스터</option><option value="illustration">일러스트</option></select></label>
+      {([["licenseName", "라이선스 이름 (선택)"], ["licenseUrl", "라이선스 HTTPS 주소 (선택)"]] as const).map(([key, label]) => <label key={key} className="form-field">{label}<input value={img[key] || ""} onChange={e => update("images", images.map((v, j) => j === i ? { ...v, [key]: e.target.value || undefined } : v))} /></label>)}
+      <label><input type="checkbox" checked={!!img.generated} onChange={e => update("images", images.map((v, j) => j === i ? { ...v, generated: e.target.checked } : v))} /> AI 제작 이미지 표시</label>
       <button type="button" className="secondary-button" onClick={() => update("images", images.filter((_, j) => j !== i))}>이미지 제거</button>
     </fieldset>)}
     <button type="button" className="secondary-button" onClick={() => update("images", [...images, { url: "", alt: "", caption: "", credit: "", sourceUrl: "", rights: "", kind: "photo" }])}>사진·포스터 추가</button>

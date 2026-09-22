@@ -18,6 +18,9 @@ export const imageSchema = z.object({
   sourceUrl: httpsUrl,
   rights: z.string().min(3).max(500),
   kind: z.enum(["photo", "poster", "illustration"]),
+  generated: z.boolean().optional(),
+  licenseName: z.string().max(80).optional(),
+  licenseUrl: httpsUrl.optional(),
 });
 export const articleSchema = z.object({
   id: z
