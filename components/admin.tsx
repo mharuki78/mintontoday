@@ -2,10 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Plus, LogOut, Save, ExternalLink } from "lucide-react";
+import { Plus, LogOut, Save, ExternalLink, KeyRound } from "lucide-react";
 import { categories, type Article } from "@/lib/content";
 import { ArticleContent } from "./article-content";
 import { EditorialFields } from "./editorial-fields";
+import { PasswordSettings } from "./password-settings";
 export function Login() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -79,6 +80,7 @@ export function Editor({ initial }: { initial: Article[] }) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [passwordSettings, setPasswordSettings] = useState(false);
   function update<K extends keyof Article>(key: K, value: Article[K]) {
     setPost((p) => ({ ...p, [key]: value }));
     setDirty(true);
@@ -135,6 +137,9 @@ export function Editor({ initial }: { initial: Article[] }) {
           {posts.filter((p) => p.status === "published").length}개 공개
         </span>
         <div className="save-actions">
+          <button className="secondary-button" aria-expanded={passwordSettings} aria-controls="password-settings" onClick={() => setPasswordSettings(open => !open)}>
+            <KeyRound size={16} /> {passwordSettings ? "비밀번호 설정 닫기" : "비밀번호 변경"}
+          </button>
           <button className="primary-button" onClick={() => choose(newPost())}>
             <Plus size={16} /> 새 글 작성
           </button>
@@ -154,6 +159,7 @@ export function Editor({ initial }: { initial: Article[] }) {
           </button>
         </div>
       </div>
+      {passwordSettings && <PasswordSettings />}
       <div className="admin-grid">
         <aside className="admin-posts" aria-label="관리할 글 선택">
           {posts.map((p) => (

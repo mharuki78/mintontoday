@@ -4,6 +4,7 @@ node_modules/
 !.env.example
 *.tsbuildinfo
 data/posts.json
+data/admin-credentials.json
 data/*.tmp
 test-results/
 .impeccable/review/

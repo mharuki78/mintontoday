@@ -4,26 +4,29 @@ import {
   makeSession,
   passwordMatches,
   sameOrigin,
+  getAuthState,
+  sessionCookieOptions,
 } from "@/lib/auth";
 import { allowLoginAttempt } from "@/lib/login-limit";
 export async function POST(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json({ error: "잘못된 요청입니다." }, { status: 403 });
   if (
-    !process.env.ADMIN_PASSWORD ||
     !process.env.SESSION_SECRET ||
     process.env.SESSION_SECRET.length < 32
   )
     return NextResponse.json(
-      { error: "서버의 관리자 비밀번호와 세션 키를 먼저 설정해 주세요." },
+      { error: "서버의 관리자 인증 설정을 확인해 주세요." },
       { status: 503 },
     );
+  let state;
   try {
     if (!(await allowLoginAttempt()))
       return NextResponse.json(
         { error: "로그인 시도가 많습니다. 1분 후 다시 시도해 주세요." },
         { status: 429 },
       );
+    state = await getAuthState();
   } catch {
     return NextResponse.json(
       {
@@ -40,22 +43,16 @@ export async function POST(request: Request) {
       );
     const body = await request.json();
     if (
-      typeof body.password !== "string" ||
+      typeof body?.password !== "string" ||
       body.password.length > 256 ||
-      !passwordMatches(body.password)
+      !(await passwordMatches(body.password, state.credential))
     )
       return NextResponse.json(
         { error: "비밀번호를 확인해 주세요." },
         { status: 401 },
       );
     const res = NextResponse.json({ ok: true });
-    res.cookies.set(cookieName, makeSession(), {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/",
-      maxAge: 8 * 60 * 60,
-    });
+    res.cookies.set(cookieName, makeSession(state.version), sessionCookieOptions);
     return res;
   } catch {
     return NextResponse.json(
