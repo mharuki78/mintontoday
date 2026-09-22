@@ -20,7 +20,7 @@ export function ArticleContent({ post }: { post: Article }) {
       <div><dt>접수 안내</dt><dd>{post.event.registration}</dd></div>
       <div><dt>경기 결과</dt><dd>{post.event.result}</dd></div>
       <div><dt>마지막 확인</dt><dd>{new Date(post.event.checkedAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} (한국 시간)</dd></div>
-      <div><dt>공식 안내</dt><dd><a href={post.event.url} target="_blank" rel="noopener noreferrer">일정·접수·결과 원문 확인 ↗</a></dd></div>
+      <div><dt>안내 출처</dt><dd><a href={post.event.url} target="_blank" rel="noopener noreferrer">일정·접수·결과 원문 확인 ↗</a></dd></div>
     </dl>}
     <div className="prose">
       {paragraphs.map((p, i) => <div key={i}>

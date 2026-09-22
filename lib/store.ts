@@ -31,7 +31,7 @@ export async function publishedArticles() {
   const hasEditorial = posts.some(p => p.status === "published" && !p.sample);
   return posts
     .filter((p) => p.status === "published" && (!hasEditorial || !p.sample))
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort((a, b) => b.date.localeCompare(a.date) || (b.newsDate || b.seriesDate || b.date).localeCompare(a.newsDate || a.seriesDate || a.date) || a.id.localeCompare(b.id));
 }
 export async function saveArticle(article: Article) {
   const db = getDatabase();

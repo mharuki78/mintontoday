@@ -1,5 +1,5 @@
 import { Header, Footer, ArticleCard } from "@/components/site";
-import { categories, tournamentTypes } from "@/lib/content";
+import { categories, tournamentTypes, upcomingAmateur, koreaDate } from "@/lib/content";
 import { publishedArticles } from "@/lib/store";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
@@ -15,8 +15,10 @@ export default async function Articles({
   const category = categories.find((c) => c === params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
   const type = tournamentTypes.find(t => t === params.type);
   const region = ["서울", "경기"].find(r => r === params.region);
+  const today = koreaDate();
   const posts = (await publishedArticles()).filter(
     (p) =>
+      (p.event?.type !== "국내 동호인 대회" || upcomingAmateur(p, today)) &&
       (!category || p.category === category) &&
       (category !== "대회" || ((!type || p.event?.type === type) && (!region || p.event?.region === region))) &&
       (!q ||
@@ -24,6 +26,7 @@ export default async function Articles({
           .toLowerCase()
           .includes(q.toLowerCase())),
   );
+  if (category === "대회") posts.sort((a, b) => (a.event?.startDate || "9999").localeCompare(b.event?.startDate || "9999") || a.title.localeCompare(b.title, "ko"));
   return (
     <>
       <Header active={category || "전체 글"} />
@@ -68,6 +71,7 @@ export default async function Articles({
           {[undefined, ...tournamentTypes].map(t => <Link key={t || "all"} className={type === t ? "selected" : ""} href={`/articles?${new URLSearchParams({ category: "대회", ...(t ? { type: t } : {}), ...(q ? { q } : {}) })}`}>{t || "모든 대회"}</Link>)}
           {type === "국내 동호인 대회" && [undefined, "서울", "경기"].map(r => <Link key={r || "both"} className={region === r ? "selected" : ""} href={`/articles?${new URLSearchParams({ category: "대회", type, ...(r ? { region: r } : {}), ...(q ? { q } : {}) })}`}>{r || "서울·경기 전체"}</Link>)}
         </nav>}
+        {category === "대회" && <p className="archive-note">동호인 대회는 서울·경기에서 오늘 이후 개최되는 일정만 표시합니다. 접수 마감일과 실제 잔여 자리는 다를 수 있으니 각 글의 원문을 확인해 주세요.</p>}
         <div className="result-count">
           {posts.length}개의 이야기{" "}
           {q && (

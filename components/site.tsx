@@ -277,10 +277,11 @@ export function ArticleCard({ post }: { post: Article }) {
         <Link href={`/articles/${post.id}`}>{post.title}</Link>
       </h3>
       <p>{post.excerpt}</p>
+      {post.event?.startDate && <p className="card-event-date">대회 {post.event.startDate.replaceAll("-", ".")}{post.event.endDate && post.event.endDate !== post.event.startDate ? ` — ${post.event.endDate.slice(5).replace("-", ".")}` : ""} · {post.event.region}</p>}
       <div className="card-meta">
         <span>Minton Today</span>
         <span>
-          {post.date.replaceAll("-", ".")} {post.sample && "· 예시"}
+          {post.seriesDate ? `창간 연재 ${post.seriesDate.slice(5).replace("-", ".")}` : post.date.replaceAll("-", ".")} {post.sample && "· 예시"}
         </span>
       </div>
     </article>

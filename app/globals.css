@@ -1651,6 +1651,10 @@ footer {
 .mobile-search {
   display: none;
 }
+.category-shelf { margin: 64px 0; padding-top: 32px; border-top: 1px solid var(--line, #deded5); }
+.series-label { margin: 16px 0 24px; color: var(--muted, #52666b); font-size: 13px; }
+.card-event-date { color: var(--ink, #153c40); font-weight: 700; font-size: 13px; }
+.archive-note { max-width: 760px; color: var(--muted, #52666b); line-height: 1.8; font-size: 14px; margin: 20px 0; }
 .header-search:focus-within,
 .archive-search:focus-within {
   outline: 3px solid var(--blue);

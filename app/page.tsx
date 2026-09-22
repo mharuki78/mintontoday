@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight } from "lucide-react";
 import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
 import { publishedArticles } from "@/lib/store";
-import { categories } from "@/lib/content";
+import { categories, upcomingAmateur, koreaDate } from "@/lib/content";
 export const dynamic = "force-dynamic";
 const sources = [
   {
@@ -23,6 +23,10 @@ const sources = [
 ];
 export default async function Home() {
   const posts = await publishedArticles();
+  const blogs = posts.filter(p => !["뉴스", "대회"].includes(p.category));
+  const today = koreaDate();
+  const upcoming = posts.filter(p => upcomingAmateur(p, today)).sort((a, b) => a.event!.startDate!.localeCompare(b.event!.startDate!));
+  const featured = categories.slice(0, 3).flatMap(c => blogs.filter(p => p.category === c).slice(0, 1));
   return (
     <>
       <Header />
@@ -127,7 +131,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="article-grid">
-            {posts.slice(0, 3).map((p) => (
+            {featured.map((p) => (
               <ArticleCard key={p.id} post={p} />
             ))}
           </div>
@@ -150,12 +154,12 @@ export default async function Home() {
           <section>
             <div className="section-heading">
               <div>
-                <h2>조금 더 깊이, 민턴</h2>
-                <p>코트에 가져가고 싶은 작은 발견들</p>
+                <h2>지금, 배드민턴 뉴스</h2>
+                <p>한국 선수와 세계 코트의 소식</p>
               </div>
             </div>
             <div className="reading-list">
-              {posts.slice(3, 6).map((p, i) => (
+              {posts.filter(p => p.category === "뉴스").slice(0, 3).map((p, i) => (
                 <Link href={`/articles/${p.id}`} key={p.id}>
                   <span className="reading-number">0{i + 1}</span>
                   <span>
@@ -170,6 +174,14 @@ export default async function Home() {
           </section>
           <AdSpace compact />
         </div>
+        {!!upcoming.length && <section className="category-shelf" aria-labelledby="upcoming-title">
+          <div className="section-heading"><div><h2 id="upcoming-title">다음 대회, 어디로 갈까요?</h2><p>서울·경기 예정 대회 {upcoming.length}개 · 가까운 일정부터</p></div><Link href={`/articles?${new URLSearchParams({ category: "대회", type: "국내 동호인 대회" })}`}>모든 대회 <ArrowRight size={17} /></Link></div>
+          <div className="article-grid">{upcoming.slice(0, 3).map(p => <ArticleCard key={p.id} post={p} />)}</div>
+        </section>}
+        {categories.slice(0, 3).map((c, i) => <section className="category-shelf" key={c} aria-labelledby={`shelf-${i}`}>
+          <div className="section-heading"><div><h2 id={`shelf-${i}`}>{c}</h2><p>{["한 가지씩 익히는 코트 위의 기본", "실물 사진과 근거로 살펴보는 장비", "함께 오래 즐기는 배드민턴 생활"][i]} · {blogs.filter(p => p.category === c).length}편</p></div><Link href={`/articles?category=${encodeURIComponent(c)}`}>모두 읽기 <ArrowRight size={17} /></Link></div>
+          <div className="article-grid">{blogs.filter(p => p.category === c).slice(1, 4).map(p => <ArticleCard key={p.id} post={p} />)}</div>
+        </section>)}
         <div className="editor-note">
           레슨과 장비, 코트의 일상은 블로그로. 뉴스와 대회 소식은 확인한 출처와 함께 전합니다.
         </div>

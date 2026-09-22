@@ -5,7 +5,7 @@ import { Header, Footer, Art, ArticleCard, AdSpace } from "@/components/site";
 import ArticleTools from "@/components/article-tools";
 import { ArticleContent } from "@/components/article-content";
 import { publishedArticles } from "@/lib/store";
-import { readingTime } from "@/lib/content";
+import { readingTime, upcomingAmateur, koreaDate } from "@/lib/content";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 export const dynamic = "force-dynamic";
 export async function generateMetadata({
@@ -39,6 +39,7 @@ export default async function Article({
 }) {
   const { slug } = await params;
   const all = await publishedArticles();
+  const today = koreaDate();
   const post = all.find((p) => p.id === slug);
   if (!post) notFound();
   const paragraphs = post.body.split("\n\n");
@@ -61,10 +62,12 @@ export default async function Article({
               </span>
               <strong>Minton Today</strong>
               <span>
-                {post.date.replaceAll("-", ".")} · {readingTime(post.body)}분
+                발행 {post.date.replaceAll("-", ".")} · {readingTime(post.body)}분
                 읽기
               </span>
             </div>
+            {post.seriesDate && <p className="series-label">창간 기획 연재 · {post.seriesDate.replaceAll("-", ".")} 편</p>}
+            {post.newsDate && <p className="series-label">원문 보도·기록 기준일 · {post.newsDate.replaceAll("-", ".")}</p>}
             {!post.images?.length && <Art kind={post.art} large />}
             {post.sample && (
               <div className="sample-note">
@@ -82,7 +85,7 @@ export default async function Article({
                 rel="noopener noreferrer"
               >
                 <span>
-                  함께 확인할 공식 출처
+                  함께 확인할 원문 출처
                   <strong>{post.sourceName || "원문 보기"}</strong>
                 </span>
                 <ArrowUpRight size={20} />
@@ -115,7 +118,7 @@ export default async function Article({
           </div>
           <div className="article-grid">
             {all
-              .filter((p) => p.id !== post.id)
+              .filter((p) => p.id !== post.id && p.category === post.category && (p.event?.type !== "국내 동호인 대회" || upcomingAmateur(p, today)))
               .slice(0, 3)
               .map((p) => (
                 <ArticleCard post={p} key={p.id} />

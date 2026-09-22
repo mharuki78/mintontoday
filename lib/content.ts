@@ -29,6 +29,8 @@ export const articleSchema = z.object({
   excerpt: z.string().trim().min(10).max(300),
   body: z.string().trim().min(40).max(60000),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  seriesDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  newsDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   status: z.enum(["draft", "published"]),
   sample: z.boolean().default(false),
   art: z.enum(["court", "racket", "shuttle", "bag", "footwork", "score"]),
@@ -72,6 +74,9 @@ export const articleSchema = z.object({
     fail("event", "대회 종료일은 시작일보다 빠를 수 없습니다.");
 });
 export type Article = z.infer<typeof articleSchema>;
+export const koreaDate = (now = new Date()) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+export const upcomingAmateur = (post: Article, today = koreaDate()) =>
+  post.event?.type === "국내 동호인 대회" && !!post.event.startDate && post.event.startDate >= today && !["취소", "종료"].includes(post.event.status);
 export const readingTime = (body: string) =>
   Math.max(2, Math.ceil(body.length / 600));
 export const seeds: Article[] = [

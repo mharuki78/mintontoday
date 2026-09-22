@@ -6,6 +6,8 @@ export function EditorialFields({ post, update }: { post: Article; update: <K ex
   const event = post.event || { type: "국가대표 대회", region: "해외", venue: "", registration: "", result: "확인 중", status: "확인 중", url: "", checkedAt: new Date().toISOString() };
   return <fieldset className="editorial-fields"><legend>사진·출처·대회 정보</legend>
     <p>레슨 본문 {post.body.replace(/\s/g, "").length.toLocaleString()}자 (공백 제외). 레슨은 2,000자 이상, 장비 리뷰는 실제 사진 2장 이상이 필요합니다.</p>
+    <label className="form-field">창간 기획 연재일 (실제 발행일과 별도)<input type="date" value={post.seriesDate || ""} onChange={e => update("seriesDate", e.target.value || undefined)} /></label>
+    {post.category === "뉴스" && <label className="form-field">원문 보도·기록 기준일<input type="date" value={post.newsDate || ""} onChange={e => update("newsDate", e.target.value || undefined)} /></label>}
     <label className="form-field">편집 안내<textarea value={post.editorialNote || ""} onChange={e => update("editorialNote", e.target.value)} placeholder="자료 기반 리뷰 여부, 번역·요약 안내 등" /></label>
     {images.map((img, i) => <fieldset key={i}><legend>이미지 {i + 1}</legend>
       {([['url', '이미지 URL'], ['alt', '대체 텍스트'], ['caption', '사진 설명'], ['credit', '저작자·제공처'], ['sourceUrl', '원본 출처 URL'], ['rights', '사용 근거·라이선스']] as const).map(([key, label]) => <label key={key} className="form-field">{label}<input value={img[key]} onChange={e => update("images", images.map((v, j) => j === i ? { ...v, [key]: e.target.value } : v))} /></label>)}
