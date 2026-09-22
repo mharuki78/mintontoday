@@ -6,6 +6,7 @@ node_modules/
 data/posts.json
 data/admin-credentials.json
 data/*.tmp
+data/media/
 test-results/
 .impeccable/review/
 .playwright-cli/

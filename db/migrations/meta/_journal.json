@@ -15,6 +15,13 @@
       "when": 1790056169957,
       "tag": "0001_steep_machine_man",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790119357199,
+      "tag": "0002_brave_wind_dancer",
+      "breakpoints": true
     }
   ]
 }

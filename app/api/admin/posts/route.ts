@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdmin, sameOrigin } from "@/lib/auth";
 import { articleSchema } from "@/lib/content";
 import { saveArticle } from "@/lib/store";
+import { readBody, BodyTooLarge } from "@/lib/request-body";
 export async function POST(request: Request) {
   if (!sameOrigin(request) || !(await isAdmin()))
     return NextResponse.json(
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
       { status: 413 },
     );
   try {
-    const parsed = articleSchema.safeParse(await request.json());
+    const parsed = articleSchema.safeParse(JSON.parse((await readBody(request, 300000)).toString("utf8")));
     if (!parsed.success)
       return NextResponse.json(
         {
@@ -24,9 +25,12 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     // A manual save transfers editorial ownership away from the daily updater.
-    await saveArticle({ ...parsed.data, managedBy: undefined, updatedAt: new Date().toISOString() });
-    return NextResponse.json({ ok: true });
+    const article = { ...parsed.data, managedBy: undefined, updatedAt: new Date().toISOString() };
+    await saveArticle(article);
+    return NextResponse.json({ ok: true, article });
   } catch (error) {
+    if (error instanceof BodyTooLarge) return NextResponse.json({error:"글의 크기가 너무 큽니다."},{status:413});
+    if (error instanceof SyntaxError) return NextResponse.json({error:"글 형식을 확인해 주세요."},{status:400});
     console.error(
       "Article save failed",
       error instanceof Error ? error.message : "unknown",

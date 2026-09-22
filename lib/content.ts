@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { imageUrlSchema, richDocumentSchema, richImageUrls, richText } from "./rich-text.ts";
 
 export const categories = [
   "레슨 & 가이드",
@@ -11,7 +12,7 @@ const httpsUrl = z.string().url().refine((v) => v.startsWith("https://"), "HTTPS
 export const tournamentTypes = ["국가대표 대회", "국내 동호인 대회"] as const;
 export const sourceSchema = z.object({ name: z.string().min(1).max(160), url: httpsUrl });
 export const imageSchema = z.object({
-  url: httpsUrl.or(z.string().regex(/^\/images\/[a-zA-Z0-9/_.-]+$/)),
+  url: imageUrlSchema,
   alt: z.string().min(3).max(300),
   caption: z.string().max(500),
   credit: z.string().min(1).max(200),
@@ -31,6 +32,7 @@ export const articleSchema = z.object({
   category: z.preprocess(v => v === "뉴스 & 대회" ? "코트 라이프" : v, z.enum(categories)),
   excerpt: z.string().trim().min(10).max(300),
   body: z.string().trim().min(40).max(60000),
+  bodyDocument: richDocumentSchema.optional(),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   seriesDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
   newsDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
@@ -62,9 +64,16 @@ export const articleSchema = z.object({
     checkedAt: z.string().datetime({ offset: true }),
   }).optional(),
 }).superRefine((post, ctx) => {
+  if (post.bodyDocument) {
+    if (richText(post.bodyDocument).trim().length < 40)
+      ctx.addIssue({ code: "custom", path: ["bodyDocument"], message: "본문은 40자 이상 입력해 주세요." });
+    const known = new Set(post.images?.map(image => image.url));
+    if (richImageUrls(post.bodyDocument).some(url => !known.has(url)))
+      ctx.addIssue({ code: "custom", path: ["images"], message: "본문 사진의 설명과 출처를 첨부 사진 목록에 등록해 주세요." });
+  }
   if (post.status !== "published" || post.sample) return;
   const fail = (path: string, message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: [path], message });
-  if (post.category === "레슨 & 가이드" && post.body.replace(/\s/g, "").length < 2000)
+  if (post.category === "레슨 & 가이드" && (post.bodyDocument ? richText(post.bodyDocument) : post.body).replace(/\s/g, "").length < 2000)
     fail("body", "레슨 글은 공백을 제외한 본문 2,000자 이상이어야 합니다.");
   if (post.category === "장비 이야기" && new Set(post.images?.filter(i => i.kind === "photo").map(i => i.url)).size < 2)
     fail("images", "장비 글에는 출처를 기록한 서로 다른 사진 2장 이상이 필요합니다.");
@@ -75,7 +84,7 @@ export const articleSchema = z.object({
     fail("event", "동호인 대회는 서울·경기 지역으로 제한합니다.");
   if (post.event?.startDate && post.event.endDate && post.event.startDate > post.event.endDate)
     fail("event", "대회 종료일은 시작일보다 빠를 수 없습니다.");
-});
+}).transform(post => post.bodyDocument ? { ...post, body: richText(post.bodyDocument).trim() } : post);
 export type Article = z.infer<typeof articleSchema>;
 export const koreaDate = (now = new Date()) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
 export const upcomingAmateur = (post: Article, today = koreaDate()) =>

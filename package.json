@@ -14,12 +14,19 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
+    "@tiptap/extension-image": "3.31.3",
+    "@tiptap/extension-text-align": "3.31.3",
+    "@tiptap/extension-text-style": "3.31.3",
+    "@tiptap/pm": "3.31.3",
+    "@tiptap/react": "3.31.3",
+    "@tiptap/starter-kit": "3.31.3",
     "drizzle-orm": "^0.45.3",
     "lucide-react": "^1.31.0",
     "next": "^16.3.5",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "server-only": "^0.0.1",
+    "sharp": "0.35.4",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -27,7 +34,6 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "drizzle-kit": "^0.31.11",
-    "sharp": "^0.35.4",
     "typescript": "5.9.3"
   },
   "type": "module"

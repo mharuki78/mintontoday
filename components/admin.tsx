@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Plus, LogOut, Save, ExternalLink, KeyRound } from "lucide-react";
@@ -7,6 +7,8 @@ import { categories, type Article } from "@/lib/content";
 import { ArticleContent } from "./article-content";
 import { EditorialFields } from "./editorial-fields";
 import { PasswordSettings } from "./password-settings";
+import { RichEditor } from "./rich-editor";
+import { richText, type RichNode } from "@/lib/rich-text";
 export function Login() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -81,12 +83,22 @@ export function Editor({ initial }: { initial: Article[] }) {
   const [error, setError] = useState(false);
   const [preview, setPreview] = useState(false);
   const [passwordSettings, setPasswordSettings] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("");
+  useEffect(() => {
+    if (!dirty) return;
+    const beforeUnload = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ""; };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => window.removeEventListener("beforeunload", beforeUnload);
+  }, [dirty]);
   function update<K extends keyof Article>(key: K, value: Article[K]) {
     setPost((p) => ({ ...p, [key]: value }));
     setDirty(true);
     setMessage("");
   }
   function choose(next: Article) {
+    if (busy || uploading) return;
     if (dirty && !confirm("저장하지 않은 변경 사항이 있습니다. 이동할까요?"))
       return;
     setPost(next);
@@ -95,6 +107,7 @@ export function Editor({ initial }: { initial: Article[] }) {
     setPreview(false);
   }
   async function save(status: Article["status"]) {
+    if (busy || uploading) return;
     setBusy(true);
     setMessage("");
     setError(false);
@@ -107,12 +120,13 @@ export function Editor({ initial }: { initial: Article[] }) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      const saved: Article = data.article || next;
       setPosts((old) =>
         old.some((p) => p.id === next.id)
-          ? old.map((p) => (p.id === next.id ? next : p))
-          : [next, ...old],
+          ? old.map((p) => (p.id === saved.id ? saved : p))
+          : [saved, ...old],
       );
-      setPost(next);
+      setPost(saved);
       setDirty(false);
       setMessage(
         status === "published"
@@ -137,14 +151,15 @@ export function Editor({ initial }: { initial: Article[] }) {
           {posts.filter((p) => p.status === "published").length}개 공개
         </span>
         <div className="save-actions">
-          <button className="secondary-button" aria-expanded={passwordSettings} aria-controls="password-settings" onClick={() => setPasswordSettings(open => !open)}>
+          <button className="secondary-button" disabled={busy || uploading} aria-expanded={passwordSettings} aria-controls="password-settings" onClick={() => setPasswordSettings(open => !open)}>
             <KeyRound size={16} /> {passwordSettings ? "비밀번호 설정 닫기" : "비밀번호 변경"}
           </button>
-          <button className="primary-button" onClick={() => choose(newPost())}>
+          <button className="primary-button" disabled={busy || uploading} onClick={() => choose(newPost())}>
             <Plus size={16} /> 새 글 작성
           </button>
           <button
             className="secondary-button"
+            disabled={busy || uploading}
             onClick={async () => {
               if (
                 dirty &&
@@ -162,10 +177,13 @@ export function Editor({ initial }: { initial: Article[] }) {
       {passwordSettings && <PasswordSettings />}
       <div className="admin-grid">
         <aside className="admin-posts" aria-label="관리할 글 선택">
-          {posts.map((p) => (
+          <label className="form-field">글 검색<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="제목 검색"/></label>
+          <label className="form-field">카테고리 필터<select value={filter} onChange={e=>setFilter(e.target.value)}><option value="">전체 카테고리</option>{categories.map(c=><option key={c}>{c}</option>)}</select></label>
+          {posts.filter(p=>(!filter||p.category===filter)&&p.title.toLowerCase().includes(query.toLowerCase())).map((p) => (
             <button
               className={p.id === post.id ? "active" : ""}
               key={p.id}
+              disabled={busy || uploading}
               onClick={() => choose(p)}
             >
               <strong>{p.title}</strong>
@@ -183,6 +201,7 @@ export function Editor({ initial }: { initial: Article[] }) {
             save("published");
           }}
         >
+          <fieldset className="editor-fields" disabled={busy || uploading}>
           <label className="form-field">
             제목
             <input
@@ -231,7 +250,7 @@ export function Editor({ initial }: { initial: Article[] }) {
             <small>목록과 검색 결과에 표시됩니다.</small>
           </label>
           <label className="form-field">
-            대표 이미지
+            사진이 없을 때 기본 그림
             <select
               value={post.art}
               onChange={(e) => update("art", e.target.value as Article["art"])}
@@ -250,20 +269,12 @@ export function Editor({ initial }: { initial: Article[] }) {
               ))}
             </select>
           </label>
-          <label className="form-field">
-            본문
-            <textarea
-              rows={16}
-              value={post.body}
-              onChange={(e) => update("body", e.target.value)}
-              minLength={40}
-              required
+          <div className="form-field"><span>본문</span>
+            <RichEditor key={post.id} post={post} disabled={busy} onBusyChange={setUploading}
+              onChange={(document: RichNode) => { setPost(p=>({...p,bodyDocument:document,body:richText(document)}));setDirty(true);setMessage(""); }}
+              onPhoto={image=>{setPost(p=>({...p,images:[...(p.images||[]),image]}));setDirty(true);setMessage("");}}
             />
-            <small>
-              소제목은 ## 로 시작하고, 문단 사이는 빈 줄로 구분하세요. HTML은
-              실행되지 않습니다.
-            </small>
-          </label>
+          </div>
           <div className="form-row">
             <label className="form-field">
               출처 이름
@@ -293,18 +304,25 @@ export function Editor({ initial }: { initial: Article[] }) {
             />{" "}
             예시 원고로 표시 (검색엔진 색인 제외)
           </label>
-          <EditorialFields post={post} update={update} />
+          {!!post.images?.length && <label className="form-field">목록에 보여줄 대표 사진<select value={post.images[0].url} onChange={e=>{const selected=post.images!.find(i=>i.url===e.target.value)!;update("images",[selected,...post.images!.filter(i=>i.url!==selected.url)]);}}>{post.images.map((image,i)=><option key={image.url+i} value={image.url}>{image.alt}</option>)}</select></label>}
+          <details className="editor-metadata"><summary>사진 설명·출처·대회 정보 편집</summary><EditorialFields post={post} update={(key,value)=>{
+            if(key==="images" && post.bodyDocument){
+              const images=value as Article["images"];const urls=new Set(images?.map(i=>i.url));
+              const prune=(node:RichNode):RichNode=>({...node,...(node.content?{content:node.content.filter(n=>n.type!=="image"||urls.has(n.attrs?.src||"")).map(prune)}:{})});
+              setPost(p=>({...p,images,bodyDocument:prune(p.bodyDocument!)}));setDirty(true);
+            }else update(key,value);
+          }}/></details>
           <div className="save-actions">
             <button
               type="button"
               className="secondary-button"
               onClick={() => save("draft")}
-              disabled={busy}
+              disabled={busy || uploading}
             >
               <Save size={15} /> 임시저장
             </button>
-            <button className="primary-button" disabled={busy}>
-              {busy ? "저장 중…" : "발행하기"}
+            <button className="primary-button" disabled={busy || uploading}>
+              {busy ? "저장 중…" : post.status === "published" ? "수정 내용 저장" : "발행하기"}
             </button>
             <button
               type="button"
@@ -323,6 +341,7 @@ export function Editor({ initial }: { initial: Article[] }) {
               </Link>
             )}
           </div>
+          </fieldset>
           <div className={`form-status ${error ? "error" : ""}`} role="status">
             {message ||
               (dirty ? "아직 저장하지 않은 변경 사항이 있습니다." : "")}
