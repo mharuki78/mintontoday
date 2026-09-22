@@ -32,4 +32,4 @@ Reference: C:/project/ohacle/site/DESIGN.md and public/badminton.png. No user-su
 
 ## Open decisions
 
-User selected Vercel hosting and GitHub integration. Preview now uses dedicated Neon Postgres through the Vercel integration; local development retains optional file storage. Production promotion, custom domain, and owner contact address remain open.
+User selected Vercel hosting and GitHub integration. Preview now uses dedicated Neon Postgres through the Vercel integration; local development retains optional file storage. Production is authorized and uses https://mintontoday.vercel.app with a separate database. Custom domain and owner contact address remain open.
