@@ -25,7 +25,7 @@ Vercel에서는 `DATABASE_URL`로 연결한 전용 Neon Postgres에 글을 영�
 
 환경 변수를 불러온 상태에서 `npm run db:migrate`, `npm run db:seed` 순서로 초기화합니다. Seed는 로컬 저장 글 또는 예시 원고를 가져오며 기존 DB 글을 덮어쓰지 않습니다. 배포 빌드에서는 마이그레이션을 자동 실행하지 않습니다.
 
-Vercel 프로젝트: `himawari5/mintontoday`. GitHub: `mharuki78/mintontoday`. 정식 운영 주소는 https://mintontoday.vercel.app 이며 `main` 브랜치가 Production에 연결되어 있습니다. Preview와 Production은 각각 별도의 무료 Neon 데이터베이스를 사용합니다. Production에는 관리자 인증 설정과 정식 SITE_URL을 등록했습니다. Preview의 SITE_URL은 Vercel 배포 URL로 자동 설정됩니다.
+Vercel 프로젝트: `himawari5/mintontoday`. GitHub: `mharuki78/mintontoday`. 정식 운영 주소는 https://mintontoday.com 이며 `main` 브랜치가 Production에 연결되어 있습니다. Preview와 Production은 각각 별도의 무료 Neon 데이터베이스를 사용합니다. Production에는 관리자 인증 설정과 정식 SITE_URL을 등록했습니다. Preview의 SITE_URL은 Vercel 배포 URL로 자동 설정됩니다.
 
 로그인은 httpOnly, sameSite=strict, 8시간 만료 서명 쿠키를 사용합니다. 프로덕션에서는 HTTPS가 필요합니다. 변형 요청은 동일 Origin과 세션을 모두 검사합니다. DB 환경의 로그인 시도 제한은 서버 인스턴스 간 공유되며, 운영자 전체에 대해 분당 10회입니다. DB 장애 시 로그인은 503으로 차단합니다. 로컬 파일 모드만 메모리 제한을 사용합니다.
 
