@@ -19,11 +19,12 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "제목(3자 이상), 요약(10자 이상), 본문(40자 이상)과 입력 형식을 확인해 주세요.",
+            parsed.error.issues.map(i => i.message).join(" "),
         },
         { status: 400 },
       );
-    await saveArticle(parsed.data);
+    // A manual save transfers editorial ownership away from the daily updater.
+    await saveArticle({ ...parsed.data, managedBy: undefined, updatedAt: new Date().toISOString() });
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error(

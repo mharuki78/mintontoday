@@ -171,8 +171,7 @@ export default async function Home() {
           <AdSpace compact />
         </div>
         <div className="editor-note">
-          현재 게시물은 화면과 운영 흐름을 확인하기 위한 예시 원고입니다. 실제
-          발행 전 운영자의 검토를 거칩니다.
+          레슨과 장비, 코트의 일상은 블로그로. 뉴스와 대회 소식은 확인한 출처와 함께 전합니다.
         </div>
       </main>
       <Footer />

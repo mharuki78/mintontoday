@@ -12,12 +12,22 @@ Node.js 22 이상(권장 24)에서 `npm ci`, `npm run dev`를 실행한 뒤 http
 
 - `/admin`에서 비밀번호로 로그인 → 예시 글 선택 또는 새 글 작성 → 본문 편집 → 임시저장/발행.
 - 본문 소제목은 `## 제목`, 문단은 빈 줄로 구분합니다. HTML은 실행되지 않습니다.
-- 출처는 HTTPS URL과 이름을 함께 입력합니다. 기사를 자동 수집하거나 전문 복제하지 않습니다.
+- 출처는 HTTPS URL과 이름을 함께 입력합니다. 해외 기사는 한국어 요약으로 전하며 전문 복제하지 않습니다.
 - 예시 표시를 해제하기 전에 내용과 사용 권한을 검토하세요. 예시 글은 noindex이며 sitemap에서 제외됩니다.
 - 글 저장(북마크)은 독자 브라우저에만 남습니다. 회원가입·댓글·메일 발송 기능은 없습니다.
 - 삭제 대신 임시저장으로 전환해 공개 목록에서 내릴 수 있습니다.
 
 ## 저장과 배포 조건
+
+## 아침 콘텐츠 운영
+
+`EDITORIAL.md`에 매일 오전 9시(한국 시간) Codex 예약의 편집·검증·게시 절차를 기록했습니다. 로컬 PC와 Codex가 실행 가능한 상태여야 하며 9시는 작업 시작 시각입니다. 블로그 하루 총 2편을 세 카테고리에서 순환하고, 뉴스 및 국가대표/서울·경기 동호인 대회는 변경 사항이 있을 때 발행·갱신합니다.
+
+`node scripts/editorial-publish.mjs snapshot production output/editorial/production-snapshot.json`으로 DB 현황을 읽습니다. 콘텐츠 배치는 `content/YYYY-MM-DD.json`이며 validate 및 publish 명령에서 같은 파일을 사용합니다. 실제 쓰기는 `publish production <file> --apply`로만 수행합니다. 기존 자동화 글의 업데이트에는 snapshot hash가 필요하고 운영자가 관리자에서 저장한 글은 자동화가 덮어쓰지 않습니다. 본문·사진·대회 정보는 관리자에서도 편집할 수 있습니다.
+
+`node --test tests/editorial.test.mjs`로 발행 분량·사진·출처·지역 제한을 확인합니다. 기존 예시 글은 DB에 보존하며 실제 원고가 발행되면 공개 목록에서 제외합니다.
+
+## 데이터베이스
 
 Vercel에서는 `DATABASE_URL`로 연결한 전용 Neon Postgres에 글을 영구 저장합니다. Drizzle 스키마는 `db/schema.ts`, 버전 관리된 마이그레이션은 `db/migrations`입니다. 저장은 글 ID 기준의 원자적 upsert로 처리하므로 서로 다른 글의 동시 편집이 다른 글을 덮어쓰지 않습니다. 같은 글을 동시에 편집하면 마지막 저장이 적용됩니다.
 

@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Provisional recommendation: Next.js App Router, TypeScript, standalone Node hosting. User asked to build; framework preference question is pending.
+Next.js App Router, TypeScript, Vercel hosting and separate production/preview Neon Postgres databases.
 
 ## Users
 
@@ -28,8 +28,8 @@ Categories, article pages, search, owner editing and future AdSense integration.
 
 ## Evidence on Hand
 
-Reference: C:/project/ohacle/site/DESIGN.md and public/badminton.png. No user-supplied editorial content. Initial articles are identified as sample editorial drafts.
+Reference: C:/project/ohacle/site/DESIGN.md and public/badminton.png. A smiling shuttlecock vector mark and matching icons are applied. Source-attributed editorial articles are published from content/YYYY-MM-DD.json; initial samples remain in storage but are hidden once real content exists.
 
 ## Open decisions
 
-User selected Vercel hosting and GitHub integration. Preview now uses dedicated Neon Postgres through the Vercel integration; local development retains optional file storage. Production is authorized and uses https://mintontoday.com with a separate database. Custom domain and owner contact address remain open.
+Custom domain https://mintontoday.com is connected. Daily local Codex automation starts at 09:00 Asia/Seoul and publishes two rotating blog articles plus verified news/tournament updates; see EDITORIAL.md. News and tournaments are separate categories. Tournaments distinguish national-team events from Seoul/Gyeonggi amateur events. Owner contact address remains open.

@@ -1,5 +1,5 @@
 import { Header, Footer, ArticleCard } from "@/components/site";
-import { categories } from "@/lib/content";
+import { categories, tournamentTypes } from "@/lib/content";
 import { publishedArticles } from "@/lib/store";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
@@ -8,14 +8,17 @@ export const metadata = { title: "모든 이야기" };
 export default async function Articles({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; type?: string; region?: string }>;
 }) {
   const params = await searchParams;
   const q = (params.q || "").trim();
-  const category = categories.find((c) => c === params.category);
+  const category = categories.find((c) => c === params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
+  const type = tournamentTypes.find(t => t === params.type);
+  const region = ["서울", "경기"].find(r => r === params.region);
   const posts = (await publishedArticles()).filter(
     (p) =>
       (!category || p.category === category) &&
+      (category !== "대회" || ((!type || p.event?.type === type) && (!region || p.event?.region === region))) &&
       (!q ||
         `${p.title} ${p.excerpt} ${p.body}`
           .toLowerCase()
@@ -37,6 +40,8 @@ export default async function Articles({
         <form className="archive-search">
           <Search size={20} />
           {category && <input type="hidden" name="category" value={category} />}
+          {category === "대회" && type && <input type="hidden" name="type" value={type} />}
+          {category === "대회" && region && <input type="hidden" name="region" value={region} />}
           <input
             name="q"
             defaultValue={q}
@@ -59,6 +64,10 @@ export default async function Articles({
             </Link>
           ))}
         </div>
+        {category === "대회" && <nav className="tournament-filters" aria-label="대회 구분">
+          {[undefined, ...tournamentTypes].map(t => <Link key={t || "all"} className={type === t ? "selected" : ""} href={`/articles?${new URLSearchParams({ category: "대회", ...(t ? { type: t } : {}), ...(q ? { q } : {}) })}`}>{t || "모든 대회"}</Link>)}
+          {type === "국내 동호인 대회" && [undefined, "서울", "경기"].map(r => <Link key={r || "both"} className={region === r ? "selected" : ""} href={`/articles?${new URLSearchParams({ category: "대회", type, ...(r ? { region: r } : {}), ...(q ? { q } : {}) })}`}>{r || "서울·경기 전체"}</Link>)}
+        </nav>}
         <div className="result-count">
           {posts.length}개의 이야기{" "}
           {q && (
@@ -74,7 +83,7 @@ export default async function Articles({
           )}
         </div>
         {posts.length ? (
-          <div className="article-grid">
+          <div className={category === "뉴스" ? "news-list" : "article-grid"}>
             {posts.map((p) => (
               <ArticleCard post={p} key={p.id} />
             ))}

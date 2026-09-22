@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Plus, LogOut, Save, ExternalLink } from "lucide-react";
 import { categories, type Article } from "@/lib/content";
+import { ArticleContent } from "./article-content";
+import { EditorialFields } from "./editorial-fields";
 export function Login() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -285,6 +287,7 @@ export function Editor({ initial }: { initial: Article[] }) {
             />{" "}
             예시 원고로 표시 (검색엔진 색인 제외)
           </label>
+          <EditorialFields post={post} update={update} />
           <div className="save-actions">
             <button
               type="button"
@@ -322,15 +325,7 @@ export function Editor({ initial }: { initial: Article[] }) {
             <section className="preview-body">
               <h2>{post.title || "제목 없음"}</h2>
               <p>{post.excerpt}</p>
-              {post.body
-                .split("\n\n")
-                .map((p, i) =>
-                  p.startsWith("## ") ? (
-                    <h3 key={i}>{p.slice(3)}</h3>
-                  ) : (
-                    <p key={i}>{p}</p>
-                  ),
-                )}
+              <ArticleContent post={post} />
             </section>
           )}
         </form>

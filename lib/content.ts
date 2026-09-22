@@ -4,15 +4,28 @@ export const categories = [
   "레슨 & 가이드",
   "장비 이야기",
   "코트 라이프",
-  "뉴스 & 대회",
+  "뉴스",
+  "대회",
 ] as const;
+const httpsUrl = z.string().url().refine((v) => v.startsWith("https://"), "HTTPS 주소가 필요합니다.");
+export const tournamentTypes = ["국가대표 대회", "국내 동호인 대회"] as const;
+export const sourceSchema = z.object({ name: z.string().min(1).max(160), url: httpsUrl });
+export const imageSchema = z.object({
+  url: httpsUrl.or(z.string().regex(/^\/images\/[a-zA-Z0-9/_.-]+$/)),
+  alt: z.string().min(3).max(300),
+  caption: z.string().max(500),
+  credit: z.string().min(1).max(200),
+  sourceUrl: httpsUrl,
+  rights: z.string().min(3).max(500),
+  kind: z.enum(["photo", "poster", "illustration"]),
+});
 export const articleSchema = z.object({
   id: z
     .string()
     .regex(/^[a-z0-9-]+$/)
     .max(100),
   title: z.string().trim().min(3).max(140),
-  category: z.enum(categories),
+  category: z.preprocess(v => v === "뉴스 & 대회" ? "코트 라이프" : v, z.enum(categories)),
   excerpt: z.string().trim().min(10).max(300),
   body: z.string().trim().min(40).max(60000),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -26,6 +39,37 @@ export const articleSchema = z.object({
     .or(z.literal(""))
     .default(""),
   sourceName: z.string().max(100).default(""),
+  sources: z.array(sourceSchema).max(20).optional(),
+  images: z.array(imageSchema).max(12).optional(),
+  editorialNote: z.string().max(1000).optional(),
+  updatedAt: z.string().datetime({ offset: true }).optional(),
+  managedBy: z.literal("daily-editor").optional(),
+  event: z.object({
+    type: z.enum(tournamentTypes),
+    region: z.enum(["해외", "전국", "서울", "경기"]),
+    startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    venue: z.string().max(200),
+    registration: z.string().max(500),
+    status: z.enum(["예정", "접수 중", "진행 중", "종료", "취소", "확인 중"]),
+    result: z.string().max(3000),
+    url: httpsUrl,
+    checkedAt: z.string().datetime({ offset: true }),
+  }).optional(),
+}).superRefine((post, ctx) => {
+  if (post.status !== "published" || post.sample) return;
+  const fail = (path: string, message: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: [path], message });
+  if (post.category === "레슨 & 가이드" && post.body.replace(/\s/g, "").length < 2000)
+    fail("body", "레슨 글은 공백을 제외한 본문 2,000자 이상이어야 합니다.");
+  if (post.category === "장비 이야기" && new Set(post.images?.filter(i => i.kind === "photo").map(i => i.url)).size < 2)
+    fail("images", "장비 글에는 출처를 기록한 서로 다른 사진 2장 이상이 필요합니다.");
+  if ((post.category === "뉴스" || post.category === "대회") && !post.sourceUrl && !post.sources?.length)
+    fail("sources", "뉴스와 대회 글에는 원문 출처가 필요합니다.");
+  if (post.category === "대회" && !post.event) fail("event", "대회 정보가 필요합니다.");
+  if (post.event?.type === "국내 동호인 대회" && !["서울", "경기"].includes(post.event.region))
+    fail("event", "동호인 대회는 서울·경기 지역으로 제한합니다.");
+  if (post.event?.startDate && post.event.endDate && post.event.startDate > post.event.endDate)
+    fail("event", "대회 종료일은 시작일보다 빠를 수 없습니다.");
 });
 export type Article = z.infer<typeof articleSchema>;
 export const readingTime = (body: string) =>
@@ -90,7 +134,7 @@ export const seeds: Article[] = [
   {
     id: "watch-badminton",
     title: "배드민턴 경기를 더 재미있게 보는 세 가지 시선",
-    category: "뉴스 & 대회",
+    category: "코트 라이프",
     excerpt:
       "셔틀만 따라가던 관전에서 한 걸음 더. 빈 공간과 파트너의 움직임을 읽어 보세요.",
     art: "score",

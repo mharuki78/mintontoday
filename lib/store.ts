@@ -27,8 +27,10 @@ export async function allArticles(): Promise<Article[]> {
   }
 }
 export async function publishedArticles() {
-  return (await allArticles())
-    .filter((p) => p.status === "published")
+  const posts = await allArticles();
+  const hasEditorial = posts.some(p => p.status === "published" && !p.sample);
+  return posts
+    .filter((p) => p.status === "published" && (!hasEditorial || !p.sample))
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 export async function saveArticle(article: Article) {

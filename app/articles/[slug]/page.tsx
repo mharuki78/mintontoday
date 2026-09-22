@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header, Footer, Art, ArticleCard, AdSpace } from "@/components/site";
 import ArticleTools from "@/components/article-tools";
+import { ArticleContent } from "@/components/article-content";
 import { publishedArticles } from "@/lib/store";
 import { readingTime } from "@/lib/content";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
@@ -25,6 +26,8 @@ export async function generateMetadata({
           title: post.title,
           description: post.excerpt,
           publishedTime: post.date,
+          modifiedTime: post.updatedAt,
+          images: post.images?.[0] ? [post.images[0].url] : undefined,
         },
       }
     : { title: "글을 찾을 수 없습니다" };
@@ -62,7 +65,7 @@ export default async function Article({
                 읽기
               </span>
             </div>
-            <Art kind={post.art} large />
+            {!post.images?.length && <Art kind={post.art} large />}
             {post.sample && (
               <div className="sample-note">
                 예시 원고 · 사이트 구성을 보여 주는 콘텐츠입니다. 실제 발행 전
@@ -70,17 +73,7 @@ export default async function Article({
               </div>
             )}
             <ArticleTools id={post.id} />
-            <div className="prose">
-              {paragraphs.map((p, i) =>
-                p.startsWith("## ") ? (
-                  <h2 id={`section-${headings.indexOf(p)}`} key={i}>
-                    {p.slice(3)}
-                  </h2>
-                ) : (
-                  <p key={i}>{p}</p>
-                ),
-              )}
-            </div>
+            <ArticleContent post={post} />
             {post.sourceUrl && (
               <a
                 className="source-box"
@@ -135,10 +128,12 @@ export default async function Article({
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "BlogPosting",
+                "@type": post.category === "뉴스" ? "NewsArticle" : "BlogPosting",
                 headline: post.title,
                 description: post.excerpt,
                 datePublished: post.date,
+                dateModified: post.updatedAt || post.date,
+                image: post.images?.map(i => i.url),
                 author: { "@type": "Organization", name: "Minton Today" },
                 mainEntityOfPage: `${siteUrl()}/articles/${post.id}`,
               }).replace(/</g, "\\u003c"),

@@ -264,13 +264,13 @@ export function ArticleCard({ post }: { post: Article }) {
         tabIndex={-1}
         aria-hidden="true"
       >
-        <Art kind={post.art} />
+        {post.images?.[0] ? <img className="card-photo" src={post.images[0].url} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <Art kind={post.art} />}
         <span className="image-link">
           <ArrowUpRight size={18} />
         </span>
       </Link>
       <div className="card-category">
-        {post.category}
+        {post.event?.type || post.category}
         <span>{readingTime(post.body)}분 읽기</span>
       </div>
       <h3>
