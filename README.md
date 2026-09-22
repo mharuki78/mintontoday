@@ -19,9 +19,15 @@ Node.js 22 이상(권장 24)에서 `npm ci`, `npm run dev`를 실행한 뒤 http
 
 ## 저장과 배포 조건
 
-초기 예시 콘텐츠는 `lib/content.ts`, 실제 편집 데이터는 `CONTENT_DIR/posts.json`에 저장합니다. 쓰기는 프로세스 내 큐와 임시 파일의 원자적 교체로 처리합니다. 운영 전에 이 디렉터리의 백업을 설정하세요. 현재 저장 구현은 **단일 Node 프로세스 + 영구 쓰기 가능한 디스크**를 전제로 합니다. 여러 인스턴스나 Vercel 등 임시 파일 시스템에 그대로 배포하면 안 됩니다. 해당 환경을 선택할 경우 `lib/store.ts`를 PostgreSQL 등의 영구 저장소로 교체해야 합니다. 공개 배포는 아직 하지 않았습니다.
+Vercel에서는 `DATABASE_URL`로 연결한 전용 Neon Postgres에 글을 영구 저장합니다. Drizzle 스키마는 `db/schema.ts`, 버전 관리된 마이그레이션은 `db/migrations`입니다. 저장은 글 ID 기준의 원자적 upsert로 처리하므로 서로 다른 글의 동시 편집이 다른 글을 덮어쓰지 않습니다. 같은 글을 동시에 편집하면 마지막 저장이 적용됩니다.
 
-로그인은 httpOnly, sameSite=strict, 8시간 만료 서명 쿠키를 사용합니다. 프로덕션에서는 HTTPS가 필요합니다. 변형 요청은 동일 Origin과 세션을 모두 검사합니다. 로그인 속도 제한은 단일 프로세스 메모리 기반이므로 배포 시 프록시에서도 제한하세요.
+`DATABASE_URL` 없는 로컬 개발은 기존 `CONTENT_DIR/posts.json` 파일 저장을 유지합니다. Vercel에서 데이터베이스 설정이 없으면 파일로 조용히 전환하지 않고 오류로 처리합니다.
+
+환경 변수를 불러온 상태에서 `npm run db:migrate`, `npm run db:seed` 순서로 초기화합니다. Seed는 로컬 저장 글 또는 예시 원고를 가져오며 기존 DB 글을 덮어쓰지 않습니다. 배포 빌드에서는 마이그레이션을 자동 실행하지 않습니다.
+
+Vercel 프로젝트: `himawari5/mintontoday`. GitHub: `mharuki78/mintontoday`. 최초 배포는 `deploy/vercel-setup` 브랜치의 Preview 환경이며, 관리자 환경 변수 및 무료 Neon 데이터베이스는 Preview에 연결했습니다. Production 전환 시 별도 DB/브랜치와 환경 변수를 준비하세요. Preview의 `SITE_URL`은 Vercel이 제공하는 배포 URL로 자동 설정됩니다.
+
+로그인은 httpOnly, sameSite=strict, 8시간 만료 서명 쿠키를 사용합니다. 프로덕션에서는 HTTPS가 필요합니다. 변형 요청은 동일 Origin과 세션을 모두 검사합니다. DB 환경의 로그인 시도 제한은 서버 인스턴스 간 공유되며, 운영자 전체에 대해 분당 10회입니다. DB 장애 시 로그인은 503으로 차단합니다. 로컬 파일 모드만 메모리 제한을 사용합니다.
 
 ## AdSense 준비
 

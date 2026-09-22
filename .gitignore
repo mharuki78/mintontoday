@@ -9,3 +9,7 @@ test-results/
 .impeccable/review/
 .playwright-cli/
 output/
+
+.vercel/
+.agents/
+skills-lock.json

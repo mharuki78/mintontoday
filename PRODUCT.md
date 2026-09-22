@@ -32,4 +32,4 @@ Reference: C:/project/ohacle/site/DESIGN.md and public/badminton.png. No user-su
 
 ## Open decisions
 
-Hosting and domain; production persistence provider; owner contact address. File storage supports a persistent standalone server, not ephemeral serverless hosting.
+User selected Vercel hosting and GitHub integration. Preview now uses dedicated Neon Postgres through the Vercel integration; local development retains optional file storage. Production promotion, custom domain, and owner contact address remain open.

@@ -1,3 +1,4 @@
+import { siteUrl } from "@/lib/site-url";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header, Footer, Art, ArticleCard, AdSpace } from "@/components/site";
@@ -139,7 +140,7 @@ export default async function Article({
                 description: post.excerpt,
                 datePublished: post.date,
                 author: { "@type": "Organization", name: "Minton Today" },
-                mainEntityOfPage: `${process.env.SITE_URL || "http://localhost:3000"}/articles/${post.id}`,
+                mainEntityOfPage: `${siteUrl()}/articles/${post.id}`,
               }).replace(/</g, "\\u003c"),
             }}
           />

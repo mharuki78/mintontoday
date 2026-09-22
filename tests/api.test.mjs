@@ -82,12 +82,20 @@ test(
       400,
     );
     const { seeds } = await import("../lib/content.ts");
+    const db = process.env.DATABASE_URL
+      ? (await import("@neondatabase/serverless")).neon(
+          process.env.DATABASE_URL,
+        )
+      : null;
     let existing = seeds;
-    try {
-      existing = JSON.parse(await readFile("data/posts.json", "utf8"));
-    } catch (e) {
-      if (e.code !== "ENOENT") throw e;
-    }
+    if (db)
+      existing = (await db`select data from articles`).map((row) => row.data);
+    else
+      try {
+        existing = JSON.parse(await readFile("data/posts.json", "utf8"));
+      } catch (e) {
+        if (e.code !== "ENOENT") throw e;
+      }
     const original = existing.find((p) => p.id === "first-racket");
     assert.ok(original);
     try {
@@ -98,7 +106,9 @@ test(
       });
       assert.equal(draft.status, 200);
       assert.equal((await fetch(base + "/articles/first-racket")).status, 404);
-      const stored = JSON.parse(await readFile("data/posts.json", "utf8"));
+      const stored = db
+        ? (await db`select data from articles`).map((row) => row.data)
+        : JSON.parse(await readFile("data/posts.json", "utf8"));
       assert.equal(stored.find((p) => p.id === original.id).status, "draft");
     } finally {
       assert.equal(

@@ -3,12 +3,19 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { articleSchema, seeds, type Article } from "./content";
+import { getDatabase } from "./database";
+import { articles } from "@/db/schema";
 const directory = process.env.CONTENT_DIR
   ? path.resolve(/* turbopackIgnore: true */ process.env.CONTENT_DIR)
   : path.join(process.cwd(), "data");
 const file = path.join(directory, "posts.json");
 let queue = Promise.resolve();
 export async function allArticles(): Promise<Article[]> {
+  const db = getDatabase();
+  if (db)
+    return articleSchema
+      .array()
+      .parse((await db.select().from(articles)).map((row) => row.data));
   try {
     return articleSchema
       .array()
@@ -25,6 +32,14 @@ export async function publishedArticles() {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 export async function saveArticle(article: Article) {
+  const db = getDatabase();
+  if (db) {
+    await db
+      .insert(articles)
+      .values({ id: article.id, data: article })
+      .onConflictDoUpdate({ target: articles.id, set: { data: article } });
+    return;
+  }
   const operation = queue.then(async () => {
     const posts = await allArticles();
     const index = posts.findIndex((p) => p.id === article.id);

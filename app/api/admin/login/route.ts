@@ -5,7 +5,7 @@ import {
   passwordMatches,
   sameOrigin,
 } from "@/lib/auth";
-const attempts: number[] = [];
+import { allowLoginAttempt } from "@/lib/login-limit";
 export async function POST(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json({ error: "잘못된 요청입니다." }, { status: 403 });
@@ -18,14 +18,20 @@ export async function POST(request: Request) {
       { error: "서버의 관리자 비밀번호와 세션 키를 먼저 설정해 주세요." },
       { status: 503 },
     );
-  const now = Date.now();
-  while (attempts.length && attempts[0] < now - 60_000) attempts.shift();
-  if (attempts.length >= 10)
+  try {
+    if (!(await allowLoginAttempt()))
+      return NextResponse.json(
+        { error: "로그인 시도가 많습니다. 1분 후 다시 시도해 주세요." },
+        { status: 429 },
+      );
+  } catch {
     return NextResponse.json(
-      { error: "로그인 시도가 많습니다. 1분 후 다시 시도해 주세요." },
-      { status: 429 },
+      {
+        error: "인증 저장소에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.",
+      },
+      { status: 503 },
     );
-  attempts.push(now);
+  }
   try {
     if (Number(request.headers.get("content-length") || 0) > 4096)
       return NextResponse.json(
