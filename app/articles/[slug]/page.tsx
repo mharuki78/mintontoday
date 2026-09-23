@@ -27,7 +27,8 @@ export async function generateMetadata({
           description: post.excerpt,
           publishedTime: post.date,
           modifiedTime: post.updatedAt,
-          images: post.images?.[0] ? [post.images[0].url] : undefined,
+          url: `/articles/${post.id}`,
+          images: post.images?.[0] ? [{url:post.images[0].url,alt:post.images[0].alt}] : undefined,
         },
       }
     : { title: "글을 찾을 수 없습니다" };
@@ -136,8 +137,11 @@ export default async function Article({
                 description: post.excerpt,
                 datePublished: post.date,
                 dateModified: post.updatedAt || post.date,
-                image: post.images?.map(i => i.url),
-                author: { "@type": "Organization", name: "Minton Today" },
+                image: post.images?.map(i => new URL(i.url, siteUrl()).href),
+                inLanguage: "ko-KR",
+                articleSection: post.category,
+                author: { "@type": "Organization", name: "Minton Today", url: `${siteUrl()}/about` },
+                publisher: { "@type": "Organization", name: "Minton Today", url: siteUrl(), logo: { "@type": "ImageObject", url: `${siteUrl()}/apple-icon.png` } },
                 mainEntityOfPage: `${siteUrl()}/articles/${post.id}`,
               }).replace(/</g, "\\u003c"),
             }}

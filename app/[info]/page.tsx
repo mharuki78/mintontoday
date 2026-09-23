@@ -11,7 +11,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ info: string }>;
 }) {
-  return { title: titles[(await params).info] || "페이지 없음" };
+  const {info} = await params;
+  return { title: titles[info] || "페이지 없음", alternates: titles[info] ? {canonical:`/${info}`} : undefined };
 }
 export default async function Info({
   params,

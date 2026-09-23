@@ -3,8 +3,23 @@ import { categories, tournamentTypes, upcomingAmateur, koreaDate } from "@/lib/c
 import { publishedArticles } from "@/lib/store";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
+import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
-export const metadata = { title: "모든 이야기" };
+export async function generateMetadata({searchParams}: {searchParams: Promise<{q?:string;category?:string;type?:string;region?:string}>}): Promise<Metadata> {
+  const params = await searchParams;
+  const category = categories.find(c=>c===params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
+  const descriptions: Record<string,string> = {
+    "레슨 & 가이드": "배드민턴 그립, 서브, 네트샷과 풋워크를 배우는 레슨 가이드. 연습 순서와 흔한 실수, 실력 향상을 확인하는 방법을 소개합니다.",
+    "장비 이야기": "요넥스·빅터 등 배드민턴 라켓, 셔틀콕, 가방의 공식 사양과 공개 후기를 비교하고 자신에게 맞는 장비 선택 기준을 살펴봅니다.",
+    "코트 라이프": "배드민턴 동호회 매너부터 복식 파트너와의 소통, 코트 이용과 운동 기록까지. 함께 즐겁게 운동하는 데 필요한 이야기를 전합니다.",
+    "뉴스": "한국 선수와 주요 해외 선수의 배드민턴 소식, 경기 결과와 다음 일정을 공식 자료와 원문 출처를 바탕으로 전합니다.",
+    "대회": "국가대표 배드민턴 국제대회 일정·결과와 서울·경기 동호인 대회 접수, 장소, 포스터를 확인하세요.",
+  };
+  const canonical = category ? `/articles?${new URLSearchParams({category})}` : "/articles";
+  const title = category ? `배드민턴 ${category}` : "배드민턴 뉴스·레슨·장비와 대회 이야기";
+  const description = descriptions[category || ""] || "배드민턴 레슨과 장비 리뷰, 동호회 생활, 국내외 뉴스와 대회 일정을 Minton Today에서 만나세요.";
+  return {title,description,alternates:{canonical},robots:params.q || params.type || params.region ? {index:false,follow:true}:undefined,openGraph:{title,description,url:canonical,type:"website"}};
+}
 export default async function Articles({
   searchParams,
 }: {

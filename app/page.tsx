@@ -4,6 +4,7 @@ import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
 import { publishedArticles } from "@/lib/store";
 import { categories, upcomingAmateur, koreaDate } from "@/lib/content";
 export const dynamic = "force-dynamic";
+export const metadata = { alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } } };
 const sources = [
   {
     name: "BWF 공식 뉴스",
