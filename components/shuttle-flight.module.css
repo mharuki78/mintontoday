@@ -28,6 +28,8 @@
 
 .air { z-index: 0; }
 .foreground { z-index: 2; }
+.mist { filter: blur(3px); }
+.streamlines { opacity: 0.65; }
 
 .shuttle {
   position: absolute;
@@ -64,10 +66,10 @@
 }
 
 @keyframes airflow {
-  0% { transform: translate(95px, 62px); opacity: 0; }
-  25% { opacity: 0.8; }
-  70% { opacity: 0.65; }
-  100% { transform: translate(-130px, -85px); opacity: 0; }
+  0% { transform: translate(30px, 30px); opacity: 0; }
+  20% { opacity: 1; }
+  75% { opacity: 0.85; }
+  100% { transform: translate(-140px, -140px); opacity: 0; }
 }
 
 @keyframes particles {
@@ -106,4 +108,8 @@
 .control:focus-visible {
   outline: 3px solid #214b40;
   outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .mist path { stroke-width: 8; }
 }

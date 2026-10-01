@@ -13,6 +13,7 @@
     "heading": "Cork direction follows the instantaneous velocity, recomputed for the frame aspect ratio",
     "staticFallback": "Small centred shuttle before playback, including reduced-motion mode",
     "airflowPeriodSeconds": 12,
+    "airflowStyle": "Long contrasting teal and white streamlines, 1.8–3.5px non-scaling strokes, broad soft white wakes, persistent flow plus moving streaks following shuttle heading. Flight fades outside the frame to conceal long-tail loop reset.",
     "particlePeriodSeconds": 20,
     "wakePeriodSeconds": 16,
     "pauseControl": true,

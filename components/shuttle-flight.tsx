@@ -5,10 +5,10 @@ import { Pause, Play } from "lucide-react";
 import styles from "./shuttle-flight.module.css";
 
 const airPaths = [
-  "M 830 565 C 650 460 548 405 502 324 S 324 102 -110 -100",
-  "M 852 630 C 652 518 554 462 468 412 S 194 282 -130 66",
-  "M 814 692 C 648 616 560 562 480 513 S 244 422 -122 200",
-  "M 816 431 C 672 346 564 226 458 171 S 204 60 -110 -138",
+  "M 1080 960 C 858 778 730 596 616 412 S 252 40 -720 -900",
+  "M 1140 1060 C 906 870 780 678 670 546 S 270 140 -880 -720",
+  "M 1000 1170 C 804 960 674 788 514 676 S 44 484 -990 -450",
+  "M 940 1240 C 724 1020 590 880 394 776 S -92 590 -1110 -330",
 ];
 
 const flightDuration = 16000;
@@ -23,7 +23,8 @@ function flightKeyframes(width: number, height: number) {
     const x = -0.5 + 1.64 * time;
     const y = 1.03 - 3 * time + 3 * time * time;
     const angle = Math.atan2((6 * time - 3) * height, 1.64 * width) * 180 / Math.PI - 45;
-    position.push({ offset, transform: `translate(${(x - 0.5) * 100}%, ${(y - 0.5) * 100}%)` });
+    const opacity = Math.max(0, Math.min(1, offset / 0.08, (1 - offset) / 0.1));
+    position.push({ offset, opacity, transform: `translate(${(x - 0.5) * 100}%, ${(y - 0.5) * 100}%)` });
     heading.push({ offset, transform: `translate(-50%, -50%) rotate(${angle}deg)` });
   }
   return { position, heading };
@@ -102,16 +103,28 @@ export function ShuttleFlight() {
           <div ref={shuttle} className={styles.shuttle}>
             <svg className={styles.air} viewBox="0 0 720 720" fill="none" aria-hidden="true">
               <defs>
-                <linearGradient id={gradientId} x1="660" y1="540" x2="50" y2="140" gradientUnits="userSpaceOnUse">
+                <linearGradient id={gradientId} x1="950" y1="1000" x2="-850" y2="-640" gradientUnits="userSpaceOnUse">
                   <stop stopColor="white" stopOpacity="0" />
-                  <stop offset="0.35" stopColor="white" stopOpacity="0.95" />
-                  <stop offset="0.75" stopColor="#6caaa1" stopOpacity="0.45" />
+                  <stop offset="0.2" stopColor="white" stopOpacity="0.95" />
+                  <stop offset="0.5" stopColor="#427e75" stopOpacity="0.9" />
+                  <stop offset="1" stopColor="#427e75" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id={`${gradientId}-mist`} x1="950" y1="1000" x2="-850" y2="-640" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="white" stopOpacity="0" />
+                  <stop offset="0.2" stopColor="white" stopOpacity="0.6" />
+                  <stop offset="0.6" stopColor="white" stopOpacity="0.25" />
                   <stop offset="1" stopColor="white" stopOpacity="0" />
                 </linearGradient>
               </defs>
+              <g className={styles.mist}>
+                {airPaths.map(path => <path key={path} d={path} stroke={`url(#${gradientId}-mist)`} strokeWidth="12" strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
+              </g>
+              <g className={styles.streamlines}>
+                {airPaths.map((path, i) => <path key={path} d={path} stroke={`url(#${gradientId})`} strokeWidth={i % 2 ? 2.6 : 1.8} strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
+              </g>
               {[0, 1, 2].map(layer => (
                 <g key={layer} className={`${styles.current} ${styles[`current${layer}`]}`}>
-                  {airPaths.map((path, i) => <path key={path} d={path} stroke={`url(#${gradientId})`} strokeWidth={i === 1 ? 2.3 : 1.5} strokeDasharray={i % 2 ? "160 380" : "100 460"} strokeLinecap="round" />)}
+                  {airPaths.map((path, i) => <path key={path} d={path} stroke={`url(#${gradientId})`} strokeWidth={i % 2 ? 3.5 : 2.5} strokeDasharray={i % 2 ? "180 400" : "120 450"} strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
                 </g>
               ))}
               <g className={styles.dust}>
@@ -126,7 +139,7 @@ export function ShuttleFlight() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/shuttle-flight.webp" width={960} height={960} alt="화면 밖에서 들어와 포물선을 그리며 천천히 떨어지는 셔틀콕" fetchPriority="high" decoding="async" />
             <svg className={styles.foreground} viewBox="0 0 720 720" fill="none" aria-hidden="true">
-              <path className={styles.wake} d="M 764 618 C 620 574 527 530 444 478 C 307 391 208 406 -94 240" stroke="white" strokeOpacity="0.28" strokeWidth="1" />
+              <path className={styles.wake} d="M 980 1030 C 792 852 697 750 586 678 S 160 474 -780 -400" stroke="white" strokeOpacity="0.65" strokeWidth="2.2" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
             </svg>
           </div>
         </div>
