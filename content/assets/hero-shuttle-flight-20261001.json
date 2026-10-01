@@ -6,7 +6,10 @@
   "prompt": "Photorealistic premium feather badminton shuttlecock in flight, transparent alpha background, macro product photography. Rounded cream cork nose leads toward lower right, flared ivory feather skirt trails upper left, muted deep-teal tape band, side three-quarter profile, connected feather stems and white threads, complete subject visible. Fine feather texture, soft upper-left daylight, no motion blur, text, logos, racket, person or painted wind trails.",
   "animation": {
     "method": "CSS transform and opacity over generated transparent image and SVG airflow",
-    "shuttlePeriodSeconds": 18,
+    "shuttlePeriodSeconds": 16,
+    "shuttleWidth": "62% of frame, capped at 240px",
+    "trajectory": "Enter from outside upper left, curve toward the centre and fall cork-first below the frame. Loop resets while the shuttle is out of view.",
+    "staticFallback": "Small centred shuttle before playback, including reduced-motion mode",
     "airflowPeriodSeconds": 12,
     "particlePeriodSeconds": 20,
     "wakePeriodSeconds": 16,

@@ -8,11 +8,13 @@
 
 .scene {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
+  inset: 0;
+}
+
+.flight {
+  position: absolute;
+  inset: 0;
+  animation: flight 16s linear infinite;
 }
 
 .air,
@@ -30,9 +32,14 @@
 
 .shuttle {
   position: absolute;
-  inset: 7%;
+  top: 50%;
+  left: 50%;
+  width: 62%;
+  max-width: 240px;
+  aspect-ratio: 1;
   z-index: 1;
-  animation: flight 18s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  transform: translate(-50%, -50%) rotate(12deg);
+  animation: pitch 16s linear infinite;
 }
 
 .shuttle img {
@@ -50,6 +57,7 @@
 .dust { animation: particles 20s linear infinite; }
 .wake { animation: wake 16s linear infinite; }
 
+.frame[data-playing="false"] .flight,
 .frame[data-playing="false"] .shuttle,
 .frame[data-playing="false"] .current,
 .frame[data-playing="false"] .dust,
@@ -57,9 +65,25 @@
   animation-play-state: paused;
 }
 
+.frame[data-started="false"] .flight,
+.frame[data-started="false"] .shuttle {
+  animation-name: none;
+}
+
 @keyframes flight {
-  0%, 100% { transform: translate(-6px, -4px) rotate(-1deg); }
-  50% { transform: translate(8px, 6px) rotate(1deg); }
+  0% { transform: translate(-100%, -34%); }
+  20% { transform: translate(-30%, -25%); }
+  40% { transform: translate(-2%, -5%); }
+  60% { transform: translate(12%, 26%); }
+  80% { transform: translate(20%, 67%); }
+  100% { transform: translate(22%, 116%); }
+}
+
+@keyframes pitch {
+  0%, 20% { transform: translate(-50%, -50%) rotate(-12deg); }
+  40% { transform: translate(-50%, -50%) rotate(12deg); }
+  60% { transform: translate(-50%, -50%) rotate(28deg); }
+  80%, 100% { transform: translate(-50%, -50%) rotate(40deg); }
 }
 
 @keyframes airflow {
@@ -105,9 +129,4 @@
 .control:focus-visible {
   outline: 3px solid #214b40;
   outline-offset: 3px;
-}
-
-@media (max-width: 600px) {
-  .scene { width: 125%; }
-  .shuttle { inset: 9%; }
 }
