@@ -16,20 +16,17 @@
   inset: 0;
 }
 
-.air,
-.foreground {
+.air {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
   pointer-events: none;
 }
 
 .air { z-index: 0; }
-.foreground { z-index: 2; }
+.packet { opacity: 0; }
 .mist { filter: blur(3px); }
-.streamlines { opacity: 0.65; }
 
 .shuttle {
   position: absolute;
@@ -50,38 +47,6 @@
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(-10px 22px 20px rgb(43 88 82 / 12%));
-}
-
-.current { animation: airflow 12s linear infinite; }
-.current0 { animation-delay: -2s; }
-.current1 { animation-delay: -6s; }
-.current2 { animation-delay: -10s; }
-.dust { animation: particles 20s linear infinite; }
-.wake { animation: wake 16s linear infinite; }
-
-.frame[data-playing="false"] .current,
-.frame[data-playing="false"] .dust,
-.frame[data-playing="false"] .wake {
-  animation-play-state: paused;
-}
-
-@keyframes airflow {
-  0% { transform: translate(30px, 30px); opacity: 0; }
-  20% { opacity: 1; }
-  75% { opacity: 0.85; }
-  100% { transform: translate(-140px, -140px); opacity: 0; }
-}
-
-@keyframes particles {
-  0% { transform: translate(80px, 50px); opacity: 0; }
-  25%, 70% { opacity: 0.6; }
-  100% { transform: translate(-160px, -105px); opacity: 0; }
-}
-
-@keyframes wake {
-  0% { transform: translate(65px, 42px); opacity: 0; }
-  25%, 60% { opacity: 0.6; }
-  100% { transform: translate(-100px, -65px); opacity: 0; }
 }
 
 .control {

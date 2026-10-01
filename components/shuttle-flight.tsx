@@ -1,71 +1,130 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import styles from "./shuttle-flight.module.css";
 
-const airPaths = [
-  "M 1080 960 C 858 778 730 596 616 412 S 252 40 -720 -900",
-  "M 1140 1060 C 906 870 780 678 670 546 S 270 140 -880 -720",
-  "M 1000 1170 C 804 960 674 788 514 676 S 44 484 -990 -450",
-  "M 940 1240 C 724 1020 590 880 394 776 S -92 590 -1110 -330",
-];
-
 const flightDuration = 16000;
+const wakeCount = 56;
+const wakeLanes = [-28, -9, 9, 28];
+
+function flightPose(offset: number, width: number, height: number) {
+  const time = offset * 1.2;
+  const dx = 1.64 * width;
+  const dy = (6 * time - 3) * height;
+  const speed = Math.hypot(dx, dy);
+  return {
+    x: (-0.5 + 1.64 * time) * width,
+    y: (1.03 - 3 * time + 3 * time * time) * height,
+    ux: dx / speed,
+    uy: dy / speed,
+    angle: Math.atan2(dy, dx) * 180 / Math.PI - 45,
+  };
+}
 
 function flightKeyframes(width: number, height: number) {
   const position: Keyframe[] = [];
   const heading: Keyframe[] = [];
   for (let i = 0; i <= 120; i++) {
     const offset = i / 120;
-    const time = offset * 1.2;
-    // Constant horizontal velocity and quadratic height give a continuous parabola.
-    const x = -0.5 + 1.64 * time;
-    const y = 1.03 - 3 * time + 3 * time * time;
-    const angle = Math.atan2((6 * time - 3) * height, 1.64 * width) * 180 / Math.PI - 45;
+    const pose = flightPose(offset, width, height);
     const opacity = Math.max(0, Math.min(1, offset / 0.08, (1 - offset) / 0.1));
-    position.push({ offset, opacity, transform: `translate(${(x - 0.5) * 100}%, ${(y - 0.5) * 100}%)` });
-    heading.push({ offset, transform: `translate(-50%, -50%) rotate(${angle}deg)` });
+    position.push({ offset, opacity, transform: `translate(${(pose.x / width - 0.5) * 100}%, ${(pose.y / height - 0.5) * 100}%)` });
+    heading.push({ offset, transform: `translate(-50%, -50%) rotate(${pose.angle}deg)` });
   }
   return { position, heading };
+}
+
+function wakeEmission(index: number) {
+  return 0.13 + index / (wakeCount - 1) * 0.69;
+}
+
+function wakePath(emission: number, lane: number, width: number, height: number) {
+  const size = Math.min(width * 0.62, 240);
+  const points = Array.from({ length: 8 }, (_, i) => {
+    const offset = emission - 0.038 + i / 7 * 0.038;
+    const pose = flightPose(offset, width, height);
+    const spread = (lane + Math.sin(offset * 48 + lane * 0.1) * 4) * size / 240;
+    // Emit behind the feather skirt, then leave the wake in scene coordinates.
+    return {
+      x: pose.x - pose.ux * size * 0.46 - pose.uy * spread,
+      y: pose.y - pose.uy * size * 0.46 + pose.ux * spread,
+    };
+  });
+  let path = `M ${points[0].x} ${points[0].y}`;
+  for (let i = 1; i < points.length - 1; i++) {
+    const point = points[i];
+    const next = points[i + 1];
+    path += ` Q ${point.x} ${point.y} ${(point.x + next.x) / 2} ${(point.y + next.y) / 2}`;
+  }
+  const last = points[points.length - 1];
+  return `${path} T ${last.x} ${last.y}`;
+}
+
+function wakeKeyframes(index: number, width: number, height: number): Keyframe[] {
+  const emission = wakeEmission(index);
+  const pose = flightPose(emission, width, height);
+  const sway = Math.sin(index * 0.25) * 8;
+  const drift = `translate(${-pose.ux * 9 - pose.uy * sway}px, ${-pose.uy * 9 + pose.ux * sway}px)`;
+  return [
+    { offset: 0, opacity: 0, transform: "translate(0, 0)" },
+    { offset: emission, opacity: 0, transform: "translate(0, 0)" },
+    { offset: emission + 0.014, opacity: 0.65, transform: "translate(0, 0)" },
+    { offset: emission + 0.065, opacity: 0.45 },
+    { offset: emission + 0.16, opacity: 0, transform: drift },
+    { offset: 1, opacity: 0, transform: drift },
+  ];
 }
 
 export function ShuttleFlight() {
   const frame = useRef<HTMLDivElement>(null);
   const flight = useRef<HTMLDivElement>(null);
   const shuttle = useRef<HTMLDivElement>(null);
+  const wake = useRef<SVGSVGElement>(null);
   const preference = useRef<boolean | null>(null);
   const syncPlayback = useRef<() => void>(() => {});
   const [playing, setPlaying] = useState(false);
-  const gradientId = useId();
 
   useEffect(() => {
     const element = frame.current;
     const flightElement = flight.current;
     const shuttleElement = shuttle.current;
-    if (!element || !flightElement || !shuttleElement) return;
+    const wakeElement = wake.current;
+    if (!element || !flightElement || !shuttleElement || !wakeElement) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const packets = Array.from(wakeElement.querySelectorAll<SVGGElement>("[data-wake-packet]"));
     let inView = true;
-    let movement: Animation | null = null;
-    let orientation: Animation | null = null;
+    let animations: Animation[] = [];
+    const measure = () => {
+      const width = element.clientWidth;
+      const height = element.clientHeight;
+      wakeElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      packets.forEach((packet, index) => {
+        packet.querySelectorAll("path").forEach((path, lane) => {
+          path.setAttribute("d", wakePath(wakeEmission(index), wakeLanes[lane] ?? 0, width, height));
+        });
+      });
+      return { width, height };
+    };
     const sync = () => {
       const active = (preference.current ?? !reducedMotion.matches) && inView && !document.hidden;
       if (active) {
-        if (!movement || !orientation) {
-          const keys = flightKeyframes(element.clientWidth, element.clientHeight);
+        if (!animations.length) {
+          const { width, height } = measure();
+          const keys = flightKeyframes(width, height);
           const timing = { duration: flightDuration, iterations: Infinity, easing: "linear" };
-          movement = flightElement.animate(keys.position, timing);
-          orientation = shuttleElement.animate(keys.heading, timing);
+          animations = [
+            flightElement.animate(keys.position, timing),
+            shuttleElement.animate(keys.heading, timing),
+            ...packets.map((packet, index) => packet.animate(wakeKeyframes(index, width, height), timing)),
+          ];
           const startTime = document.timeline.currentTime;
-          movement.startTime = startTime;
-          orientation.startTime = startTime;
+          animations.forEach(animation => { animation.startTime = startTime; });
         } else {
-          movement.play();
-          orientation.play();
+          animations.forEach(animation => animation.play());
         }
       } else {
-        movement?.pause();
-        orientation?.pause();
+        animations.forEach(animation => animation.pause());
       }
       setPlaying(active);
     };
@@ -76,10 +135,14 @@ export function ShuttleFlight() {
     }, { threshold: 0.1 });
     observer.observe(element);
     const resizeObserver = new ResizeObserver(() => {
-      if (!movement || !orientation) return;
-      const keys = flightKeyframes(element.clientWidth, element.clientHeight);
-      (movement.effect as KeyframeEffect).setKeyframes(keys.position);
-      (orientation.effect as KeyframeEffect).setKeyframes(keys.heading);
+      if (!animations.length) return;
+      const { width, height } = measure();
+      const keys = flightKeyframes(width, height);
+      (animations[0].effect as KeyframeEffect).setKeyframes(keys.position);
+      (animations[1].effect as KeyframeEffect).setKeyframes(keys.heading);
+      packets.forEach((_, index) => {
+        (animations[index + 2].effect as KeyframeEffect).setKeyframes(wakeKeyframes(index, width, height));
+      });
     });
     resizeObserver.observe(element);
     reducedMotion.addEventListener("change", sync);
@@ -91,56 +154,26 @@ export function ShuttleFlight() {
       reducedMotion.removeEventListener("change", sync);
       document.removeEventListener("visibilitychange", sync);
       syncPlayback.current = () => {};
-      movement?.cancel();
-      orientation?.cancel();
+      animations.forEach(animation => animation.cancel());
     };
   }, []);
 
   return (
     <div ref={frame} className={`hero-image ${styles.frame}`} data-playing={playing}>
       <div className={styles.scene}>
+        <svg ref={wake} className={styles.air} fill="none" aria-hidden="true">
+          {Array.from({ length: wakeCount }, (_, index) => (
+            <g key={index} className={styles.packet} data-wake-packet={index}>
+              {wakeLanes.map((lane, i) => <path key={lane} stroke={i % 2 ? "#4c8b80" : "white"} strokeWidth={i % 2 ? 1.7 : 2.7} strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
+              <path className={styles.mist} stroke="white" strokeWidth="11" strokeOpacity="0.24" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+            </g>
+          ))}
+        </svg>
         <div ref={flight} className={styles.flight}>
           <div ref={shuttle} className={styles.shuttle}>
-            <svg className={styles.air} viewBox="0 0 720 720" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id={gradientId} x1="950" y1="1000" x2="-850" y2="-640" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="white" stopOpacity="0" />
-                  <stop offset="0.2" stopColor="white" stopOpacity="0.95" />
-                  <stop offset="0.5" stopColor="#427e75" stopOpacity="0.9" />
-                  <stop offset="1" stopColor="#427e75" stopOpacity="0" />
-                </linearGradient>
-                <linearGradient id={`${gradientId}-mist`} x1="950" y1="1000" x2="-850" y2="-640" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="white" stopOpacity="0" />
-                  <stop offset="0.2" stopColor="white" stopOpacity="0.6" />
-                  <stop offset="0.6" stopColor="white" stopOpacity="0.25" />
-                  <stop offset="1" stopColor="white" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <g className={styles.mist}>
-                {airPaths.map(path => <path key={path} d={path} stroke={`url(#${gradientId}-mist)`} strokeWidth="12" strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
-              </g>
-              <g className={styles.streamlines}>
-                {airPaths.map((path, i) => <path key={path} d={path} stroke={`url(#${gradientId})`} strokeWidth={i % 2 ? 2.6 : 1.8} strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
-              </g>
-              {[0, 1, 2].map(layer => (
-                <g key={layer} className={`${styles.current} ${styles[`current${layer}`]}`}>
-                  {airPaths.map((path, i) => <path key={path} d={path} stroke={`url(#${gradientId})`} strokeWidth={i % 2 ? 3.5 : 2.5} strokeDasharray={i % 2 ? "180 400" : "120 450"} strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}
-                </g>
-              ))}
-              <g className={styles.dust}>
-                <circle cx="580" cy="580" r="1.3" fill="white" />
-                <circle cx="440" cy="210" r="1.6" fill="white" />
-                <circle cx="216" cy="480" r="1.1" fill="white" />
-                <circle cx="654" cy="385" r="1.2" fill="white" />
-                <circle cx="290" cy="116" r="1.4" fill="white" />
-              </g>
-            </svg>
             {/* Generated product visual; provenance is recorded in content/assets. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/shuttle-flight.webp" width={960} height={960} alt="화면 밖에서 들어와 포물선을 그리며 천천히 떨어지는 셔틀콕" fetchPriority="high" decoding="async" />
-            <svg className={styles.foreground} viewBox="0 0 720 720" fill="none" aria-hidden="true">
-              <path className={styles.wake} d="M 980 1030 C 792 852 697 750 586 678 S 160 474 -780 -400" stroke="white" strokeOpacity="0.65" strokeWidth="2.2" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-            </svg>
           </div>
         </div>
       </div>
