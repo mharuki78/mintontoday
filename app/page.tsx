@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight } from "lucide-react";
 import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
-import { HeroVideo } from "@/components/hero-video";
+import { ShuttleFlight } from "@/components/shuttle-flight";
 import { publishedArticles } from "@/lib/store";
 import { categories, upcomingAmateur, koreaDate } from "@/lib/content";
 export const dynamic = "force-dynamic";
@@ -61,7 +61,7 @@ export default async function Home() {
                 <span /> YOUR DAILY BADMINTON JOURNAL
               </div>
             </div>
-            <HeroVideo />
+            <ShuttleFlight />
           </section>
           <aside className="briefing">
             <div className="section-top">

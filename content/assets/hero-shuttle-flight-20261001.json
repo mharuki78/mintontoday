@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-01",
+  "kind": "generated-image-animation",
+  "generationMode": "built-in image_gen",
+  "image": "/images/shuttle-flight.webp",
+  "prompt": "Photorealistic premium feather badminton shuttlecock in flight, transparent alpha background, macro product photography. Rounded cream cork nose leads toward lower right, flared ivory feather skirt trails upper left, muted deep-teal tape band, side three-quarter profile, connected feather stems and white threads, complete subject visible. Fine feather texture, soft upper-left daylight, no motion blur, text, logos, racket, person or painted wind trails.",
+  "animation": {
+    "method": "CSS transform and opacity over generated transparent image and SVG airflow",
+    "shuttlePeriodSeconds": 18,
+    "airflowPeriodSeconds": 12,
+    "particlePeriodSeconds": 20,
+    "wakePeriodSeconds": 16,
+    "pauseControl": true,
+    "pausesWhenOffscreenOrHidden": true,
+    "autoplayRespectsReducedMotion": true
+  },
+  "description": "Generated decorative shuttlecock flight visual; airflow is an artistic representation, not a scientific simulation or recorded athlete footage."
+}
