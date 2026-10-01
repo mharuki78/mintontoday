@@ -1,0 +1,39 @@
+[
+  {
+    "file": "public/images/editorial/court-score-agreement-20261001.webp",
+    "generated": true,
+    "kind": "illustration",
+    "generator": "built-in image_gen",
+    "changes": "1440×960, WebP quality 86",
+    "prompt": "Use case: photorealistic-natural. Asset type: landscape editorial cover for Korean badminton blog Minton Today. Primary request: a close-up still life of a simple small tabletop flip scoreboard displaying clearly 13 on the left and 12 on the right, beside one feather badminton shuttlecock and one thin oval badminton racket, on a wooden courtside bench in an indoor badminton gym. Softly blurred mint green court and badminton net in the background. Calm natural gym light, real material textures, navy and off-white scoreboard cards, candid editorial photography style. Single landscape 3:2 composition, central subjects safe for thumbnail cropping. Fictional illustrative scene, no actual event. No people, no tennis balls, no brands, no logos, no text other than the exact numerals 13 and 12, no watermark, no collage. Scoreboard has only two paired number panels, no extra duplicated numbers."
+  },
+  {
+    "url": "https://cdn.shopify.com/s/files/1/0669/2818/1338/files/CF_2.jpg?v=1773661400",
+    "sourceUrl": "https://victorsport.in/products/product_483",
+    "credit": "VICTOR Rackets Pvt. Ltd.",
+    "kind": "photo",
+    "rights": "제조사 제품 사진 중 본문 외형·색상·손잡이·어깨끈 구성 비평에 필요한 최소 한 점 제한 인용. 자유 라이선스 아님.",
+    "checked": "2026-10-01",
+    "observation": "공식 제품 페이지 Slide 1/2에서 블랙·블루 BR9213 실물 사진 확인, 358×477."
+  },
+  {
+    "url": "https://cdn.shopify.com/s/files/1/0669/2818/1338/files/CJ.jpg?v=1773661400",
+    "sourceUrl": "https://victorsport.in/products/product_483",
+    "credit": "VICTOR Rackets Pvt. Ltd.",
+    "kind": "photo",
+    "rights": "같은 모델의 다른 색상과 동일한 운반 구성 비교에 필요한 제조사 제품 사진 최소 한 점 제한 인용. 자유 라이선스 아님.",
+    "checked": "2026-10-01",
+    "observation": "공식 제품 페이지 Slide 2/2에서 블랙·퍼플 BR9213 실물 사진 확인, 358×477."
+  },
+  {
+    "file": "public/images/editorial/an-taipei-2019-02.webp",
+    "existingAsset": true,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_Chinese_Taipei_Open_02.jpg",
+    "credit": "De-Shao Liu (Terry850324)",
+    "date": "2019-09-07",
+    "licenseName": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "크기 조정 및 WebP 변환. 원본 구도 유지. 같은 라이선스 적용.",
+    "captionContext": "2019년 중국 타이베이 오픈 자료사진, 2026 귀국 현장 아님."
+  }
+]
