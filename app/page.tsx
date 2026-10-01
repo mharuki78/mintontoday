@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight } from "lucide-react";
 import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
+import { HeroVideo } from "@/components/hero-video";
 import { publishedArticles } from "@/lib/store";
 import { categories, upcomingAmateur, koreaDate } from "@/lib/content";
 export const dynamic = "force-dynamic";
@@ -60,18 +61,7 @@ export default async function Home() {
                 <span /> YOUR DAILY BADMINTON JOURNAL
               </div>
             </div>
-            <div className="hero-image">
-              <img
-                src="/images/badminton.png"
-                alt="파스텔 민트와 하늘색 라켓, 셔틀콕이 떠 있는 작은 배드민턴 코트"
-                fetchPriority="high"
-              />
-              <div className="image-stamp">
-                LOVE
-                <br />
-                THE GAME<span>PLAY · READ · REPEAT</span>
-              </div>
-            </div>
+            <HeroVideo />
           </section>
           <aside className="briefing">
             <div className="section-top">

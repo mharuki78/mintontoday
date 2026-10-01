@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-01",
+  "kind": "licensed-stock-video",
+  "provider": "Pexels",
+  "creator": "SHVETS production",
+  "sourceId": 8058176,
+  "sourceTitle": "Athletic Woman Playing Badminton",
+  "sourceUrl": "https://www.pexels.com/video/athletic-woman-playing-badminton-8058176/",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "licenseChecked": "2026-10-01",
+  "video": "/videos/badminton-smash.mp4",
+  "poster": "/images/badminton-smash-poster.webp",
+  "originalSha256": "711bf859b3c4ddf04797d5dc25521ab08e97522f19d8d34a6fc5402617e10cb8",
+  "videoSha256": "a063e8571152c28eb2acc51e578338126dc14846b532f3a6ebc82c6593172c8d",
+  "processing": {
+    "output": {
+      "fps": 30,
+      "height": 720,
+      "width": 720,
+      "audio": false
+    },
+    "crop": {
+      "y": 600,
+      "x": 0,
+      "height": 2160,
+      "width": 2160
+    },
+    "sourceDurationSeconds": 2.25,
+    "slowdownFactor": 1.8,
+    "sourceStartSeconds": 0.55
+  },
+  "rightsNote": "Pexels permits free website use and edits. No endorsement by the depicted person or creator is implied."
+}
