@@ -1,0 +1,17 @@
+{
+  "image": {
+    "url": "/images/editorial/shuttle-speed-discussion-20261006.webp",
+    "alt": "체육관 벤치에서 깃털 셔틀을 비교하는 두 성인 동호인",
+    "caption": "운동 전 셔틀 비교 · AI 일러스트.",
+    "credit": "Minton Today · OpenAI 생성 이미지",
+    "sourceUrl": "https://mintontoday.com/about",
+    "rights": "Minton Today 편집용으로 OpenAI image_gen에서 생성한 일러스트. 실제 인물·경기 촬영 사진이나 정확한 기술 시범으로 소개하지 않음. 크기 조정·WebP 변환.",
+    "kind": "illustration",
+    "generated": true
+  },
+  "originalPath": "C:/Users/UserK/.codex/generated_images/01a0c6bd-a27a-7102-9440-b6a544f6594b/exec-7f4b54c5-2da5-4aae-a393-37887e9c1f24.png",
+  "prompt": "Create a photorealistic editorial illustration for a Korean badminton club blog. Landscape 3:2. On a wooden bench at the edge of an indoor badminton gym, two adult Korean club members in plain athletic clothing calmly compare two clean white feather shuttlecocks held by their cork bases. Focus on the shuttlecocks and the shared discussion; show natural hands with correct fingers, one intact opened generic shuttle tube standing nearby, one badminton racket lying safely on the bench. Background court and net softly out of focus. No hitting action, no scientific measurements, no bent or plucked feathers. Genuine goose-feather shuttle geometry, 16 overlapping feathers making a conical skirt with realistic stitching, small cork base. Soft mint-green gym setting, warm natural light, realistic photographic detail, friendly ordinary sports-club scene. No brand names, no writing, no score display, no celebrity, no text overlay. Clearly an illustrative scene, not actual reporting.",
+  "tool": "OpenAI image_gen",
+  "createdAt": "2026-10-05T21:37:21.335Z",
+  "transform": "Width 1440px, WebP quality 86"
+}

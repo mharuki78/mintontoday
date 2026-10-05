@@ -1,0 +1,17 @@
+{
+  "image": {
+    "url": "/images/editorial/round-head-preparation-20261006.webp",
+    "alt": "실내 코트에서 머리 위 타구를 준비하는 성인 동호인과 코치",
+    "caption": "후위 타구 준비 연습 · AI 일러스트.",
+    "credit": "Minton Today · OpenAI 생성 이미지",
+    "sourceUrl": "https://mintontoday.com/about",
+    "rights": "Minton Today 편집용으로 OpenAI image_gen에서 생성한 일러스트. 실제 인물·경기 촬영 사진이나 정확한 기술 시범으로 소개하지 않음. 크기 조정·WebP 변환.",
+    "kind": "illustration",
+    "generated": true
+  },
+  "originalPath": "C:/Users/UserK/.codex/generated_images/01a0c6bd-a27a-7102-9440-b6a544f6594b/exec-614f299c-3f83-49cf-8079-60a88d34a615.png",
+  "prompt": "Create a photorealistic editorial illustration for a Korean recreational badminton lesson blog. Landscape 3:2. In a tidy indoor green badminton court, an adult Korean woman wearing plain navy training clothes and indoor shoes practices rear-court overhead preparation with a racket in her right hand, viewed in a broad three-quarter side view. She is standing balanced, body side-on, looking upward toward a small real feather shuttle high above her; racket raised naturally, no extreme backbend or jump. An adult coach in plain sportswear stands at a respectful distance watching. Show a complete anatomically correct oval badminton racket, realistic taut strings, clear court lines and net in background. Calm morning indoor light, realistic proportions, modest mint and warm neutral colors, candid sports photography. No writing, no logos, no celebrity, no text overlay, no duplicated limbs or rackets. It is an illustrative practice scene, not a real competition photo.",
+  "tool": "OpenAI image_gen",
+  "createdAt": "2026-10-05T21:37:21.335Z",
+  "transform": "Width 1440px, WebP quality 86"
+}
