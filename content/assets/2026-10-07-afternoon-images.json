@@ -1,0 +1,34 @@
+[
+  {
+    "file": "public/images/editorial/court-practice-time-20261007.webp",
+    "generated": true,
+    "kind": "illustration",
+    "generator": "built-in image_gen",
+    "changes": "1440×960, WebP quality 86",
+    "prompt": "Editorial photographic illustration for a Korean badminton club blog, landscape 3:2. Warm realistic community indoor badminton hall with pale mint green walls and natural morning light. Wide view from outside sidelines: two adult recreational badminton players, one woman and one man, calmly discussing a practice arrangement beside an unoccupied clearly separate badminton court. One adult holds a single proper badminton racket down by their thigh; the other holds a small open plastic basket with a few white feather shuttlecocks. In soft focus a second distant court is being used for a doubles game by four adults, separated by a wide clear walkway. No person standing in the active court, no shuttlecocks scattered on floor, no overlap between practice and games. Real badminton nets at sensible height, anatomically natural adult hands, everyday sport outfits with no branded logos, believable sports-hall geometry, subtle candid scene, no text, no watermarks, no posed hero player. This is a generic illustrative scene, not real documentary evidence or a named event."
+  },
+  {
+    "file": "public/images/editorial/victor-master-ace-product-20261007.webp",
+    "generated": false,
+    "kind": "photo",
+    "url": "https://cdn1.sgliteasset.com/victorma/images/product/product-2939886/iVDNzCtg643cfc27d2c5c_1681718312.jpg",
+    "sourceUrl": "https://www.victorsports.my/product/victor-master-ace-badminton-shuttlecocks-12-pcs",
+    "credit": "VICTOR Malaysia · Universal Sports Sdn. Bhd.",
+    "rights": "제품명·포장·깃털 외형 설명에 필요한 제품 사진 한 점 제한 인용. 자유 라이선스 아님.",
+    "checked": "2026-10-07",
+    "changes": "1024×1024, 원본 구도 유지, WebP quality 86",
+    "observation": "MASTER ACE 통과 흰 깃털 셔틀 2개. 같은 구도의 리사이즈를 중복 사진으로 세지 않음. 공식 유통사 신원은 /about-us에서 확인."
+  },
+  {
+    "file": "public/images/editorial/victor-master-ace-cork-20261007.webp",
+    "generated": false,
+    "kind": "photo",
+    "url": "https://cdn1.sgliteasset.com/victorma/images/product/product-2939886/wdAByom8643cfc2bbe102_1681718316.jpg",
+    "sourceUrl": "https://www.victorsports.my/product/victor-master-ace-badminton-shuttlecocks-12-pcs",
+    "credit": "VICTOR Malaysia · Universal Sports Sdn. Bhd.",
+    "rights": "Full Cork 헤드 소재와 외피 구분 설명에 필요한 단면 사진 한 점 제한 인용. 자유 라이선스 아님.",
+    "checked": "2026-10-07",
+    "changes": "1024×1024, 원본 구도 유지, WebP quality 86",
+    "observation": "깃털과 코르크 조직이 드러난 단면. 제품 통 사진과 다른 원본임을 직접 시각 확인. 이미지에서 실측 무게·수명·층 구조를 추정하지 않음."
+  }
+]
