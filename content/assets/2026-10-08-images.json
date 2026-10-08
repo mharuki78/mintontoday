@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-08T00:11:30.481Z",
+  "images": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Marvin_Seidel_%26_Mark_Lamsfu%C3%9F_-_2024_Paris_Olympics.jpg/1280px-Marvin_Seidel_%26_Mark_Lamsfu%C3%9F_-_2024_Paris_Olympics.jpg",
+      "alt": "네트 앞에서 대화하는 독일 남자복식 마르빈 자이델과 마르크 람스푸스",
+      "caption": "마르빈 자이델·마르크 람스푸스, 2024 파리 올림픽. 크기 조정.",
+      "credit": "Kuberzog (Martin Terrien) · CC BY 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marvin_Seidel_%26_Mark_Lamsfu%C3%9F_-_2024_Paris_Olympics.jpg",
+      "rights": "Kuberzog의 2024.07.27 자작 사진. CC BY 4.0에 따라 저자·원본·라이선스를 표시하며 사용. Commons가 제공하는 1280px 축소본, 별도 편집 없음.",
+      "licenseName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "url": "https://yonex.cz/files/photos/medium/202208161609278.jpg",
+      "alt": "파인 블루 색상 요넥스 92214 가방의 외관과 바깥 지퍼 포켓",
+      "caption": "요넥스 PRO WIDE OPEN BAG 92214, 파인 블루.",
+      "credit": "YONEX · Yonex CZ / Sport Lubas",
+      "sourceUrl": "https://yonex.cz/katalog/taska-yonex-92214-fine-blue.html",
+      "rights": "제품 구조 비평에 필요한 제조사 제공 상품 사진 2점만 제한적으로 인용. Yonex CZ(Sport Lubas)의 92214 제품 페이지에서 출처와 모델을 확인. 외관·넓은 개방부와 보온 구획 설명에 각각 연결하며 원본을 가공하지 않음. 저작권은 YONEX·권리자에게 있으며 자유 재사용 허가를 뜻하지 않음.",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "url": "https://yonex.cz/files/photos/medium/202208161609246.jpg",
+      "alt": "넓게 열린 요넥스 92214 가방의 연두색 안감과 은색 단열 구획",
+      "caption": "92214의 개방부와 안쪽 라켓 구획.",
+      "credit": "YONEX · Yonex CZ / Sport Lubas",
+      "sourceUrl": "https://yonex.cz/katalog/taska-yonex-92214-fine-blue.html",
+      "rights": "제품 구조 비평에 필요한 제조사 제공 상품 사진 2점만 제한적으로 인용. Yonex CZ(Sport Lubas)의 92214 제품 페이지에서 출처와 모델을 확인. 외관·넓은 개방부와 보온 구획 설명에 각각 연결하며 원본을 가공하지 않음. 저작권은 YONEX·권리자에게 있으며 자유 재사용 허가를 뜻하지 않음.",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "alt": "라켓을 들고 코트 옆을 걷는 안세영, 2019 중국 타이베이 오픈",
+      "url": "/images/editorial/an-taipei-2019-01.webp",
+      "kind": "photo",
+      "credit": "De-Shao Liu (Terry850324) / Wikimedia Commons",
+      "rights": "De-Shao Liu (Terry850324)의 2019.09.07 자작 사진. CC BY-SA 4.0에 따라 저자·원본·라이선스를 표시해 사용. 크기 조정·WebP 변환, 원본 구도 유지. 변환본에도 CC BY-SA 4.0을 적용.",
+      "caption": "안세영, 2019년 중국 타이베이 오픈 자료사진. 크기 조정·WebP 변환.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_Chinese_Taipei_Open_01.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "licenseName": "CC BY-SA 4.0"
+    }
+  ],
+  "evidence": "External images inspected locally; source, author/license or limited product criticism basis recorded per image. Previously deployed An Se Young image reused. No new local image assets required."
+}
