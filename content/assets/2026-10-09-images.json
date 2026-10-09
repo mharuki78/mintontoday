@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-09T00:07:39.023Z",
+  "images": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Badminton_Peter_Gade.jpg/960px-Badminton_Peter_Gade.jpg",
+      "alt": "타구 후 라켓을 몸 앞으로 이어 가는 덴마크 선수 피터 게이드",
+      "caption": "피터 게이드의 타구 모습, 2005년 공개 자료사진. 크기 조정.",
+      "credit": "petergade.net / Manuel Rösler · CC BY 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_Peter_Gade.jpg",
+      "rights": "Commons 원본 설명에서 petergade.net의 Manuel Rösler가 CC BY 2.0으로 제공했음을 확인. 제공자·원본·라이선스를 표시하며 Commons의 960px 축소본 사용. 촬영 행사와 정확한 촬영일은 특정하지 않으며 드롭 타구라고 단정하지 않음.",
+      "licenseName": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Badminton_men%27s_doubles.jpg",
+      "alt": "실내 코트에서 라켓을 들고 복식 경기를 준비하는 두 동호인",
+      "caption": "실내 남자복식 경기 자료사진.",
+      "credit": "FvS · Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_men%27s_doubles.jpg",
+      "rights": "촬영자 FvS가 자신의 작품을 전 세계 퍼블릭 도메인으로 공개한 PD-self 사진. Commons 원본 설명과 원본 640×480 사진을 확인. 원본 사용, 별도 편집 없음. 정확한 촬영 행사와 촬영 연도는 특정하지 않음.",
+      "licenseName": "Public domain (PD-self)",
+      "kind": "photo",
+      "generated": false
+    }
+  ]
+}
