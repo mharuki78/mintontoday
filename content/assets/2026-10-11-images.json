@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-11T00:09:40.503Z",
+  "images": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/AFMC_Badminton_Court.png",
+      "alt": "네트를 사이에 두고 서비스 라인이 보이는 두 면의 실내 배드민턴 코트",
+      "caption": "AFMC 실내 배드민턴 코트, 2024년 자료사진.",
+      "credit": "AFMC Official · CC BY 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AFMC_Badminton_Court.png",
+      "rights": "Commons 설명에서 AFMC Official의 2024년 7월 31일 자작 이미지 및 CC BY 4.0 공개 확인. 원본 파일을 추가 변환 없이 사용하고 저자·원본·라이선스 링크를 제공. 네트와 전위 연습 공간을 보여 주는 자료사진이며 특정 레슨 현장으로 소개하지 않음.",
+      "licenseName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "url": "https://us.yonex.com/cdn/shop/files/BA92431W_Cobalt_Blue_1.jpg?v=1757108810&width=1445",
+      "alt": "코발트 블루 BAG92431W의 긴 직사각형 몸체와 위쪽 손잡이, 앞면 지퍼",
+      "caption": "요넥스 BAG92431W 코발트 블루.",
+      "credit": "YONEX · 제품 이미지",
+      "sourceUrl": "https://us.yonex.com/products/pro-tournament-bag",
+      "rights": "해당 모델의 형태·손잡이·지퍼 구조를 설명하는 비평에 필요한 범위로 제조사 제품 이미지 1장을 제한적으로 인용. 원본 제품 페이지와 저작권자를 표시. 일반 재사용 허가 또는 CC 라이선스로 소개하지 않으며 저작권은 제조사에 있음.",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "url": "https://us.yonex.com/cdn/shop/files/INT_BA92431W_031-2.jpg?v=1757623210&width=1445",
+      "alt": "다크 그린 BAG92431W의 측면 손잡이와 검은 바닥, 길게 이어지는 수납 지퍼",
+      "caption": "요넥스 BAG92431W 다크 그린.",
+      "credit": "YONEX · 제품 이미지",
+      "sourceUrl": "https://us.yonex.com/products/pro-tournament-bag",
+      "rights": "같은 모델의 다크 그린 패널·측면 손잡이·수납 구조를 식별·비교하는 제품 비평에 필요한 별개의 실물 이미지 1장만 제한적으로 인용. 제조사 원본 페이지와 저작권자를 표시. 블로그 개인 사진이나 같은 사진의 중복 크롭이 아니며 저작권은 제조사에 있음.",
+      "kind": "photo",
+      "generated": false
+    }
+  ]
+}
