@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-13T00:17:19.699Z",
+  "images": [
+    {
+      "articleId": "gear-victor-90k-metallic-r-20261013",
+      "url": "https://assets.victor-shop.com/202414_1_s.jpg",
+      "alt": "빅터 아우라스피드 90K METALLIC R의 정면 프레임과 스트링",
+      "caption": "AURASPEED 90K METALLIC R 프레임 정면.",
+      "credit": "VICTOR Europe",
+      "sourceUrl": "https://www.victor-shop.com/en/item-1-202414.html",
+      "rights": "VICTOR Europe이 제품 상세 페이지에 공개한 제조사 실물 제품 사진. 해당 모델의 프레임 식별과 비교 비평에 필요한 정면 사진 한 장을 제한적으로 인용하며 저작권자·제품 원문 링크를 표시한다. 일반 재사용 허가나 CC 라이선스가 있는 사진으로 설명하지 않는다. 원본 JPEG를 변형 없이 사용.",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "articleId": "gear-victor-90k-metallic-r-20261013",
+      "url": "https://assets.victor-shop.com/202414_4_s.jpg",
+      "alt": "비스듬한 각도에서 본 빅터 90K METALLIC R의 프레임과 샤프트 연결부",
+      "caption": "90K METALLIC R 프레임 측면과 샤프트 연결부.",
+      "credit": "VICTOR Europe",
+      "sourceUrl": "https://www.victor-shop.com/en/item-1-202414.html",
+      "rights": "제조사 제품 상세 페이지에 공개된 별도의 사선 촬영 실물 제품 사진. 정면 사진과 촬영 각도 및 구도가 다르며 같은 원본의 재크롭으로 세지 않는다. 프레임 구조·모델 식별에 직접 필요한 비평용 제한 인용으로 두 번째 사진만 사용, 저작권자·원문 링크 표시. 원본 JPEG 유지, 일반 라이선스 허가를 주장하지 않음.",
+      "kind": "photo",
+      "generated": false
+    },
+    {
+      "articleId": "court-tournament-grade-history-20261013",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Terrace_Open_Badminton_Tournament_%2815531348194%29.jpg/960px-Terrace_Open_Badminton_Tournament_%2815531348194%29.jpg",
+      "alt": "캐나다 테라스 오픈 배드민턴 대회에서 트로피를 들고 함께 웃는 두 참가자",
+      "caption": "2010년 테라스 오픈 배드민턴 대회 자료사진. 크기 조정.",
+      "credit": "Murray Foubister · CC BY-SA 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terrace_Open_Badminton_Tournament_(15531348194).jpg",
+      "rights": "Commons 파일 설명에서 Murray Foubister 촬영, 2010년 4월 11일 Terrace Open, CC BY-SA 2.0 및 Flickr 라이선스 검토를 확인. Commons 제공 960px 축소본 사용, 저자·원본·라이선스 링크와 크기 조정 표시 유지. 한국 급수나 특정 순위의 입상자로 설명하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    },
+    {
+      "articleId": "tournament-arctic-open-2026",
+      "alt": "2024 파리 올림픽 배드민턴 경기장에서 열린 안톤센과 필리몬의 남자단식 경기",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/%C3%89preuve_Badminton_Jeux_Olympiques_2024_Arena_Porte_Chapelle_-_Paris_XVIII_%28FR75%29_-_2024-07-28_-_27.jpg/1280px-%C3%89preuve_Badminton_Jeux_Olympiques_2024_Arena_Porte_Chapelle_-_Paris_XVIII_%28FR75%29_-_2024-07-28_-_27.jpg",
+      "kind": "photo",
+      "credit": "Chabe01 · CC BY-SA 4.0",
+      "rights": "Chabe01이 직접 촬영한 2024년 7월 28일 파리 올림픽 사진. Commons 설명의 CC BY-SA 4.0 및 안톤센·필리몬 분류를 확인하고 경기장 중앙 두 선수와 점수판을 시각 검토. Commons 제공 1280px 축소본 사용, 변경 표시·저자·원본·동일 라이선스 링크 유지.",
+      "caption": "2024년 파리 올림픽 안톤센·필리몬 경기 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Épreuve_Badminton_Jeux_Olympiques_2024_Arena_Porte_Chapelle_-_Paris_XVIII_(FR75)_-_2024-07-28_-_27.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "licenseName": "CC BY-SA 4.0"
+    }
+  ]
+}
