@@ -1,4 +1,5 @@
 import { siteUrl } from "@/lib/site-url";
+import { publisher } from "@/lib/publisher";
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   description:
     "코트 안팎, 배드민턴의 모든 이야기. 레슨과 장비, 동호인 라이프와 공식 뉴스 출처를 만나는 배드민턴 전문 매거진.",
   verification: { google: "UAEgVb7gZvKDi3ohqZnZa_-bPF19JreKhOiY5p6lNH0", other: { "naver-site-verification": "90d2ef64bf9244ffe6810ec0ac61be3832ba547c" } },
+  other: { "google-adsense-account": publisher.adsenseClient },
   alternates: { types: { "application/rss+xml": "/rss.xml" } },
   openGraph: {
     title: "Minton Today — 오늘도, 배드민턴.",
