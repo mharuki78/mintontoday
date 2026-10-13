@@ -94,6 +94,12 @@
 
 ## 도구와 게시 절차
 
+### 2026.10.13 광고 신청 준비 점검
+
+문의·정정·사진 권리 연락처는 baekhyunjin@gmail.com이다. 발행 품질은 글 수나 글자 수만으로 판단하지 않는다. 외부 기사에 새 설명·선별 가치가 없으면 단순 재작성 글을 만들지 않고 기존 대회 기록에 필요한 변경만 반영한다. 자료사진 캡션은 대상·시점을 간결하게 쓰며 필요한 저자·라이선스·변경 표시와 AI 일러스트 표시는 유지한다.
+
+제품 사진의 출처 표시는 별도 사용 허락이나 공개 라이선스를 뜻하지 않는다. 신규 사진은 직접 소유·명시적 허락·상업적 사용 가능 라이선스를 우선하며, 제품 비평용 제한 인용은 해당 설명에 필요한 범위와 근거를 별도로 검토한다. rights에 ‘제조사 공식’이라고 적는 것만으로 사용 권리가 확보된 것으로 처리하지 않는다. 검토를 끝내지 못한 사진은 보류하고 준비된 다른 글을 진행한다. 기존 사진과 광고 연결의 점검 내역은 docs/adsense-readiness.md를 참고한다. 자동 발행이나 이 기준의 적용으로 Google 승인이 보장된다고 설명하지 않는다.
+
 1. `git status`, 이 문서와 `lib/content.ts`를 읽는다. `node scripts/editorial-publish.mjs snapshot production output/editorial/production-snapshot.json`으로 현황을 읽는다. `.env.production.local`이 없으면 인증된 Vercel CLI로 해당 프로젝트 Production 환경을 다시 내려받되 값을 출력하거나 커밋하지 않는다.
 2. 오늘 날짜의 파일 `content/YYYY-MM-DD.json`에 `{article, expectedHash}` 배열을 만든다. 새 글은 expectedHash=null. 기존 daily-editor 글을 갱신할 때는 스냅샷의 hash를 사용한다. article.managedBy="daily-editor", sample=false, status="published", updatedAt=실제 확인시각. 편집자가 관리자에서 저장하면 자동화 소유권이 해제되므로 덮어쓰지 않는다. 소유권이 없는 대회 글에 새 정보가 생기면 운영자에게 수정 제안만 알린다.
 3. `node scripts/editorial-publish.mjs validate production content/YYYY-MM-DD.json`으로 분량·사진·출처·지역을 검증한다. 외부 사진과 원문 링크를 실제 확인한다. 새 UI 변경이 없으면 전체 앱 빌드를 매번 반복하지 않아도 된다.
