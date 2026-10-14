@@ -15,7 +15,7 @@
 
 ## 갱신과 검증
 
-관리자 저장은 public-articles 태그와 공개 페이지 경로를 즉시 갱신한다. 자동 발행 스크립트는 DB 검증 후 기존 SESSION_SECRET으로 서명한 POST를 `/api/editorial/revalidate`에 보낸다. 비밀 값은 요청에 포함하지 않으며 5분 이내 타임스탬프와 HMAC 서명이 모두 맞아야 실행된다. 실패 시 게시를 다시 실행하지 말고 갱신 요청만 재시도한다. 타임아웃 등으로 실패하면 15분 캐시 간격 뒤 들어오는 요청에서 백그라운드 재조회하므로 그때 첫 응답은 이전 내용일 수 있다. RSS의 브라우저/CDN 응답 캐시는 최대 5분이다.
+관리자 저장은 public-articles 태그와 공개 페이지 경로를 즉시 갱신한다. 자동 발행 스크립트는 DB 검증 후 전용 EDITORIAL_CACHE_SECRET으로 서명한 POST를 `/api/editorial/revalidate`에 보낸다. Vercel Production의 민감 환경변수와 로컬 `.env.editorial.production.local`에 같은 키를 보관한다. 이 파일은 gitignore에 포함되며 Vercel env pull이 운영 비밀 값을 제외하더라도 덮어쓰지 않는다. 비밀 값은 요청에 포함하지 않으며 5분 이내 타임스탬프와 HMAC 서명이 모두 맞아야 실행된다. 실패 시 게시를 다시 실행하지 말고 `node scripts/editorial-cache.mjs production`으로 갱신 요청만 재시도한다. 타임아웃 등으로 실패하면 15분 캐시 간격 뒤 들어오는 요청에서 백그라운드 재조회하므로 그때 첫 응답은 이전 내용일 수 있다. RSS의 브라우저/CDN 응답 캐시는 최대 5분이다.
 
 회귀 검사: `npm run build` 후 `node scripts/test-public-cache.mjs --suite`. 임시 로컬 기사와 테스트 전용 인증으로 공개 캐시 재사용, 관리자 최신 조회, 저장·자동 갱신·비공개 전환, 페이지 분할, 본문 검색, 초안·예시 숨김, RSS·사이트맵을 확인한다. 운영 DB 글을 수정하지 않는다.
 

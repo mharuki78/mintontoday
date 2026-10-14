@@ -14,7 +14,7 @@ const secret='local-public-cache-test-secret-only-123456789';
 const original={...seeds[2],id:'cache-regression',title:'캐시 변경 전의 글',sample:false,body:'본문으로만찾는문장 '+ '이것은 공개 캐시 회귀 검사를 위한 실제 본문입니다. '.repeat(4)};
 let posts=[original,{...original,id:'private-draft',title:'절대 공개하면 안 되는 초안',status:'draft'},...Array.from({length:28},(_,i)=>({...original,id:`paged-${String(i).padStart(2,'0')}`,title:`목록 분할 글 ${i}`,body:'목록 테스트를 위한 충분한 길이의 본문입니다. '.repeat(4)})),seeds[0]];
 await writeFile(file,JSON.stringify(posts));
-const server=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','localhost','--port','3044'],{stdio:['ignore','pipe','pipe'],env:{...process.env,DATABASE_URL:'',DATABASE_URL_UNPOOLED:'',VERCEL:'',CONTENT_DIR:directory,SESSION_SECRET:secret,ADMIN_PASSWORD:'local-cache-test-password',SITE_URL:'https://mintontoday.com'}});
+const server=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','localhost','--port','3044'],{stdio:['ignore','pipe','pipe'],env:{...process.env,DATABASE_URL:'',DATABASE_URL_UNPOOLED:'',VERCEL:'',CONTENT_DIR:directory,SESSION_SECRET:secret,EDITORIAL_CACHE_SECRET:secret,ADMIN_PASSWORD:'local-cache-test-password',SITE_URL:'https://mintontoday.com'}});
 const get=async route=>{const r=await fetch(base+route);assert.equal(r.status,200,route);return r.text();};
 let serverLog='';
 server.stdout.on('data',data=>serverLog+=data);
@@ -49,6 +49,8 @@ try{
  assert.equal(hook.status,200);
  assert.ok((await get('/articles/cache-regression')).includes(posts[0].title),'Automated publication invalidates detail');
  assert.equal((await fetch(base+'/api/editorial/revalidate',{method:'POST'})).status,401);
+ const expired=String(Date.now()-600000);
+ assert.equal((await fetch(base+'/api/editorial/revalidate',{method:'POST',headers:{'X-Editorial-Time':expired,'X-Editorial-Signature':createHmac('sha256',secret).update(expired).digest('hex')}})).status,401);
  const withdrawn=await fetch(base+'/api/admin/posts',{method:'POST',headers:{Origin:base,Cookie:cookie,'Content-Type':'application/json'},body:JSON.stringify({...posts[0],status:'draft'})});assert.equal(withdrawn.status,200);
  assert.equal((await fetch(base+'/articles/cache-regression')).status,404,'Unpublishing removes previously cached content');
  assert.ok(!(await get('/sitemap.xml')).includes('/articles/cache-regression'));

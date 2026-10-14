@@ -2,7 +2,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { invalidatePublicArticles } from "@/lib/public-cache";
 
 export async function POST(request: Request) {
-  const secret = process.env.SESSION_SECRET;
+  const secret = process.env.EDITORIAL_CACHE_SECRET;
   if(!secret) return Response.json({error:"Cache invalidation unavailable"}, {status:503});
   const time = request.headers.get("X-Editorial-Time") || "";
   const signature = request.headers.get("X-Editorial-Signature") || "";

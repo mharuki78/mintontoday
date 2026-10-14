@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { neon } from "@neondatabase/serverless";
 import { articleSchema } from "../lib/content.ts";
-import { createHmac } from "node:crypto";
+import { invalidateEditorialCache } from "./editorial-cache.mjs";
 
 // Load exactly one explicit environment. Never silently fall back to production.
 const [command, environment, filename, flag] = process.argv.slice(2);
@@ -49,18 +49,9 @@ if (command === "snapshot") {
     articleSchema.array().parse(verify.map(r => r.data));
     if (verify.length !== batch.length) throw new Error("Post-publication verification failed");
     console.log("Publication verified in database.");
-    // Only signed invalidation crosses HTTP; the session secret stays local.
+    // Only signed invalidation crosses HTTP; the signing key stays local.
     try {
-      if (!env.SESSION_SECRET) throw new Error("SESSION_SECRET missing");
-      if (environment === "preview" && !env.SITE_URL) throw new Error("Preview SITE_URL missing");
-      const origin = new URL(env.SITE_URL || "https://mintontoday.com");
-      if (origin.protocol !== "https:") throw new Error("SITE_URL must use HTTPS");
-      const time = String(Date.now());
-      const signature = createHmac("sha256",env.SESSION_SECRET).update(time).digest("hex");
-      const response = await fetch(new URL("/api/editorial/revalidate",origin),{method:"POST",
-        redirect:"error", signal:AbortSignal.timeout(15000),
-        headers:{"X-Editorial-Time":time,"X-Editorial-Signature":signature}});
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      await invalidateEditorialCache(environment,env);
       console.log("Public cache invalidated.");
     } catch (error) {
       console.warn(`Published successfully; cache invalidation failed (${error.message}). Public data will refresh on requests after the 15-minute cache interval. Do not republish this batch.`);
