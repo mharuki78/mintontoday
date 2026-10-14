@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight } from "lucide-react";
 import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
 import { ShuttleFlight } from "@/components/shuttle-flight";
-import { publishedArticles } from "@/lib/store";
-import { categories, upcomingAmateur, koreaDate } from "@/lib/content";
-export const dynamic = "force-dynamic";
+import { getArticlePage } from "@/lib/public-content";
+import { categories, koreaDate } from "@/lib/content";
+import { connection } from "next/server";
 export const metadata = { alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } } };
 const sources = [
   {
@@ -24,11 +24,15 @@ const sources = [
   },
 ];
 export default async function Home() {
-  const posts = await publishedArticles();
-  const blogs = posts.filter(p => !["뉴스", "대회"].includes(p.category));
+  await connection();
   const today = koreaDate();
-  const upcoming = posts.filter(p => upcomingAmateur(p, today)).sort((a, b) => a.event!.startDate!.localeCompare(b.event!.startDate!));
-  const featured = categories.slice(0, 3).flatMap(c => blogs.filter(p => p.category === c).slice(0, 1));
+  const [shelves, news, events] = await Promise.all([
+    Promise.all(categories.slice(0,3).map(category=>getArticlePage({category,today,limit:4}))),
+    getArticlePage({category:"뉴스",today,limit:3}),
+    getArticlePage({category:"대회",type:"국내 동호인 대회",today,limit:3}),
+  ]);
+  const upcoming = events.posts;
+  const featured = shelves.flatMap(shelf=>shelf.posts.slice(0,1));
   return (
     <>
       <Header />
@@ -150,7 +154,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="reading-list">
-              {posts.filter(p => p.category === "뉴스").slice(0, 3).map((p, i) => (
+              {news.posts.map((p, i) => (
                 <Link href={`/articles/${p.id}`} key={p.id}>
                   {p.images?.[0] ? <img className="reading-photo" src={p.images[0].url} alt="" loading="lazy" /> : <span className="reading-number">0{i + 1}</span>}
                   <span>
@@ -166,12 +170,12 @@ export default async function Home() {
           <AdSpace compact />
         </div>
         {!!upcoming.length && <section className="category-shelf" aria-labelledby="upcoming-title">
-          <div className="section-heading"><div><h2 id="upcoming-title">다음 대회, 어디로 갈까요?</h2><p>서울·경기 예정 대회 {upcoming.length}개 · 가까운 일정부터</p></div><Link href={`/articles?${new URLSearchParams({ category: "대회", type: "국내 동호인 대회" })}`}>모든 대회 <ArrowRight size={17} /></Link></div>
+          <div className="section-heading"><div><h2 id="upcoming-title">다음 대회, 어디로 갈까요?</h2><p>서울·경기 예정 대회 {events.total}개 · 가까운 일정부터</p></div><Link href={`/articles?${new URLSearchParams({ category: "대회", type: "국내 동호인 대회" })}`}>모든 대회 <ArrowRight size={17} /></Link></div>
           <div className="article-grid">{upcoming.slice(0, 3).map(p => <ArticleCard key={p.id} post={p} />)}</div>
         </section>}
         {categories.slice(0, 3).map((c, i) => <section className="category-shelf" key={c} aria-labelledby={`shelf-${i}`}>
-          <div className="section-heading"><div><h2 id={`shelf-${i}`}>{c}</h2><p>{["한 가지씩 익히는 코트 위의 기본", "실물 사진과 근거로 살펴보는 장비", "함께 오래 즐기는 배드민턴 생활"][i]} · {blogs.filter(p => p.category === c).length}편</p></div><Link href={`/articles?category=${encodeURIComponent(c)}`}>모두 읽기 <ArrowRight size={17} /></Link></div>
-          <div className="article-grid">{blogs.filter(p => p.category === c).slice(1, 4).map(p => <ArticleCard key={p.id} post={p} />)}</div>
+          <div className="section-heading"><div><h2 id={`shelf-${i}`}>{c}</h2><p>{["한 가지씩 익히는 코트 위의 기본", "실물 사진과 근거로 살펴보는 장비", "함께 오래 즐기는 배드민턴 생활"][i]} · {shelves[i].total}편</p></div><Link href={`/articles?category=${encodeURIComponent(c)}`}>모두 읽기 <ArrowRight size={17} /></Link></div>
+          <div className="article-grid">{shelves[i].posts.slice(1,4).map(p => <ArticleCard key={p.id} post={p} />)}</div>
         </section>)}
         <div className="editor-note">
           레슨과 장비, 코트의 일상은 블로그로. 뉴스와 대회 소식은 확인한 출처와 함께 전합니다.

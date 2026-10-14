@@ -1,11 +1,10 @@
 import { Header, Footer, ArticleCard } from "@/components/site";
-import { categories, tournamentTypes, upcomingAmateur, koreaDate } from "@/lib/content";
-import { publishedArticles } from "@/lib/store";
+import { categories, tournamentTypes, koreaDate } from "@/lib/content";
+import { getArticlePage } from "@/lib/public-content";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import type { Metadata } from "next";
-export const dynamic = "force-dynamic";
-export async function generateMetadata({searchParams}: {searchParams: Promise<{q?:string;category?:string;type?:string;region?:string}>}): Promise<Metadata> {
+export async function generateMetadata({searchParams}: {searchParams: Promise<{q?:string;category?:string;type?:string;region?:string;page?:string}>}): Promise<Metadata> {
   const params = await searchParams;
   const category = categories.find(c=>c===params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
   const descriptions: Record<string,string> = {
@@ -18,30 +17,23 @@ export async function generateMetadata({searchParams}: {searchParams: Promise<{q
   const canonical = category ? `/articles?${new URLSearchParams({category})}` : "/articles";
   const title = category ? `배드민턴 ${category}` : "배드민턴 뉴스·레슨·장비와 대회 이야기";
   const description = descriptions[category || ""] || "배드민턴 레슨과 장비 리뷰, 동호회 생활, 국내외 뉴스와 대회 일정을 Minton Today에서 만나세요.";
-  return {title,description,alternates:{canonical},robots:params.q || params.type || params.region ? {index:false,follow:true}:undefined,openGraph:{title,description,url:canonical,type:"website"}};
+  return {title,description,alternates:{canonical},robots:params.q || params.type || params.region || Number(params.page)>1 ? {index:false,follow:true}:undefined,openGraph:{title,description,url:canonical,type:"website"}};
 }
 export default async function Articles({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string; type?: string; region?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; type?: string; region?: string; page?: string }>;
 }) {
   const params = await searchParams;
-  const q = (params.q || "").trim();
+  const q = (params.q || "").trim().slice(0,200);
   const category = categories.find((c) => c === params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
   const type = tournamentTypes.find(t => t === params.type);
   const region = ["서울", "경기"].find(r => r === params.region);
   const today = koreaDate();
-  const posts = (await publishedArticles()).filter(
-    (p) =>
-      (p.event?.type !== "국내 동호인 대회" || upcomingAmateur(p, today)) &&
-      (!category || p.category === category) &&
-      (category !== "대회" || ((!type || p.event?.type === type) && (!region || p.event?.region === region))) &&
-      (!q ||
-        `${p.title} ${p.excerpt} ${p.body}`
-          .toLowerCase()
-          .includes(q.toLowerCase())),
-  );
-  if (category === "대회") posts.sort((a, b) => (a.event?.startDate || "9999").localeCompare(b.event?.startDate || "9999") || a.title.localeCompare(b.title, "ko"));
+  const page = Math.max(1,Math.min(100000,Math.floor(Number(params.page)) || 1));
+  const {posts,total} = await getArticlePage({category,type,region,q,page,today});
+  const pages = Math.ceil(total/24);
+  const pageLink = (next: number) => `/articles?${new URLSearchParams({...(category?{category}:{}),...(type?{type}:{}),...(region?{region}:{}),...(q?{q}:{}),page:String(next)})}`;
   return (
     <>
       <Header active={category || "전체 글"} />
@@ -88,7 +80,7 @@ export default async function Articles({
         </nav>}
         {category === "대회" && <p className="archive-note">동호인 대회는 서울·경기에서 오늘 이후 개최되는 일정만 표시합니다. 접수 마감일과 실제 잔여 자리는 다를 수 있으니 각 글의 원문을 확인해 주세요.</p>}
         <div className="result-count">
-          {posts.length}개의 이야기{" "}
+          {total}개의 이야기{" "}
           {q && (
             <Link
               href={
@@ -117,6 +109,11 @@ export default async function Articles({
             </Link>
           </div>
         )}
+        {pages > 1 && <nav className="category-row" aria-label="글 목록 페이지">
+          {page > 1 && <Link href={pageLink(page-1)}>← 이전</Link>}
+          <span aria-current="page">{page} / {pages} 페이지</span>
+          {page < pages && <Link href={pageLink(page+1)}>다음 →</Link>}
+        </nav>}
       </main>
       <Footer />
     </>

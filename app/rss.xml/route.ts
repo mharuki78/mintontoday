@@ -1,10 +1,11 @@
-import { publishedArticles } from "@/lib/store";
+import { getRecentPublishedArticles } from "@/lib/public-content";
+import { connection } from "next/server";
 import { siteUrl } from "@/lib/site-url";
-export const dynamic = "force-dynamic";
 const xml = (value: string) => value.replace(/[<>&"']/g, char => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&apos;"})[char]!);
 export async function GET() {
+  await connection();
   const base = siteUrl();
-  const posts = (await publishedArticles()).filter(post=>!post.sample).slice(0,30);
+  const posts = await getRecentPublishedArticles();
   const items = posts.map(post=>{
     const url = `${base}/articles/${post.id}`;
     return `<item><title>${xml(post.title)}</title><link>${xml(url)}</link><guid isPermaLink="true">${xml(url)}</guid><category>${xml(post.category)}</category><description>${xml(post.body)}</description><pubDate>${new Date(post.date+"T00:00:00+09:00").toUTCString()}</pubDate></item>`;

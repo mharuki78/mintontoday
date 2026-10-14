@@ -4,17 +4,18 @@ import Link from "next/link";
 import { Header, Footer, Art, ArticleCard, AdSpace } from "@/components/site";
 import ArticleTools from "@/components/article-tools";
 import { ArticleContent } from "@/components/article-content";
-import { publishedArticles } from "@/lib/store";
-import { readingTime, upcomingAmateur, koreaDate } from "@/lib/content";
+import { getPublishedArticle, getArticlePage } from "@/lib/public-content";
+import { readingTime, koreaDate } from "@/lib/content";
+import { connection } from "next/server";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = (await publishedArticles()).find((p) => p.id === slug);
+  await connection();
+  const post = await getPublishedArticle(slug);
   return post
     ? {
         title: post.title,
@@ -39,10 +40,11 @@ export default async function Article({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const all = await publishedArticles();
+  await connection();
   const today = koreaDate();
-  const post = all.find((p) => p.id === slug);
+  const post = await getPublishedArticle(slug);
   if (!post) notFound();
+  const related = await getArticlePage({category:post.category,excludeId:post.id,today,limit:3});
   const paragraphs = post.body.split("\n\n");
   const headings = paragraphs.filter((p) => p.startsWith("## "));
   return (
@@ -118,10 +120,7 @@ export default async function Article({
             <h2>다음으로 읽어볼 이야기</h2>
           </div>
           <div className="article-grid">
-            {all
-              .filter((p) => p.id !== post.id && p.category === post.category && (p.event?.type !== "국내 동호인 대회" || upcomingAmateur(p, today)))
-              .slice(0, 3)
-              .map((p) => (
+            {related.posts.map((p) => (
                 <ArticleCard post={p} key={p.id} />
               ))}
           </div>

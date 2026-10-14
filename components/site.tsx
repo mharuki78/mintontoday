@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Search, Feather } from "lucide-react";
 import { categories, type Article, readingTime } from "@/lib/content";
+import type { ArticlePreview } from "@/lib/article-preview";
 
 export function Logo({ small = false }: { small?: boolean }) {
   return (
@@ -255,7 +256,7 @@ export function Art({
     </div>
   );
 }
-export function ArticleCard({ post }: { post: Article }) {
+export function ArticleCard({ post }: { post: Article | ArticlePreview }) {
   return (
     <article className="article-card" data-category={post.category}>
       <Link
@@ -272,7 +273,7 @@ export function ArticleCard({ post }: { post: Article }) {
       </Link>
       <div className="card-category">
         {post.event?.type || post.category}
-        <span>{readingTime(post.body)}분 읽기</span>
+        <span>{"readingMinutes" in post ? post.readingMinutes : readingTime(post.body)}분 읽기</span>
       </div>
       <h3>
         <Link href={`/articles/${post.id}`}>{post.title}</Link>

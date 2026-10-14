@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdmin, sameOrigin } from "@/lib/auth";
 import { articleSchema } from "@/lib/content";
 import { saveArticle } from "@/lib/store";
+import { invalidatePublicArticles } from "@/lib/public-cache";
 import { readBody, BodyTooLarge } from "@/lib/request-body";
 export async function POST(request: Request) {
   if (!sameOrigin(request) || !(await isAdmin()))
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
     // A manual save transfers editorial ownership away from the daily updater.
     const article = { ...parsed.data, managedBy: undefined, updatedAt: new Date().toISOString() };
     await saveArticle(article);
+    invalidatePublicArticles();
     return NextResponse.json({ ok: true, article });
   } catch (error) {
     if (error instanceof BodyTooLarge) return NextResponse.json({error:"글의 크기가 너무 큽니다."},{status:413});
