@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-16T00:14:37.587Z",
+  "images": [
+    {
+      "articleId": "gear-victor-a970ace-fit-shoes-20261016",
+      "url": "https://shop.au.victorsport.com/cdn/shop/files/A970ACEM-2.jpg?v=1697687377",
+      "alt": "빅터 A970ACE M의 측면과 뒤꿈치 패딩, 중창 구조",
+      "caption": "빅터 A970ACE M 측면.",
+      "credit": "VICTOR RACKETS IND.CORP.",
+      "sourceUrl": "https://shop.au.victorsport.com/products/a970ace-m",
+      "rights": "제품 비평에 필요한 제한 인용. 뒤꿈치 패딩과 중창의 외형을 설명하는 측면 1컷만 인용하며 VICTOR 제품 원문·저작자를 표시한다. 일반 재사용 허가나 공개 라이선스를 뜻하지 않으며 광고 소재로 사용하지 않는다. 원본 사진 변경 없음.",
+      "kind": "photo",
+      "generated": false,
+      "httpStatus": 200,
+      "byteLength": 54878,
+      "width": 900,
+      "height": 675,
+      "checkedAt": "2026-10-16T00:14:35.224Z"
+    },
+    {
+      "articleId": "gear-victor-a970ace-fit-shoes-20261016",
+      "url": "https://shop.au.victorsport.com/cdn/shop/files/A970ACEM-3.jpg?v=1697687377",
+      "alt": "앞뒤 접지부와 가운데 보강 부위가 보이는 빅터 A970ACE M 밑창",
+      "caption": "빅터 A970ACE M 밑창.",
+      "credit": "VICTOR RACKETS IND.CORP.",
+      "sourceUrl": "https://shop.au.victorsport.com/products/a970ace-m",
+      "rights": "제품 비평에 필요한 제한 인용. 측면 사진으로 설명할 수 없는 앞뒤 접지부·중앙 보강 구조를 설명하기 위해 밑창 1컷을 추가 인용한다. 제품 원문·저작자를 표시하고 별도 사용 허가나 공개 라이선스를 주장하지 않는다. 원본 사진 변경 없음.",
+      "kind": "photo",
+      "generated": false,
+      "httpStatus": 200,
+      "byteLength": 57694,
+      "width": 900,
+      "height": 675,
+      "checkedAt": "2026-10-16T00:14:35.252Z"
+    },
+    {
+      "articleId": "court-singles-doubles-boundary-lines-20261016",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Badminton_court.jpg/1280px-Badminton_court.jpg",
+      "alt": "흰색 단식·복식 라인이 함께 그려진 실내 배드민턴 코트에서 운동하는 두 사람",
+      "caption": "2025년 공개된 실내 배드민턴 코트 사진. 크기 조정.",
+      "credit": "Jishnu12684 / Wikimedia Commons · CC0 1.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_court.jpg",
+      "rights": "Jishnu12684의 Own work, 2025-06-22, CC0 1.0 공개 자료. 상업적 이용 가능한 퍼블릭 도메인 기증에 따라 사용. Commons 제공 1280px 축소본, 구도 변경 없음.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "httpStatus": 200,
+      "byteLength": 342806,
+      "width": 1280,
+      "height": 1707,
+      "checkedAt": "2026-10-16T00:14:36.086Z"
+    },
+    {
+      "articleId": "news-an-denmark-quarterfinal-20261016",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/An_Se-young.jpg",
+      "alt": "라켓을 든 채 네트 앞에 서 있는 안세영의 2022년 독일 오픈 모습",
+      "caption": "안세영, 2022년 독일 오픈 자료사진.",
+      "credit": "Nardisoero / Wikimedia Commons · CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-young.jpg",
+      "rights": "Nardisoero의 2022-03-11 직접 촬영 사진, CC BY-SA 4.0. 저자·원본·라이선스를 표시하며 원본 파일을 구도 변경·추가 변환 없이 사용한다. 선수 경기 보도용으로만 사용하며 광고 보증을 암시하지 않는다.",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "kind": "photo",
+      "generated": false,
+      "httpStatus": 200,
+      "byteLength": 518004,
+      "width": 861,
+      "height": 1579,
+      "checkedAt": "2026-10-16T00:14:37.335Z"
+    }
+  ]
+}
