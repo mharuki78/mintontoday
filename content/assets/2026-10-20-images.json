@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-10-20T00:05:40.000Z",
+  "images": [
+    {
+      "articleId": "doubles-flick-serve-return-20261020",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/2018-10-12_Badminton_Mixed_International_Team_Bronze_medal_match_6_at_2018_Summer_Youth_Olympics_by_Sandro_Halank%E2%80%93023.jpg/1280px-2018-10-12_Badminton_Mixed_International_Team_Bronze_medal_match_6_at_2018_Summer_Youth_Olympics_by_Sandro_Halank%E2%80%93023.jpg",
+      "alt": "셔틀의 움직임을 바라보며 라켓을 든 노란색 유니폼의 배드민턴 선수",
+      "caption": "2018 부에노스아이레스 청소년올림픽 배드민턴 경기 자료사진. 크기 조정.",
+      "credit": "Sandro Halank, Wikimedia Commons, CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018-10-12_Badminton_Mixed_International_Team_Bronze_medal_match_6_at_2018_Summer_Youth_Olympics_by_Sandro_Halank%E2%80%93023.jpg",
+      "rights": "저작자 지정 표시와 원본 링크, CC BY-SA 4.0 라이선스를 유지한 경기 보도·레슨의 자료사진 사용. Commons 1280px 축소본이며 크기 조정을 표시. 특정 리시브 동작의 시범 사진으로 소개하지 않음.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "status": 200,
+      "bytes": 226740,
+      "width": 1280,
+      "height": 1454
+    },
+    {
+      "articleId": "gear-yonex-as40-vs-as30-20261020",
+      "url": "https://www.yonex.com/media/catalog/product/a/e/aerosensa_40.png?quality=80&bg-color=248,248,248,0.75&fit=bounds&height=819&width=600&canvas=600:819",
+      "alt": "AS-40과 1다스 표시가 있는 요넥스 에어로센사 40 셔틀콕 포장 통",
+      "caption": "요넥스 AEROSENSA 40, AS-40 1다스 포장.",
+      "credit": "YONEX Co., Ltd.",
+      "sourceUrl": "https://www.yonex.com/aerosensa-2",
+      "rights": "AS-40과 AS-30 구매 비교에서 모델·포장 단위를 식별하는 데 필요한 제조사 제품 사진 1컷 제한 인용. 본문 제품 비평에 종속해 원문·저작자를 명시한다. 공개 URL을 일반 이용 허락이나 공개 라이선스로 간주하지 않음. 제조사 제공 축소본 외 별도 편집 없음.",
+      "kind": "photo",
+      "generated": false,
+      "status": 200,
+      "bytes": 104691,
+      "width": 600,
+      "height": 819
+    },
+    {
+      "articleId": "gear-yonex-as40-vs-as30-20261020",
+      "url": "https://www.yonex.co.uk/cdn/shop/files/aerosensa_30_eca14063-0da2-4a9c-8fb2-19370731f10e.png?v=1779084745&width=900",
+      "alt": "AS-30과 1다스 표시가 있는 요넥스 에어로센사 30 셔틀콕 포장 통",
+      "caption": "비교 제품 요넥스 AEROSENSA 30, AS-30 1다스 포장.",
+      "credit": "YONEX Co., Ltd. / YONEX UK",
+      "sourceUrl": "https://www.yonex.co.uk/products/aerosensa-30",
+      "rights": "비교 대상 AS-30을 AS-40과 구별하고 공동 구매 판단을 설명하는 본문에 필요한 제조사 제품 사진 1컷 제한 인용. 두 사진은 서로 다른 모델의 실제 포장이다. 출처·저작자를 명시하고 공개 라이선스나 사용 허락을 주장하지 않음. 제조사 CDN 크기 조정 외 별도 편집 없음.",
+      "kind": "photo",
+      "generated": false,
+      "status": 200,
+      "bytes": 280956,
+      "width": 900,
+      "height": 1350
+    },
+    {
+      "articleId": "tournament-french-open-2026",
+      "alt": "2019년 중국 타이베이 오픈에서 성지현의 타구를 기다리는 안세영과 코트 전경",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/2019_Chinese_Taipei_Open_02.jpg/1280px-2019_Chinese_Taipei_Open_02.jpg",
+      "kind": "photo",
+      "credit": "De-Shao Liu (Terry850324) / Wikimedia Commons",
+      "rights": "De-Shao Liu (Terry850324)의 2019-09-07 직접 촬영, CC BY-SA 4.0. Commons 제공 1280px 축소본을 구도 변경 없이 사용. 원본·저자·라이선스·크기 변경 표시 유지. 2026 덴마크 결승 현장으로 소개하지 않음.",
+      "caption": "안세영·성지현, 2019년 중국 타이베이 오픈 준결승 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_Chinese_Taipei_Open_02.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "licenseName": "CC BY-SA 4.0",
+      "status": 200,
+      "bytes": 620531,
+      "width": 1280,
+      "height": 1920
+    }
+  ]
+}
