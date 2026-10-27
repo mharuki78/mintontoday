@@ -8,6 +8,7 @@ import { getPublishedArticle, getArticlePage } from "@/lib/public-content";
 import { readingTime, koreaDate } from "@/lib/content";
 import { connection } from "next/server";
 import { articleHashtags } from "@/lib/hashtags";
+import { articleStructuredData, serializeStructuredData } from "@/lib/structured-data";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 export async function generateMetadata({
   params,
@@ -133,21 +134,7 @@ export default async function Article({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": post.category === "뉴스" ? "NewsArticle" : "BlogPosting",
-                headline: post.title,
-                description: post.excerpt,
-                datePublished: post.date,
-                dateModified: post.updatedAt || post.date,
-                image: post.images?.map(i => new URL(i.url, siteUrl()).href),
-                inLanguage: "ko-KR",
-                articleSection: post.category,
-                keywords: articleHashtags(post).join(", "),
-                author: { "@type": "Organization", name: "Minton Today", url: `${siteUrl()}/about` },
-                publisher: { "@type": "Organization", name: "Minton Today", url: siteUrl(), logo: { "@type": "ImageObject", url: `${siteUrl()}/apple-icon.png` } },
-                mainEntityOfPage: `${siteUrl()}/articles/${post.id}`,
-              }).replace(/</g, "\\u003c"),
+              __html: serializeStructuredData(articleStructuredData(post, siteUrl())),
             }}
           />
         )}

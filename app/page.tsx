@@ -6,6 +6,8 @@ import { ShuttleFlight } from "@/components/shuttle-flight";
 import { getArticlePage } from "@/lib/public-content";
 import { categories, koreaDate } from "@/lib/content";
 import { connection } from "next/server";
+import { siteUrl } from "@/lib/site-url";
+import { homeStructuredData, serializeStructuredData } from "@/lib/structured-data";
 export const metadata = { alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } } };
 const sources = [
   {
@@ -37,6 +39,7 @@ export default async function Home() {
   return (
     <>
       <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeStructuredData(homeStructuredData(siteUrl()))}}/>
       <main id="main" className="wrap">
         <div className="edition">
           <span>
