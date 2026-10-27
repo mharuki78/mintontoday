@@ -5,6 +5,8 @@ import { randomUUID } from "node:crypto";
 import { articleSchema, seeds, type Article } from "./content";
 import { getDatabase } from "./database";
 import { articles } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import { isPublicArticle } from "./publication";
 const directory = process.env.CONTENT_DIR
   ? path.resolve(/* turbopackIgnore: true */ process.env.CONTENT_DIR)
   : path.join(process.cwd(), "data");
@@ -28,10 +30,17 @@ export async function allArticles(): Promise<Article[]> {
 }
 export async function publishedArticles() {
   const posts = await allArticles();
-  const hasEditorial = posts.some(p => p.status === "published" && !p.sample);
   return posts
-    .filter((p) => p.status === "published" && (!hasEditorial || !p.sample))
+    .filter(isPublicArticle)
     .sort((a, b) => b.date.localeCompare(a.date) || (b.newsDate || b.seriesDate || b.date).localeCompare(a.newsDate || a.seriesDate || a.date) || a.id.localeCompare(b.id));
+}
+export async function getStoredArticle(id: string): Promise<Article | null> {
+  const db = getDatabase();
+  if (db) {
+    const rows = await db.select({ data: articles.data }).from(articles).where(eq(articles.id, id)).limit(1);
+    return rows[0] ? articleSchema.parse(rows[0].data) : null;
+  }
+  return (await allArticles()).find(post => post.id === id) || null;
 }
 export async function saveArticle(article: Article) {
   const db = getDatabase();

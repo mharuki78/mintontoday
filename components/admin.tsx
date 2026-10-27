@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Plus, LogOut, Save, ExternalLink, KeyRound } from "lucide-react";
 import { categories, type Article } from "@/lib/content";
+import { articleHashtags, parseHashtagInput } from "@/lib/hashtags";
 import { ArticleContent } from "./article-content";
 import { EditorialFields } from "./editorial-fields";
 import { PasswordSettings } from "./password-settings";
@@ -77,6 +78,7 @@ export function Editor({ initial }: { initial: Article[] }) {
   const router = useRouter();
   const [posts, setPosts] = useState(initial);
   const [post, setPost] = useState<Article>(initial[0] || newPost());
+  const [tagInput, setTagInput] = useState(() => articleHashtags(initial[0] || newPost()).map((tag) => `#${tag}`).join(", "));
   const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -102,6 +104,7 @@ export function Editor({ initial }: { initial: Article[] }) {
     if (dirty && !confirm("저장하지 않은 변경 사항이 있습니다. 이동할까요?"))
       return;
     setPost(next);
+    setTagInput(articleHashtags(next).map((tag) => `#${tag}`).join(", "));
     setDirty(false);
     setMessage("");
     setPreview(false);
@@ -111,7 +114,7 @@ export function Editor({ initial }: { initial: Article[] }) {
     setBusy(true);
     setMessage("");
     setError(false);
-    const next = { ...post, status };
+    const next = { ...post, tags: parseHashtagInput(tagInput), status };
     try {
       const res = await fetch("/api/admin/posts", {
         method: "POST",
@@ -248,6 +251,16 @@ export function Editor({ initial }: { initial: Article[] }) {
               required
             />
             <small>목록과 검색 결과에 표시됩니다.</small>
+          </label>
+          <label className="form-field">
+            검색 해시태그
+            <input
+              value={tagInput}
+              onChange={(e) => { const value = e.target.value; setTagInput(value); update("tags", parseHashtagInput(value)); }}
+              maxLength={260}
+              placeholder="#배드민턴레슨, #풋워크"
+            />
+            <small>글 주제에 맞는 태그 3~6개를 쉼표로 구분해 주세요. 비워 두면 제목과 본문에서 자동 제안합니다.</small>
           </label>
           <label className="form-field">
             사진이 없을 때 기본 그림

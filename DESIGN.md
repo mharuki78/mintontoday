@@ -89,6 +89,11 @@ components:
     backgroundColor: "{colors.white}"
     rounded: "{rounded.panel}"
     padding: "25px 22px"
+  reading-path:
+    textColor: "{colors.ink}"
+    padding: "20px 0"
+  saved-list:
+    textColor: "{colors.ink}"
 ---
 
 # Design System: Minton Today
@@ -163,6 +168,11 @@ Milk-white fields use gently rounded borders, explicit labels and the shared foc
 
 ### Navigation
 Fine navy rules frame the navigation. A 3px underline marks the active page. Mobile links remain in a horizontally scrollable row; the search link has a 44px square target.
+
+### Reading Journeys
+Beginner sequences reuse the numbered links and fine dividers of the briefing panel. Category reading paths use underlined links between quiet horizontal rules, wrapping on desktop and stacking below 760px. Official-source panels reuse mint surfaces and rounded corners, with separated links to the original records and editorial policy.
+
+The saved-article journey uses the existing article toolbar, an explicit saved state and a status message. Its destination presents titles and category labels in ruled rows with a separate removal button. The page explains that the list belongs to the current browser; empty lists offer a route back to articles. Publisher, correction and saved-list links use the established underlined-link treatment.
 
 ### Editorial Imagery and Provenance
 `public/logo.svg` is an authored vector feathered-M badminton mark. Article illustrations are authored inline SVG and Lucide vector icons in `components/site.tsx`.

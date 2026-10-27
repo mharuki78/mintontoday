@@ -21,16 +21,30 @@ test("public pages, search and unknown article", async () => {
     await fetch(base + "/articles?q=does-not-exist-73921")
   ).text();
   assert.ok(search.includes("아직 이 이야기는 없어요."));
+  const archiveHtml = await (await fetch(base + "/articles")).text();
+  const tagLink = archiveHtml.match(/href="\/articles\?tag=([^"]+)"/);
+  assert.ok(tagLink, "a published article exposes a navigable hashtag");
+  const tag = decodeURIComponent(tagLink[1]);
+  const tagged = await fetch(base + "/articles?tag=" + encodeURIComponent(tag));
+  assert.equal(tagged.status, 200);
+  const taggedHtml = await tagged.text();
+  assert.ok(taggedHtml.includes('class="active-tag-filter"'));
+  assert.ok(taggedHtml.includes(`value="${tag}"`));
+  assert.ok((taggedHtml.match(/class="article-card"/g) || []).length > 0);
+  assert.ok(taggedHtml.includes("noindex, follow"));
   const sampleResponse = await fetch(base + "/articles/first-racket");
   const article = await sampleResponse.text();
   assert.ok(article.includes("noindex"));
-  if (process.env.EXPECT_EDITORIAL === "1") assert.equal(sampleResponse.status, 404, "published editorial content hides seed articles");
-  else {
-    assert.equal(sampleResponse.status, 200);
-    assert.ok(article.includes("예시 원고"));
-  }
+  assert.equal(sampleResponse.status, 404, "samples are never public, including samples-only catalogues");
   const sitemap = await (await fetch(base + "/sitemap.xml")).text();
   assert.ok(!sitemap.includes("first-racket"));
+  const articleSlug = sitemap.match(/<loc>[^<]*\/articles\/([^<]+)<\/loc>/)?.[1];
+  assert.ok(articleSlug, "sitemap has a published article");
+  const articleSeo = await fetch(base + "/articles/" + articleSlug);
+  assert.equal(articleSeo.status, 200);
+  const articleHtml = await articleSeo.text();
+  assert.ok(articleHtml.includes('class="article-hashtags"'));
+  assert.ok(articleHtml.includes('<meta name="keywords"'));
 });
 test("reject unauthenticated and cross-origin writes", async () => {
   const response = await fetch(base + "/api/admin/posts", {
@@ -56,7 +70,7 @@ test("reject unauthenticated and cross-origin writes", async () => {
   assert.equal(wrong.status, 401);
 });
 test(
-  "owner can draft, persist and republish a seed article",
+  "owner can draft, persist and republish a private seed article",
   { skip: process.env.RUN_ADMIN_TESTS !== "1" },
   async () => {
     const env = await readFile(".env.local", "utf8");
@@ -127,7 +141,7 @@ test(
         200,
       );
     }
-    assert.equal((await fetch(base + "/articles/first-racket")).status, 200);
+    assert.equal((await fetch(base + "/articles/first-racket")).status, 404, "republishing a sample does not expose it publicly");
     const logout = await fetch(base + "/api/admin/login", {
       method: "DELETE",
       headers,

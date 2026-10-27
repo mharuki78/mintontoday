@@ -31,6 +31,7 @@ export const articleSchema = z.object({
   title: z.string().trim().min(3).max(140),
   category: z.preprocess(v => v === "뉴스 & 대회" ? "코트 라이프" : v, z.enum(categories)),
   excerpt: z.string().trim().min(10).max(300),
+  tags: z.array(z.string().trim().min(1).max(40).regex(/^#?[\p{L}\p{N}\s_-]+$/u)).max(8).optional(),
   body: z.string().trim().min(40).max(60000),
   bodyDocument: richDocumentSchema.optional(),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),

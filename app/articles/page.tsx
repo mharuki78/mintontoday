@@ -1,11 +1,14 @@
 import { Header, Footer, ArticleCard } from "@/components/site";
 import { categories, tournamentTypes, koreaDate } from "@/lib/content";
 import { getArticlePage } from "@/lib/public-content";
+import { normalizeHashtag } from "@/lib/hashtags";
+import { categoryDescriptions, categoryPaths } from "@/lib/reading-paths";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import type { Metadata } from "next";
-export async function generateMetadata({searchParams}: {searchParams: Promise<{q?:string;category?:string;type?:string;region?:string;page?:string}>}): Promise<Metadata> {
+export async function generateMetadata({searchParams}: {searchParams: Promise<{q?:string;category?:string;type?:string;region?:string;page?:string;tag?:string}>}): Promise<Metadata> {
   const params = await searchParams;
+  const tag = normalizeHashtag(params.tag || "");
   const category = categories.find(c=>c===params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
   const descriptions: Record<string,string> = {
     "레슨 & 가이드": "배드민턴 그립, 서브, 네트샷과 풋워크를 배우는 레슨 가이드. 연습 순서와 흔한 실수, 실력 향상을 확인하는 방법을 소개합니다.",
@@ -17,23 +20,24 @@ export async function generateMetadata({searchParams}: {searchParams: Promise<{q
   const canonical = category ? `/articles?${new URLSearchParams({category})}` : "/articles";
   const title = category ? `배드민턴 ${category}` : "배드민턴 뉴스·레슨·장비와 대회 이야기";
   const description = descriptions[category || ""] || "배드민턴 레슨과 장비 리뷰, 동호회 생활, 국내외 뉴스와 대회 일정을 Minton Today에서 만나세요.";
-  return {title,description,alternates:{canonical},robots:params.q || params.type || params.region || Number(params.page)>1 ? {index:false,follow:true}:undefined,openGraph:{title,description,url:canonical,type:"website"}};
+  return {title,description,alternates:{canonical},robots:params.q || params.type || params.region || tag || Number(params.page)>1 ? {index:false,follow:true}:undefined,openGraph:{title,description,url:canonical,type:"website"}};
 }
 export default async function Articles({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string; type?: string; region?: string; page?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; type?: string; region?: string; page?: string; tag?: string }>;
 }) {
   const params = await searchParams;
   const q = (params.q || "").trim().slice(0,200);
+  const tag = normalizeHashtag(params.tag || "");
   const category = categories.find((c) => c === params.category) || (params.category === "뉴스 & 대회" ? "뉴스" : undefined);
   const type = tournamentTypes.find(t => t === params.type);
   const region = ["서울", "경기"].find(r => r === params.region);
   const today = koreaDate();
   const page = Math.max(1,Math.min(100000,Math.floor(Number(params.page)) || 1));
-  const {posts,total} = await getArticlePage({category,type,region,q,page,today});
+  const {posts,total} = await getArticlePage({category,type,region,q,page,today,tag});
   const pages = Math.ceil(total/24);
-  const pageLink = (next: number) => `/articles?${new URLSearchParams({...(category?{category}:{}),...(type?{type}:{}),...(region?{region}:{}),...(q?{q}:{}),page:String(next)})}`;
+  const pageLink = (next: number) => `/articles?${new URLSearchParams({...(category?{category}:{}),...(type?{type}:{}),...(region?{region}:{}),...(q?{q}:{}),...(tag?{tag}:{}),page:String(next)})}`;
   return (
     <>
       <Header active={category || "전체 글"} />
@@ -44,12 +48,14 @@ export default async function Articles({
             <span className="small-dot">.</span>
           </h1>
           <p>
-            {q ? `“${q}” 검색 결과` : "읽고, 배우고, 코트에서 다시 만나요."}
+            {q ? `“${q}” 검색 결과` : categoryDescriptions[category || ""] || "레슨에서 막힌 동작, 장비 선택, 동호회 생활과 경기 소식을 찾아보세요."}
           </p>
         </div>
+        {category && !q && !tag && page === 1 && categoryPaths[category] && <nav className="reading-path" aria-label={`${category} 처음 읽을 글`}><strong>먼저 읽어볼 글</strong>{categoryPaths[category].map(p=><Link key={p.id} href={`/articles/${p.id}`}>{p.title} <span aria-hidden="true">↗</span></Link>)}</nav>}
         <form className="archive-search">
           <Search size={20} />
           {category && <input type="hidden" name="category" value={category} />}
+          {tag && <input type="hidden" name="tag" value={tag} />}
           {category === "대회" && type && <input type="hidden" name="type" value={type} />}
           {category === "대회" && region && <input type="hidden" name="region" value={region} />}
           <input
@@ -60,6 +66,7 @@ export default async function Articles({
           />
           <button className="primary-button">검색</button>
         </form>
+        {tag && <div className="active-tag-filter"><span>해시태그 <strong>#{tag}</strong></span><Link href={category ? `/articles?category=${encodeURIComponent(category)}` : "/articles"}>태그 해제 <X size={14} /></Link></div>}
         <div className="category-row">
           <Link className={!category ? "selected" : ""} href="/articles">
             전체

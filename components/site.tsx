@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Search, Feather } from "lucide-react";
 import { categories, type Article, readingTime } from "@/lib/content";
 import type { ArticlePreview } from "@/lib/article-preview";
+import { articleHashtags } from "@/lib/hashtags";
 
 export function Logo({ small = false }: { small?: boolean }) {
   return (
@@ -95,6 +96,7 @@ export function Footer() {
           </p>
         </div>
         <div className="footer-links">
+          <Link href="/saved">저장한 글</Link>
           <Link href="/about">소개</Link>
           <Link href="/contact">문의하기</Link>
           <Link href="/privacy">개인정보 처리방침</Link>
@@ -280,6 +282,9 @@ export function ArticleCard({ post }: { post: Article | ArticlePreview }) {
       </h3>
       <p>{post.excerpt}</p>
       {post.event?.startDate && <p className="card-event-date">대회 {post.event.startDate.replaceAll("-", ".")}{post.event.endDate && post.event.endDate !== post.event.startDate ? ` — ${post.event.endDate.slice(5).replace("-", ".")}` : ""} · {post.event.region}</p>}
+      <nav className="card-hashtags" aria-label={`${post.title} 관련 해시태그`}>
+        {articleHashtags(post).slice(0, 2).map((tag) => <Link key={tag} href={`/articles?tag=${encodeURIComponent(tag)}`}>#{tag}</Link>)}
+      </nav>
       <div className="card-meta">
         <span>Minton Today</span>
         <span>
@@ -287,17 +292,5 @@ export function ArticleCard({ post }: { post: Article | ArticlePreview }) {
         </span>
       </div>
     </article>
-  );
-}
-export function AdSpace({ compact = false }: { compact?: boolean }) {
-  return (
-    <aside
-      className={`ad-space ${compact ? "compact" : ""}`}
-      aria-label="광고 예정 영역"
-    >
-      <span>ADVERTISEMENT</span>
-      <div>잠깐의 쉼, 다음 이야기.</div>
-      <small>광고가 들어갈 공간입니다</small>
-    </aside>
   );
 }

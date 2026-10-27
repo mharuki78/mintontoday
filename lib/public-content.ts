@@ -9,28 +9,53 @@ import { getDatabase } from "./database";
 import { publishedArticles } from "./store";
 import { articleSchema, categories, tournamentTypes, upcomingAmateur, readingTime, type Article } from "./content";
 import type { ArticlePreview } from "./article-preview";
+import { articleHashtags } from "./hashtags";
 
 export const PUBLIC_ARTICLES_TAG = "public-articles";
 const scope = createHash("sha256").update(process.env.DATABASE_URL || process.env.CONTENT_DIR || "local").digest("hex").slice(0, 20);
 const options = { tags: [PUBLIC_ARTICLES_TAG], revalidate: 900 };
-const published = sql`data->>'status' = 'published' and
-  (coalesce(data->>'sample', 'false') <> 'true' or not exists
-    (select 1 from articles editorial where editorial.data->>'status' = 'published'
-      and coalesce(editorial.data->>'sample', 'false') <> 'true'))`;
-const editorial = sql`data->>'status' = 'published' and coalesce(data->>'sample', 'false') <> 'true'`;
+const published = sql`data->>'status' = 'published' and coalesce(data->>'sample', 'false') <> 'true'`;
+const editorial = published;
 const newest = sql`data->>'date' desc, coalesce(data->>'newsDate', data->>'seriesDate', data->>'date') desc, id asc`;
 const previewSchema = z.object({
   id: z.string(), title: z.string(), category: z.enum(categories), excerpt: z.string(),
   art: z.enum(["court", "racket", "shuttle", "bag", "footwork", "score"]), date: z.string(),
   seriesDate: z.string().optional(), sample: z.boolean(), readingMinutes: z.number(),
+  tags:z.array(z.string()).optional(),
   images: z.array(z.object({url:z.string(), alt:z.string(), generated:z.boolean().optional()})).optional(),
   event: z.object({type:z.enum(tournamentTypes), region:z.enum(["해외", "전국", "서울", "경기"]),
     startDate:z.string().optional(), endDate:z.string().optional(), status:z.enum(["예정", "접수 중", "진행 중", "종료", "취소", "확인 중"])}).optional(),
 });
+const tagSchema = previewSchema.pick({ id: true, title: true, category: true, excerpt: true, tags: true, event: true });
+// Cache bounded projections separately, rather than all article bodies for each tag query.
+const cachedTagPage = unstable_cache(async (after: string) => {
+  const db = getDatabase()!;
+  const rows = await db.execute<{tag: unknown}>(sql`select jsonb_strip_nulls(jsonb_build_object(
+    'id',id,'title',data->'title','excerpt',data->'excerpt','category',data->'category','tags',data->'tags',
+    'event',case when data->'event' is not null then jsonb_build_object(
+      'type',data->'event'->'type','region',data->'event'->'region','status',data->'event'->'status') end)) as tag
+    from articles where ${published} and id > ${after} order by id limit 500`);
+  return rows.rows.map(row => tagSchema.parse(row.tag));
+}, ["article-tags-v1", scope], options);
+async function matchingTagIds(tag?: string, hashQuery?: string) {
+  const result: string[] = [];
+  let after = "";
+  while (true) {
+    const batch = await cachedTagPage(after);
+    for (const post of batch) {
+      const tags = articleHashtags(post);
+      if ((!tag || tags.some(value => value.toLocaleLowerCase() === tag.toLocaleLowerCase())) &&
+        (!hashQuery || `${post.title} ${post.excerpt} ${tags.join(" ")}`.toLowerCase().includes(hashQuery.toLowerCase().replace(/^#+/, ""))))
+        result.push(post.id);
+    }
+    if (batch.length < 500) return result;
+    after = batch[batch.length - 1].id;
+  }
+}
 // Projection happens inside Postgres: discarded JSON must not cross the network.
 const preview = sql`jsonb_strip_nulls(jsonb_build_object(
   'id', id, 'title', data->'title', 'category', data->'category', 'excerpt', data->'excerpt',
-  'art', data->'art', 'date', data->'date', 'seriesDate', data->'seriesDate',
+  'art', data->'art', 'date', data->'date', 'seriesDate', data->'seriesDate', 'tags', data->'tags',
   'sample', coalesce(data->'sample', 'false'::jsonb),
   'readingMinutes', greatest(2, ceil(char_length(data->>'body') / 600.0)),
   'images', case when jsonb_array_length(coalesce(data->'images', '[]'::jsonb)) > 0 then
@@ -41,10 +66,10 @@ const preview = sql`jsonb_strip_nulls(jsonb_build_object(
     'startDate', data->'event'->'startDate', 'endDate', data->'event'->'endDate', 'status', data->'event'->'status') end))`;
 
 type PageInput = {category?: Article["category"]; type?: typeof tournamentTypes[number]; region?: string;
-  q?: string; page?: number; limit?: number; excludeId?: string; today: string};
+  q?: string; tag?: string; page?: number; limit?: number; excludeId?: string; today: string};
 function card(post: Article): ArticlePreview {
   return {id:post.id, title:post.title, category:post.category, excerpt:post.excerpt, art:post.art,
-    date:post.date, seriesDate:post.seriesDate, sample:post.sample, readingMinutes:readingTime(post.body),
+    date:post.date, seriesDate:post.seriesDate, sample:post.sample, readingMinutes:readingTime(post.body), tags:post.tags,
     images:post.images?.slice(0,1).map(({url,alt,generated})=>({url,alt,generated})),
     event:post.event && {type:post.event.type, region:post.event.region, startDate:post.event.startDate,
       endDate:post.event.endDate, status:post.event.status}};
@@ -56,7 +81,7 @@ export function getArticlePage(input: PageInput) {
 }
 const cachedPage = unstable_cache(async (input: PageInput) => {
   const db = getDatabase();
-  const {category,type,region,q,excludeId,today} = input;
+  const {category,type,region,q,tag,excludeId,today} = input;
   const limit = input.limit!;
   const page = input.page!;
   if (!db) {
@@ -64,17 +89,23 @@ const cachedPage = unstable_cache(async (input: PageInput) => {
       (p.event?.type !== "국내 동호인 대회" || upcomingAmateur(p,today)) &&
       (!category || p.category === category) && (!excludeId || p.id !== excludeId) &&
       (category !== "대회" || ((!type || p.event?.type === type) && (!region || p.event?.region === region))) &&
-      (!q || `${p.title} ${p.excerpt} ${p.body}`.toLowerCase().includes(q.toLowerCase())));
+      (!tag || articleHashtags(p).some(value=>value.toLocaleLowerCase()===tag.toLocaleLowerCase())) &&
+      (!q || `${p.title} ${p.excerpt} ${q.startsWith("#") ? "" : p.body} ${articleHashtags(p).join(" ")}`.toLowerCase().includes(q.toLowerCase().replace(/^#+/,""))));
     if(category === "대회") posts.sort((a,b)=>(a.event?.startDate || "9999").localeCompare(b.event?.startDate || "9999") || a.title.localeCompare(b.title,"ko"));
     return {posts:posts.slice((page-1)*limit,page*limit).map(card), total:posts.length};
   }
   const conditions: SQL[] = [published, sql`(coalesce(data->'event'->>'type','') <> '국내 동호인 대회' or
     (data->'event'->>'startDate' >= ${today} and data->'event'->>'status' not in ('취소','종료')))`];
+  if (tag || q?.startsWith("#")) {
+    const ids = await matchingTagIds(tag, q?.startsWith("#") ? q : undefined);
+    if (!ids.length) return { posts: [], total: 0 };
+    conditions.push(sql`id = any(${sql.param(ids)}::text[])`);
+  }
   if(category) conditions.push(sql`data->>'category' = ${category}`);
   if(excludeId) conditions.push(sql`id <> ${excludeId}`);
   if(category === "대회" && type) conditions.push(sql`data->'event'->>'type' = ${type}`);
   if(category === "대회" && region) conditions.push(sql`data->'event'->>'region' = ${region}`);
-  if(q) {
+  if(q && !q.startsWith("#")) {
     const term = `%${q.replace(/[\\%_]/g, char => `\\${char}`)}%`;
     conditions.push(sql`concat_ws(' ', data->>'title', data->>'excerpt', data->>'body') ilike ${term}`);
   }
@@ -85,7 +116,7 @@ const cachedPage = unstable_cache(async (input: PageInput) => {
     db.execute<{preview:unknown}>(sql`select ${preview} as preview from articles where ${where} order by ${order} limit ${limit} offset ${(page-1)*limit}`),
   ]);
   return {posts:rows.rows.map(r => previewSchema.parse(r.preview)), total:count.rows[0].total};
-}, ["article-page-v1", scope], options);
+}, ["article-page-v2", scope], options);
 
 // React memoization shares the detail read with generateMetadata in this request.
 export const getPublishedArticle = cache(async (id: string) => {
@@ -97,7 +128,7 @@ const cachedArticle = unstable_cache(async (id: string) => {
   if(!db) return (await publishedArticles()).find(p => p.id === id) || null;
   const rows = await db.select({data:articles.data}).from(articles).where(sql`${articles.id} = ${id} and ${published}`).limit(1);
   return rows.length ? articleSchema.parse(rows[0].data) : null;
-}, ["article-detail-v1", scope], options);
+}, ["article-detail-v2", scope], options);
 
 const feedSchema = z.object({id:z.string(),title:z.string(),category:z.enum(categories),body:z.string(),date:z.string()});
 const cachedFeedPage = unstable_cache(async (offset: number) => {

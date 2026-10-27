@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ChevronRight } from "lucide-react";
-import { Header, Footer, ArticleCard, AdSpace } from "@/components/site";
+import { Header, Footer, ArticleCard } from "@/components/site";
+import { beginnerPath } from "@/lib/reading-paths";
 import { ShuttleFlight } from "@/components/shuttle-flight";
 import { getArticlePage } from "@/lib/public-content";
 import { categories, koreaDate } from "@/lib/content";
@@ -69,33 +70,31 @@ export default async function Home() {
           </section>
           <aside className="briefing">
             <div className="section-top">
-              <h2>코트 밖 소식</h2>
+              <h2>배드민턴이 처음이라면</h2>
               <ArrowUpRight size={20} />
             </div>
-            <p className="briefing-intro">배드민턴 소식, 공식 출처에서.</p>
+            <p className="briefing-intro">첫 레슨부터 그립과 짧은 서브까지, 이 순서로 읽어보세요.</p>
             <div className="source-list">
-              {sources.map((s, i) => (
-                <a
-                  key={s.name}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {beginnerPath.map((s, i) => (
+                <Link
+                  key={s.id}
+                  href={`/articles/${s.id}`}
                 >
                   <span className="source-index">0{i + 1}</span>
                   <span>
-                    <strong>{s.name}</strong>
-                    <small>{s.desc}</small>
+                    <strong>{s.title}</strong>
+                    <small>{s.detail}</small>
                   </span>
                   <ArrowUpRight size={17} />
-                </a>
+                </Link>
               ))}
             </div>
             <div className="briefing-note">
               <BookOpen size={19} />
               <p>
-                좋은 이야기는
+                연습이 잘 안 풀리는 날에는
                 <br />
-                <strong>정확한 출처에서 시작됩니다.</strong>
+                <strong>기본기부터 다시 짚어봅니다.</strong>
               </p>
             </div>
           </aside>
@@ -140,7 +139,7 @@ export default async function Home() {
             <p>라켓을 고르는 순간부터 첫 게임까지. 시작을 함께할 이야기.</p>
           </div>
           <Link
-            href={`/articles?category=${encodeURIComponent("레슨 & 가이드")}`}
+            href="/articles/lesson-first-month-practice-plan"
           >
             입문 가이드 만나기 <ArrowRight size={18} />
           </Link>
@@ -167,7 +166,12 @@ export default async function Home() {
               ))}
             </div>
           </section>
-          <AdSpace compact />
+          <aside className="official-reading" aria-labelledby="official-title">
+            <h2 id="official-title">직접 찾아볼 기록</h2>
+            <p>대진표와 발표 원문이 필요할 때.</p>
+            {sources.map(s => <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer"><strong>{s.name}</strong><span>{s.desc} <ArrowUpRight size={14}/></span></a>)}
+            <Link href="/editorial">출처와 편집 원칙 <ArrowRight size={15}/></Link>
+          </aside>
         </div>
         {!!upcoming.length && <section className="category-shelf" aria-labelledby="upcoming-title">
           <div className="section-heading"><div><h2 id="upcoming-title">다음 대회, 어디로 갈까요?</h2><p>서울·경기 예정 대회 {events.total}개 · 가까운 일정부터</p></div><Link href={`/articles?${new URLSearchParams({ category: "대회", type: "국내 동호인 대회" })}`}>모든 대회 <ArrowRight size={17} /></Link></div>

@@ -1,6 +1,20 @@
 import type { Article } from "@/lib/content";
+import Link from "next/link";
+import { articleHashtags } from "@/lib/hashtags";
 import { ArticleImage } from "./article-image";
 import { RichContent } from "./rich-content";
+
+export function ArticleHashtags({ post, compact = false }: { post: Article; compact?: boolean }) {
+  return (
+    <nav className={`article-hashtags${compact ? " compact" : ""}`} aria-label="관련 해시태그">
+      {articleHashtags(post).map((tag) => (
+        <Link key={tag} href={`/articles?tag=${encodeURIComponent(tag)}`} aria-label={`#${tag} 관련 글 더 보기`}>
+          #{tag}
+        </Link>
+      ))}
+    </nav>
+  );
+}
 
 export function ArticleContent({ post }: { post: Article }) {
   const paragraphs = post.body.split("\n\n");
@@ -26,5 +40,6 @@ export function ArticleContent({ post }: { post: Article }) {
       {paragraphs.length === 1 && post.images?.slice(1).map(img => <ArticleImage key={img.url} image={img} />)}
     </div>}
     {!!post.sources?.length && <section className="article-sources"><h2>참고한 자료와 원문</h2><ul>{post.sources.map(s => <li key={s.url}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.name} ↗</a></li>)}</ul></section>}
+    <ArticleHashtags post={post} />
   </>;
 }

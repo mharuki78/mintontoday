@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { isAdmin, sameOrigin } from "@/lib/auth";
 import { articleSchema } from "@/lib/content";
-import { saveArticle } from "@/lib/store";
+import { saveArticle, getStoredArticle } from "@/lib/store";
+import { publicationIssues, prepareManualArticle } from "@/lib/publication";
 import { invalidatePublicArticles } from "@/lib/public-cache";
 import { readBody, BodyTooLarge } from "@/lib/request-body";
 export async function POST(request: Request) {
@@ -25,8 +26,10 @@ export async function POST(request: Request) {
         },
         { status: 400 },
       );
-    // A manual save transfers editorial ownership away from the daily updater.
-    const article = { ...parsed.data, managedBy: undefined, updatedAt: new Date().toISOString() };
+    const issues = publicationIssues(parsed.data);
+    if (issues.length) return NextResponse.json({ error: issues.join(" ") }, { status: 400 });
+    // Ownership transfers even when an unchanged save preserves the public timestamp.
+    const article = prepareManualArticle(parsed.data, await getStoredArticle(parsed.data.id));
     await saveArticle(article);
     invalidatePublicArticles();
     return NextResponse.json({ ok: true, article });
