@@ -19,7 +19,19 @@
 - `scripts/test-public-cache.mjs --suite`: 전체 38개 중 37 통과, 소유자 샘플 저장 검사 1개 조건부 생략. 검색·공개 캐시·관리자 API 회귀 검사도 통과했다. Production 빌드와 TypeScript 통과.
 - 로컬의 기존 운영 snapshot과 이미 게시한 유지보수 배치를 조합한 오프라인 검토에서도 실제 공개 151편의 그래프를 생성했다. 외부 사진의 크롤링 상태나 Google의 실제 수집 결과를 이 검사만으로 판정한 것은 아니다.
 
-Google 검사 도구·운영 배포의 후속 결과는 실제 확인 뒤 기록한다. 구조화 데이터는 페이지의 의미를 설명하는 보완 정보이며 검색 노출 형태·순위 또는 AdSense 승인을 보장하지 않는다.
+구조화 데이터는 페이지의 의미를 설명하는 보완 정보이며 검색 노출 형태·순위 또는 AdSense 승인을 보장하지 않는다.
+
+### 운영 배포와 외부 검사 결과
+
+GitHub main `37147a9c8ac5142e0aecb3a0208c369fa6e770e0`, Vercel Production `dpl_25doEZKq7Ss2TyzfbfoRSdTUFubU`의 READY를 확인했다. 실제 mintontoday.com의 홈·뉴스·레슨 HTML에서 각각 한 개의 JSON-LD 그래프가 출력되고 제목·대표 URL·발행 주체·경로·180×180 로고가 일치한다. 샘플 404도 유지된다.
+
+- Google 스마트폰 실시간 뉴스 검사: 2026-10-27 16:56:04 KST 수집 완료, 유효한 항목 5개. 뉴스 기사·탐색경로·발행 주체 등이 유효하다. [검사 결과](https://search.google.com/test/rich-results/result?id=X0lVZeddGPsTeZUpcjCfYw).
+- Google 스마트폰 실시간 레슨 검사: 같은 날 16:56:24 KST 수집 완료, 유효한 항목 3개. 블로그 글·탐색경로·발행 주체가 유효하다. [검사 결과](https://search.google.com/test/rich-results/result?id=yxmom8A20q1LcPoZqv2lZw).
+- Schema.org 홈 검사: WebPage 아래 WebSite·Organization 연결을 읽었으며 오류 0개·경고 0개. [검사 URL](https://validator.schema.org/#url=https%3A%2F%2Fmintontoday.com%2F).
+
+Google 기사 검사에는 날짜만 저장된 최초 발행일에 대해 datetime·시간대 관련 **선택 경고**가 있다. 날짜 자체는 실제 공개일로 유지하고 확인하지 못한 시각을 넣지 않았다. 사진 검사에는 `copyrightNotice`, `creator`, `acquireLicensePage`의 선택 경고가 있다. 기록된 크레딧과 명시적 라이선스만 제공했으며, 출처를 근거로 저작권자·허가 창구를 추정하지 않았다. 핵심 오류가 없다는 것은 이러한 권장 항목까지 전부 확보됐거나 사진 사용 권리가 새로 검증됐다는 뜻이 아니다.
+
+검사 화면은 로컬 `output/editorial/structured-data-google-news-20261027.png`, `structured-data-google-blog-20261027.png`, `structured-data-schema-home-20261027.png`에 보관한다. 실제 Google 색인·검색 노출이나 AdSense 승인 판정을 수행한 것은 아니다. 기존 AdSense 재심사를 중복 신청하지 않았다.
 
 ## 공식 기준
 
