@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-28",
+  "images": [
+    {
+      "articleId": "lesson-net-practice-shuttle-feeding-20261028",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Ballmaschine_Badminton.JPG",
+      "alt": "회색 관 두 개에 셔틀을 쌓아 두는 노란 삼각대형 연습용 거치대",
+      "caption": "셔틀을 한 개씩 꺼내 쓰는 연습용 거치대, 2015년.",
+      "credit": "Wendrock / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ballmaschine_Badminton.JPG",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rights": "Wendrock의 자작 사진. Commons 원본과 API의 CC BY-SA 4.0 표기를 확인해 저자·원본·라이선스를 표시하고 공개 원본을 추가 편집 없이 사용한다. 셔틀을 꺼내면 다음 셔틀이 내려오는 거치대이며 자동 발사 장치나 실제 공급 동작으로 소개하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "status": 200,
+        "width": 640,
+        "height": 1110,
+        "bytes": 96916,
+        "sha256": "6228ba999429cbd13fcb62fbcb2389146e4288215d61fca6d8a382e6a4cc9b1a",
+        "sourceStatus": 200,
+        "sourceLicense": true,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-28T00:13:33.163Z"
+      }
+    },
+    {
+      "articleId": "court-receiver-ready-service-let-delay-20261028",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Canadian_Masters_Badminton.jpg/1280px-Canadian_Masters_Badminton.jpg",
+      "alt": "캐나다 마스터스 대회 혼합복식에서 셔틀을 들고 서브를 준비하는 선수와 뒤에 선 파트너",
+      "caption": "2015 캐나다 마스터스 혼합복식 경기. 크기 조정.",
+      "credit": "Murray Foubister / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canadian_Masters_Badminton.jpg",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rights": "Murray Foubister가 2015년 4월 25일 촬영해 Flickr에 게시한 사진. Commons 원본·API의 CC BY-SA 2.0 표시를 확인하고 저자·원본·라이선스·축소 변경을 표시한다. Commons 제공 1280px 축소본에 동일 라이선스를 유지한다. 리시버 준비 여부나 레트 판정이 발생한 장면이라고 단정하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "status": 200,
+        "width": 1280,
+        "height": 853,
+        "bytes": 220685,
+        "sha256": "f62d83e560b0f16ee519ecc1c092155b99a17b60a284e576c637f331b0c2abcd",
+        "sourceStatus": 200,
+        "sourceLicense": true,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-28T00:13:35.150Z"
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "status": 200,
+        "width": 586,
+        "height": 669,
+        "bytes": 141365,
+        "sha256": "84ca7638163c45479ed5dfa1b1cdaebc0e781b1b5c0acb4788a913d568039ae6",
+        "sourceStatus": 200,
+        "sourceLicense": true,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-28T00:13:35.715Z"
+      }
+    }
+  ]
+}
