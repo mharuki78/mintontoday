@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-29",
+  "images": [
+    {
+      "articleId": "gear-victor-drivex-12-o-20261029",
+      "url": "https://dkjulgymkya8y.cloudfront.net/victor/ca/product-135144_4_20250508103509.webp",
+      "alt": "검정과 오렌지 프레임에 흰색 그립을 장착한 빅터 DriveX 12 O 라켓 전체",
+      "caption": "DriveX 12 O의 프레임과 샤프트, 손잡이.",
+      "credit": "VICTOR RACKETS IND. CORP.",
+      "sourceUrl": "https://ca.victorsport.com/product/drivex",
+      "rights": "저작권자 VICTOR의 공개 제품 사진. 일반형 DriveX 12 O의 식별과 본문의 무게 등급·구조 비평에 필요한 전체 제품 사진 1점만 제한 인용한다. 명시적 재사용 허가나 공개 라이선스를 확인한 것은 아니며, 별도 전재·상업 이용을 허락한다는 뜻이 아니다. 원본 출처·저작자를 표시하고 독립된 제품 비평의 보조 자료로 사용한다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "status": 200,
+        "width": 900,
+        "height": 675,
+        "bytes": 19184,
+        "sha256": "3dc44970a75ea9a0e85debbde5589720b1df0d74254c099c023ef37de100c1bc",
+        "sourceStatus": 200,
+        "licenseStatus": "limited manufacturer quotation",
+        "checkedAt": "2026-10-29T00:13:15.120Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "gear-victor-drivex-12-o-20261029",
+      "url": "https://dkjulgymkya8y.cloudfront.net/images/2bd83863-bd55-4c79-ac67-7daba2aa16a7.webp",
+      "alt": "DriveX 12의 상단 프레임과 WES 3.0 표시 샤프트, 반투명 손잡이 연결부를 나란히 보여 주는 세부 사진",
+      "caption": "DriveX 12의 프레임, 샤프트와 손잡이 연결부.",
+      "credit": "VICTOR RACKETS IND. CORP.",
+      "sourceUrl": "https://fr.victor-europe.com/blog/article/drivex-12--",
+      "rights": "저작권자 VICTOR의 개발 기사에 실린 제품 세부 촬영 합성 사진. 본문의 NANO AEROGEL·WES 3.0·FREE CORE/POWER RING PRO 구조 및 성능 문구를 검토하는 데 필요한 세부 사진 1점을 제한 인용한다. 첫 전체 제품 사진과 다른 무스트링 프레임·손잡이 촬영이다. 명시적 재사용 허가나 공개 라이선스는 확인하지 않았으며, 출처·저작자 표시가 포괄적 이용 허가를 뜻하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "status": 200,
+        "width": 1000,
+        "height": 333,
+        "bytes": 50474,
+        "sha256": "5e5a4403c4c78641aa0b7224eb353b3b6d6b7a35aa83472f6807956a72aa52e1",
+        "sourceStatus": 200,
+        "licenseStatus": "limited manufacturer quotation",
+        "checkedAt": "2026-10-29T00:13:16.192Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "court-lost-racket-handover-20261029",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Rachet%C4%83_de_badminton_%C5%9Fi_flutura%C5%9F.jpg/1280px-Rachet%C4%83_de_badminton_%C5%9Fi_flutura%C5%9F.jpg",
+      "alt": "붉은 바닥에 놓인 배드민턴 라켓의 줄 위에 흰 깃털 셔틀콕이 얹혀 있다",
+      "caption": "라켓과 깃털 셔틀콕, 2014년. 크기 조정.",
+      "credit": "Vladimir Maftei / enciclopedie.info",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rachet%C4%83_de_badminton_%C5%9Fi_flutura%C5%9F.jpg",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rights": "Vladimir Maftei(enciclopedie.info)의 2014년 4월 25일 자작 사진. Commons 원본·API에서 CC BY-SA 4.0을 확인하고 저자·원본·라이선스·축소 변경을 표시한다. 제공 1280px 축소본에 동일 라이선스를 유지한다. 실제 분실·습득 현장 사진으로 소개하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "status": 200,
+        "width": 1280,
+        "height": 853,
+        "bytes": 431884,
+        "sha256": "3c18028f31827bb12ed972b9d5efdf82517d2148bd809972230f62a1e4c2af3e",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-29T00:13:17.672Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "tournament-hylo-open-2026",
+      "alt": "독일 자르브뤼켄 자를란트할레의 간판과 지붕이 있는 출입구",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Saarlandhalle_Saarbruecken.jpeg/1280px-Saarlandhalle_Saarbruecken.jpeg",
+      "kind": "photo",
+      "credit": "Anna16",
+      "rights": "Anna16의 2012년 4월 16일 자작 사진. Commons 원본 및 API의 CC BY-SA 3.0 표시를 확인하고 저자·원본·라이선스·축소 변경을 표시한다. 1280px 축소본에 동일 라이선스를 유지한다. 2026년 경기장 설치나 경기 현장 사진으로 소개하지 않는다.",
+      "caption": "자를란트할레 입구, 2012년 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saarlandhalle_Saarbruecken.jpeg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "licenseName": "CC BY-SA 3.0",
+      "verification": {
+        "status": 200,
+        "width": 1280,
+        "height": 895,
+        "bytes": 271712,
+        "sha256": "fd284884d8848070809c23c74f5f22b477bbae09e164e965d09d9cc7d36f9263",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-29T00:13:19.128Z",
+        "usedByExistingArticles": [
+          "tournament-hylo-open-2026"
+        ]
+      }
+    }
+  ]
+}
