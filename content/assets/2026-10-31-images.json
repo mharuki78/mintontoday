@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-31",
+  "images": [
+    {
+      "articleId": "lesson-singles-clear-height-choice-20261031",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Yonex_IFB_2013_-_Quarterfinal_-_Kirsty_Gilmour_vs_Tai_Tzu-ying_05.jpg/1280px-Yonex_IFB_2013_-_Quarterfinal_-_Kirsty_Gilmour_vs_Tai_Tzu-ying_05.jpg",
+      "alt": "라켓을 뒤로 준비하며 코트에서 이동하는 주황색 유니폼의 단식 선수",
+      "caption": "2013 프랑스오픈 여자단식 8강의 타이쯔잉. 크기 조정.",
+      "credit": "Pierre-Yves Beaudouin / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yonex_IFB_2013_-_Quarterfinal_-_Kirsty_Gilmour_vs_Tai_Tzu-ying_05.jpg",
+      "rights": "Pierre-Yves Beaudouin의 2013년 10월25일 프랑스오픈 여자단식 사진. Commons CC BY-SA4.0에 따라 저자·원본·라이선스·1280px 축소를 표시하고 동일 라이선스를 유지한다. 타구 준비의 자료사진이며 특정 클리어 궤적을 시연하거나 현재 경기 장면으로 소개하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "verification": {
+        "imageStatus": "HTTP200",
+        "width": 1280,
+        "height": 1920,
+        "bytes": 341222,
+        "sha256": "84060c1beb3f2e2fee066f217c6d78713afc2d3a202a3042847f7d9df1117438",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-31T00:15:19.622Z",
+        "usedByExistingArticles": [],
+        "note": "Commons imageinfo API, full author/date/license metadata reviewed; image downloaded and visually reviewed"
+      }
+    },
+    {
+      "articleId": "court-portable-net-height-setup-20261031",
+      "url": "https://live.staticflickr.com/8387/8515865922_2c0a6e0f9e_b.jpg",
+      "alt": "여러 종목의 선이 겹친 실내 체육관 중앙에 설치된 배드민턴 네트와 이동식 지주",
+      "caption": "홍콩 구룡공원 체육관의 배드민턴 코트, 2013년. 크기 조정.",
+      "credit": "See-ming Lee (SML)",
+      "sourceUrl": "https://www.flickr.com/photos/seeminglee/8515865922/",
+      "rights": "See-ming Lee(SML)의 2013년2월27일 홍콩 구룡공원 체육관 사진. 작가 Flickr 원문의 CC BY2.0을 확인했다. 저자·원본·라이선스·1024px 축소 표시를 유지한다. 설치된 네트와 지주를 보여 주는 자료사진이며 사진만으로 규정 높이를 측정했다고 주장하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "verification": {
+        "imageStatus": "HTTP200",
+        "width": 1024,
+        "height": 683,
+        "bytes": 269753,
+        "sha256": "88751a3d66ca0e8b2a67bacf2fcff7dd6ecb1fbbc5ba299bf80c6f47d345d048",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-31T00:15:19.696Z",
+        "usedByExistingArticles": [],
+        "note": "Full Flickr page and ImageObject license/contentUrl match; first agent photo request timed out, root normal public CDN request succeeded HTTP200"
+      }
+    },
+    {
+      "articleId": "tournament-hylo-open-2026",
+      "alt": "독일 자르브뤼켄 자를란트할레의 간판과 지붕이 있는 출입구",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Saarlandhalle_Saarbruecken.jpeg/1280px-Saarlandhalle_Saarbruecken.jpeg",
+      "kind": "photo",
+      "credit": "Anna16",
+      "rights": "Anna16의 2012년 4월 16일 자작 사진. Commons 원본 및 API의 CC BY-SA 3.0 표시를 확인하고 저자·원본·라이선스·축소 변경을 표시한다. 1280px 축소본에 동일 라이선스를 유지한다. 2026년 경기장 설치나 경기 현장 사진으로 소개하지 않는다.",
+      "caption": "자를란트할레 입구, 2012년 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saarlandhalle_Saarbruecken.jpeg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "licenseName": "CC BY-SA 3.0",
+      "verification": {
+        "imageStatus": "Current Chrome decode successful; direct research GET403",
+        "width": 1280,
+        "height": 895,
+        "bytes": 271712,
+        "sha256": "fd284884d8848070809c23c74f5f22b477bbae09e164e965d09d9cc7d36f9263",
+        "sourceStatus": 403,
+        "licenseStatus": 200,
+        "checkedAt": "2026-10-31T00:15:19.773Z",
+        "usedByExistingArticles": [
+          "tournament-hylo-open-2026"
+        ],
+        "note": "Existing unchanged image: fresh source license read through web, direct agent GET403 not repeated. Current public page Chrome decode succeeded1280x895 before publication. SHA256 below is from preserved2026-10-30 file, not a fresh download."
+      }
+    }
+  ]
+}
