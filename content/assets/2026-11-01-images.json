@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-01",
+  "images": [
+    {
+      "articleId": "gear-lining-birdie-kit-bag-20261101",
+      "url": "https://in.lining.studio/cdn/shop/files/Template_01_ba0f87dfb9.jpg?v=1749900434&width=650",
+      "alt": "파란 손잡이와 외부 포켓이 보이는 화이트 리닝 Birdie Kit Bag 앞면",
+      "caption": "Birdie Kit Bag 화이트 모델의 앞면과 손잡이.",
+      "credit": "Li-Ning India / Sunlight Sports",
+      "sourceUrl": "https://in.lining.studio/products/birdie-kit-bag",
+      "rights": "브랜드 제품 페이지에 실린 제조사 실물 사진 1점의 제한적 제품 비평 인용. 두 큰 수납칸·외부 소품 포켓을 고르는 본문과 제품 식별에 필요한 전체 외관만 650px 제공본으로 사용한다. 저작권은 원 권리자에게 있으며 CC·상업 이용 허가를 취득했다는 뜻이 아님. 원본 출처·저자 표시.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "imageStatus": "HTTP200",
+        "width": 650,
+        "height": 650,
+        "bytes": 40780,
+        "sha256": "82b8412e2c66329bf057dd55667810c217c4e55480e99ba7ffd90c3181e45c7b",
+        "sourceStatus": 200,
+        "licenseStatus": null,
+        "checkedAt": "2026-11-01T00:12:20.675Z",
+        "usedByExistingArticles": [],
+        "note": "Manufacturer product page and distinct front photograph actually read/viewed. Limited product criticism quotation reviewed; no express license claimed."
+      }
+    },
+    {
+      "articleId": "gear-lining-birdie-kit-bag-20261101",
+      "url": "https://in.lining.studio/cdn/shop/files/Template_05_af3ca1cdd5.jpg?v=1749900434&width=650",
+      "alt": "리닝 Birdie Kit Bag의 파란 손잡이 두 개를 덮개로 모아 손으로 잡은 확대 모습",
+      "caption": "두 손잡이를 모아 잡는 Birdie의 손잡이 덮개.",
+      "credit": "Li-Ning India / Sunlight Sports",
+      "sourceUrl": "https://in.lining.studio/products/birdie-kit-bag",
+      "rights": "브랜드 제품 페이지의 별도 손잡이 상세 사진 1점의 제한적 제품 비평 인용. 손에 닿는 손잡이 덮개와 별도 어깨끈을 구별하고 손잡이 운반의 이동 조건을 평가하는 본문에 직접 연결한다. 전체 외관 사진의 크롭 재사용이 아닌 별도 촬영 컷. 제조사 650px 제공본이며 CC·별도 사용 허가는 확인되지 않음. 출처·저자 표시.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "imageStatus": "HTTP200",
+        "width": 650,
+        "height": 650,
+        "bytes": 71281,
+        "sha256": "ac4ed6d0c3d17e6f55680321e57c88cc06fb7a247c4b7dfeacc878ecdb2329e5",
+        "sourceStatus": 200,
+        "licenseStatus": null,
+        "checkedAt": "2026-11-01T00:12:20.677Z",
+        "usedByExistingArticles": [],
+        "note": "Separate handle detail photograph actually viewed, directly supports discussion of handle cover versus shoulder strap. Limited quotation, no CC or express license claimed."
+      }
+    },
+    {
+      "articleId": "court-double-hit-frame-strings-20261101",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/A_little_birdie_told_me%2C_let%27s_play_Badminton_-_Flickr_-_katerha.jpg/1280px-A_little_birdie_told_me%2C_let%27s_play_Badminton_-_Flickr_-_katerha.jpg",
+      "alt": "라켓 스트링을 배경으로 놓인 파란색 합성 셔틀의 확대 모습",
+      "caption": "라켓과 합성 셔틀 확대 사진, 2016년. 크기 조정.",
+      "credit": "Kate Ter Haar / katerha",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_little_birdie_told_me,_let%27s_play_Badminton_-_Flickr_-_katerha.jpg",
+      "rights": "Kate Ter Haar(katerha)의 2016년8월14일 라켓·합성 셔틀 사진. Commons의 Flickr 출처와 CC BY2.0 확인에 따라 저자·원본·라이선스·1280px 축소를 표시한다. 정물 자료사진이며 실제 더블히트나 접촉 순서를 촬영한 장면으로 소개하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "verification": {
+        "imageStatus": "HTTP200",
+        "width": 1280,
+        "height": 1707,
+        "bytes": 306859,
+        "sha256": "a29155b55ac4883bc1b3993f683787f8cbfd5b2c6eb7b20c61da34dc31113ebb",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-11-01T00:12:20.869Z",
+        "usedByExistingArticles": [],
+        "note": "Commons original author/date/license metadata matched; photograph downloaded HTTP200 and visually reviewed. Still life, not contact sequence."
+      }
+    },
+    {
+      "articleId": "tournament-hylo-open-2026",
+      "alt": "독일 자르브뤼켄 자를란트할레의 간판과 지붕이 있는 출입구",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Saarlandhalle_Saarbruecken.jpeg/1280px-Saarlandhalle_Saarbruecken.jpeg",
+      "kind": "photo",
+      "credit": "Anna16",
+      "rights": "Anna16의 2012년 4월 16일 자작 사진. Commons 원본 및 API의 CC BY-SA 3.0 표시를 확인하고 저자·원본·라이선스·축소 변경을 표시한다. 1280px 축소본에 동일 라이선스를 유지한다. 2026년 경기장 설치나 경기 현장 사진으로 소개하지 않는다.",
+      "caption": "자를란트할레 입구, 2012년 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saarlandhalle_Saarbruecken.jpeg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "licenseName": "CC BY-SA 3.0",
+      "verification": {
+        "imageStatus": "Chrome decode successful today; bytes preserved Oct30",
+        "width": 1280,
+        "height": 895,
+        "bytes": 271712,
+        "sha256": "fd284884d8848070809c23c74f5f22b477bbae09e164e965d09d9cc7d36f9263",
+        "sourceStatus": 200,
+        "licenseStatus": 200,
+        "checkedAt": "2026-11-01T00:12:20.891Z",
+        "usedByExistingArticles": [
+          "tournament-hylo-open-2026"
+        ],
+        "note": "Unchanged existing image. Preserved bytes from Oct30, not a fresh image download. Today normal Chrome decode on public article succeeded at1280x895 before publishing; source page/CC license reviewed today. Prior direct403 not repeated."
+      }
+    }
+  ]
+}
