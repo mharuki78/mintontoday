@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-02",
+  "images": [
+    {
+      "articleId": "lesson-scissor-kick-landing-first-step-20261102",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Carsten_Mogensen_Prepares_To_Smash.jpg/960px-Carsten_Mogensen_Prepares_To_Smash.jpg",
+      "alt": "라켓을 머리 뒤에 준비하고 코트 위 공중에 떠 있는 카르스텐 모겐센",
+      "caption": "카르스텐 모겐센, 2012 런던올림픽 타구 준비 장면. 크기 조정.",
+      "credit": "Antony Stanley / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carsten_Mogensen_Prepares_To_Smash.jpg",
+      "rights": "Antony Stanley의 2012-08-05 사진 「Carsten Mogensen Prepares To Smash」. Commons 원본의 CC BY-SA 2.0과 Flickr 라이선스 검토 기록 확인. 저자·제목·원본·라이선스를 표시하고 동일 라이선스를 유지하는 960px 축소본 사용. 추가 편집 없음. 시저스킥 착지 시범이나 현재 훈련 현장으로 소개하지 않음.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verification": {
+        "width": 960,
+        "height": 1428,
+        "bytes": 252969,
+        "sha256": "18039d43157016f09b3e6bb707efab4df34aa2880ad756ccb419b3c59259e4f8",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "lesson-mogensen-2012.jpg",
+        "sourceAccess": "Commons author/date/Flickr review and CC BY-SA2.0 license read; downloaded and visually inspected. Past overhead preparation, not a landing demonstration.",
+        "checkedAt": "2026-11-02T00:13:34.442Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "gear-victor-ryuga-metallic-4u-20261102",
+      "url": "https://dkjulgymkya8y.cloudfront.net/victor/ca/product-109126_4_20231113100640.webp",
+      "alt": "검정과 붉은색 프레임에 흰 스트링과 검은 그립이 있는 류가 메탈릭 라켓",
+      "caption": "THRUSTER RYUGA METALLIC 검은색 모델.",
+      "credit": "VICTOR RACKETS IND. CORP.",
+      "sourceUrl": "https://ca.victorsport.com/product/thruster-ryuga-metallic",
+      "rights": "제품 사양·버전 비교를 위한 제조사 실물 제품 사진 1점의 제한적 비평 인용. 류가 II·III와 구별할 외관, 헤드와 손잡이가 함께 보이는 구성에 필요한 전체 컷을 사용한다. 제조사 제공 900px WebP를 그대로 사용. 저작권은 VICTOR에 있고 별도 허가나 CC를 취득했다고 표시하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "width": 900,
+        "height": 675,
+        "bytes": 22908,
+        "sha256": "40caa590b67d4e9602d2d2c2ae2276b610125fc1b0ceaf45c79f6738d0c33436",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "gear-photo-4.webp",
+        "sourceAccess": "Official VICTOR Canada page read in full via Jina Reader HTTP200, includes exact image URLs and specs. Direct regional redirects/soft404 and AU429 not counted as source success. Limited product criticism quotation reviewed, no express license claimed.",
+        "checkedAt": "2026-11-02T00:13:34.456Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "gear-victor-ryuga-metallic-4u-20261102",
+      "url": "https://dkjulgymkya8y.cloudfront.net/victor/ca/article-109142_0_20240904172814.webp",
+      "alt": "붉은 배경 위에 놓인 류가 메탈릭 라켓의 프레임과 샤프트",
+      "caption": "류가 메탈릭의 프레임과 샤프트.",
+      "credit": "VICTOR RACKETS IND. CORP.",
+      "sourceUrl": "https://ca.victorsport.com/product/thruster-ryuga-metallic",
+      "rights": "별도 배경·촬영 각도의 제조사 실물 제품 상세 사진 1점의 제한적 비평 인용. 프레임·샤프트에 나뉜 소재 표기와 그 표기만으로 타구감을 판단할 수 없다는 본문을 뒷받침한다. 전체 컷을 자른 중복이 아니다. 제조사 제공 1000px WebP 그대로 사용. 별도 상업 이용 허가·CC는 확인되지 않아 주장하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "width": 1000,
+        "height": 1000,
+        "bytes": 79114,
+        "sha256": "753161af40cf306e2ecb6927cf33e3e7f35384db34eba0d834d2f9181e7a86cd",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "gear-detail-0.webp",
+        "sourceAccess": "Official VICTOR Canada page read in full via Jina Reader HTTP200, includes exact image URLs and specs. Direct regional redirects/soft404 and AU429 not counted as source success. Limited product criticism quotation reviewed, no express license claimed.",
+        "checkedAt": "2026-11-02T00:13:34.457Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "tournament-hylo-open-2026",
+      "alt": "독일 자르브뤼켄 자를란트할레의 간판과 지붕이 있는 출입구",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Saarlandhalle_Saarbruecken.jpeg/1280px-Saarlandhalle_Saarbruecken.jpeg",
+      "kind": "photo",
+      "credit": "Anna16",
+      "rights": "Anna16의 2012년 4월 16일 자작 사진. Commons 원본 및 API의 CC BY-SA 3.0 표시를 확인하고 저자·원본·라이선스·축소 변경을 표시한다. 1280px 축소본에 동일 라이선스를 유지한다. 2026년 경기장 설치나 경기 현장 사진으로 소개하지 않는다.",
+      "caption": "자를란트할레 입구, 2012년 자료사진. 크기 조정.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saarlandhalle_Saarbruecken.jpeg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "licenseName": "CC BY-SA 3.0",
+      "verification": {
+        "width": 1280,
+        "height": 895,
+        "bytes": 271712,
+        "sha256": "fd284884d8848070809c23c74f5f22b477bbae09e164e965d09d9cc7d36f9263",
+        "imageStatus": "Today normal Chrome decode1280x895; bytes preserved Oct30, not a fresh download",
+        "file": "../research-20261030/verified-photo-3.jpeg",
+        "sourceAccess": "Existing source/license read today via web; ordinary Commons GET403 for HYLO/An. Seoul notice and poster GET200. See news-image-evidence.json. No challenge bypass.",
+        "checkedAt": "2026-11-02T00:13:34.490Z",
+        "usedByExistingArticles": [
+          "tournament-hylo-open-2026"
+        ]
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "width": 586,
+        "height": 669,
+        "imageStatus": "Today normal Chrome public page decode succeeded; no new image download or hash claim",
+        "file": null,
+        "sourceAccess": "Existing source/license read today via web; ordinary Commons GET403 for HYLO/An. Seoul notice and poster GET200. See news-image-evidence.json. No challenge bypass.",
+        "checkedAt": "2026-11-02T00:13:34.490Z",
+        "usedByExistingArticles": [
+          "news-an-homecoming-korea-open-decision-20261028",
+          "news-french-open-an-sindhu-final-20261025",
+          "news-french-open-quarterfinals-20261023"
+        ]
+      }
+    },
+    {
+      "articleId": "tournament-seoul-my-soul-20261018",
+      "alt": "2026 서울마이소울 유청소년 배드민턴대회 공식 포스터, 10월 18일 마곡 실내 체육관",
+      "url": "https://www.tong1ro.com/uploaded/webedit/2609/4d1d4266f7d7a0332e90307d13a95c2bac12fc86.jpg",
+      "kind": "poster",
+      "credit": "통일로스포츠연맹",
+      "rights": "대회 소개·참가 정보 확인을 위한 주최 측 공개 홍보 포스터 인용. 원문 및 주최자 표기, 임의 수정 없음.",
+      "caption": "2026 서울마이소울 유청소년 배드민턴대회 포스터.",
+      "sourceUrl": "https://www.tong1ro.com/competition/notice.php?boardid=notice&idx=1182&mode=view",
+      "verification": {
+        "width": 842,
+        "height": 1191,
+        "bytes": 575625,
+        "sha256": "b299352c79bc0aff021cc3c0d3302548b46ae05f67b7b700967b0a0d34c96aa6",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "seoul-mysoul-poster.jpg",
+        "sourceAccess": "Existing source/license read today via web; ordinary Commons GET403 for HYLO/An. Seoul notice and poster GET200. See news-image-evidence.json. No challenge bypass.",
+        "checkedAt": "2026-11-02T00:13:34.492Z",
+        "usedByExistingArticles": [
+          "tournament-seoul-my-soul-20261018"
+        ]
+      }
+    },
+    {
+      "articleId": "amateur-noerror-festa-magok-20261129",
+      "url": "https://badmintok.com/media/contest_images/00946efe1b83.jpg",
+      "alt": "제2회 노에러 전국 배드민턴 페스타 참가 안내 포스터.",
+      "caption": "제2회 노에러 전국 배드민턴 페스타 참가 안내 포스터.",
+      "credit": "노에러",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/2026-노에러-배드민턴-페스타/",
+      "rights": "대회 참가정보 설명에 필요한 주최 측 공개 홍보 포스터 1장 제한 인용. 배드민톡 수록 원본을 직접 확인했으며 주최자·원문을 표시하고 수정하지 않음. 포괄적 재사용 허가를 뜻하지 않는다.",
+      "kind": "poster",
+      "generated": false,
+      "verification": {
+        "width": 600,
+        "height": 852,
+        "bytes": 233057,
+        "sha256": "f9823248db711c44427c85880da47eaebf676452c42e161753c9ffa5aed68679",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "noerror-poster.jpg",
+        "sourceAccess": "Original organizer promotional poster at linked third-party listing read visually; GET200 and file hash checked. One-poster limited citation, not a free reuse license; no participant/bank details transcribed into body.",
+        "checkedAt": "2026-11-02T00:13:34.494Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "amateur-fortis-cup-bucheon-20261219",
+      "url": "https://badmintok.com/media/contest_images/2097516e2183.jpg",
+      "alt": "2026 포티스 CUP 전국 오픈 배드민턴대회 포스터.",
+      "caption": "2026 포티스 CUP 전국 오픈 배드민턴대회 포스터.",
+      "credit": "포티스(FORTIS)",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/2026-포티스-컵-배드민턴대회/",
+      "rights": "대회 참가정보 설명에 필요한 주최 측 공개 홍보 포스터 1장 제한 인용. 배드민톡 수록 원본을 직접 확인했으며 주최자·원문을 표시하고 수정하지 않음. 포괄적 재사용 허가를 뜻하지 않는다.",
+      "kind": "poster",
+      "generated": false,
+      "verification": {
+        "width": 600,
+        "height": 906,
+        "bytes": 445967,
+        "sha256": "0c98212cdce945de6bee4fa0e83c5c57925ff08efac287835bdbbfee7ec038e8",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "fortis-poster.jpg",
+        "sourceAccess": "Original organizer promotional poster at linked third-party listing read visually; GET200 and file hash checked. One-poster limited citation, not a free reuse license; no participant/bank details transcribed into body.",
+        "checkedAt": "2026-11-02T00:13:34.496Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "amateur-buddygo-2-gyenam-20261226",
+      "url": "https://badmintok.com/media/contest_images/d5466a1fe24b.jpg",
+      "alt": "제2회 버디고배 전국 배드민턴대회 포스터.",
+      "caption": "제2회 버디고배 전국 배드민턴대회 포스터.",
+      "credit": "태양스포츠기획",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/버디고배-배드민턴대회/",
+      "rights": "대회 참가정보 설명에 필요한 주최 측 공개 홍보 포스터 1장 제한 인용. 배드민톡 수록 원본을 직접 확인했으며 주최자·원문을 표시하고 수정하지 않음. 포괄적 재사용 허가를 뜻하지 않는다.",
+      "kind": "poster",
+      "generated": false,
+      "verification": {
+        "width": 794,
+        "height": 991,
+        "bytes": 232924,
+        "sha256": "c09bae542ebee1c5d18906b77410f529e165dcfb239d1c76853956835e017281",
+        "imageStatus": "HTTP200 original or thumbnail obtained today",
+        "file": "buddygo-poster.jpg",
+        "sourceAccess": "Original organizer promotional poster at linked third-party listing read visually; GET200 and file hash checked. One-poster limited citation, not a free reuse license; no participant/bank details transcribed into body.",
+        "checkedAt": "2026-11-02T00:13:34.497Z",
+        "usedByExistingArticles": []
+      }
+    }
+  ]
+}
