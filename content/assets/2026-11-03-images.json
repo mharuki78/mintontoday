@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-03",
+  "images": [
+    {
+      "articleId": "lesson-forehand-rearcourt-jump-out-choice-20261103",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Smash_Return_%287758861620%29.jpg/1280px-Smash_Return_%287758861620%29.jpg",
+      "alt": "2012 런던 올림픽 남자단식 결승에서 공중 타구를 하는 리총웨이",
+      "caption": "리총웨이, 2012년 런던올림픽 남자단식 결승 공중 타구 자료사진. 크기 조정.",
+      "credit": "Antony Stanley / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smash_Return_(7758861620).jpg",
+      "rights": "Antony Stanley 촬영, 2012-08-05. Commons 원문 CC BY-SA 2.0 및 Flickr 검토 표시 확인. 상업 이용 허용, 저자·원본·라이선스 링크·변경 표시 및 동일조건 준수. 원본 3683×2916에서 1280px 크기 조정. 해당 레슨 동작의 시범으로 단정하지 않음.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verification": {
+        "width": 1280,
+        "height": 1013,
+        "bytes": 271953,
+        "sha256": "e872affd702067a9759374cf328f6269a8662024dbb6bd85e892c9fc89cb1276",
+        "file": "lesson-return-1280.jpg",
+        "imageStatus": "Original and selected thumbnail GET200 today; selected image visually inspected by root",
+        "sourceAccess": "Commons author/date/license and CC BY-SA2.0 license read today; historical London2012 airborne stroke, not proof of exact footwork or landing.",
+        "checkedAt": "2026-11-03T00:21:07.867Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "court-net-racket-blocking-follow-through-20261103",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Badminton_IMG_5105.jpg/1280px-Badminton_IMG_5105.jpg",
+      "alt": "2012년 런던올림픽 여자복식 코트에서 네트를 사이에 두고 라켓을 준비한 선수들",
+      "caption": "2012년 런던올림픽 여자복식 경기. 크기 조정.",
+      "credit": "Andy L / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_IMG_5105.jpg",
+      "rights": "Andy L의 Badminton IMG 5105.jpg, 2012-08-01 촬영. Commons 현재 CC BY-SA 2.0 표시 및 2013-04-23 Flickr 라이선스 검토 기록 확인. 상업 이용 가능. 저자·작품명·원본·라이선스 링크를 표시하고 축소본도 CC BY-SA 2.0으로 제공한다. 원본 5184×3456에서 Wikimedia 제공 1280×853 축소본을 사용하며 추가 크롭·내용 변경 없음. Flickr 원문은 2026-11-03 HTTP404, Commons 직접 HTTP200 확인.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verification": {
+        "width": 1280,
+        "height": 853,
+        "bytes": 262716,
+        "sha256": "18578a19eeec8a2a0a3cd43e8fe9a3950a239815b9d181448318079c54239b8b",
+        "file": "court-5105-1280.jpg",
+        "imageStatus": "Original and selected thumbnail GET200 today; selected image visually inspected by root",
+        "sourceAccess": "Commons author/date/current CC BY-SA2.0 and license read today. Original Flickr page404; Commons historical Flickr license review preserved. Photograph illustrates net positions, not a recorded fault.",
+        "checkedAt": "2026-11-03T00:21:07.870Z",
+        "usedByExistingArticles": []
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "width": 586,
+        "height": 669,
+        "file": null,
+        "imageStatus": "Today normal Chrome existing public page decoded complete586x669; no new image download or hash claim",
+        "sourceAccess": "Commons author/date/CC BY-SA4.0 read today via web and Jina200. Ordinary original image GET403, not treated as photo bytes.",
+        "checkedAt": "2026-11-03T00:21:07.871Z",
+        "usedByExistingArticles": [
+          "news-an-homecoming-korea-open-decision-20261028",
+          "news-french-open-an-sindhu-final-20261025",
+          "news-french-open-quarterfinals-20261023"
+        ]
+      }
+    }
+  ]
+}
