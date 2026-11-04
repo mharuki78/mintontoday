@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-04",
+  "images": [
+    {
+      "articleId": "gear-yonex-nanoflare-1000-game-20261104",
+      "url": "https://us.yonex.com/cdn/shop/files/nanoflare_1000game.webp?v=1759793201&width=1000",
+      "alt": "검은 프레임과 노란 샤프트에 GAME 표기가 있는 나노플레어 1000 GAME 정면",
+      "caption": "나노플레어 1000 GAME 라이트닝 옐로.",
+      "credit": "Yonex Co., Ltd.",
+      "sourceUrl": "https://us.yonex.com/products/nanoflare-1000-game",
+      "kind": "photo",
+      "rights": "요넥스 미국 제품 페이지의 제품 식별용 정면 사진. GAME 표기와 실제 판매 모델 구분을 설명하는 비평 문단에 필요한 1,000px 축소본으로 제한 인용. 별도 이용 허락이나 공개 라이선스 표기는 확인되지 않음.",
+      "verification": {
+        "width": 1000,
+        "height": 1500,
+        "bytes": 289226,
+        "sha256": "ac3e64ef960a29721422a546c7515add58aa59f5fdd36f344d5a8ffdb8dfca27",
+        "checkedAt": "2026-11-04T00:14:04.613Z"
+      }
+    },
+    {
+      "articleId": "gear-yonex-nanoflare-1000-game-20261104",
+      "url": "https://us.yonex.com/cdn/shop/files/NANOFLARE_1000_product.jpg?v=1760045976&width=1000",
+      "alt": "나노플레어 1000 계열의 검정 프레임과 노란 샤프트를 비스듬히 촬영한 사진",
+      "caption": "나노플레어 1000 계열의 프레임과 샤프트.",
+      "credit": "Yonex Co., Ltd.",
+      "sourceUrl": "https://us.yonex.com/products/nanoflare-1000-game",
+      "kind": "photo",
+      "rights": "요넥스 미국 GAME 제품 갤러리의 별도 측면 사진. 계열 공통 외관만으로 모델을 구별하기 어렵다는 비평에 필요한 1,000px 축소본으로 제한 인용. 세부 버전 미확인으로 계열 사진으로 표기. 별도 이용 허락이나 공개 라이선스 표기는 확인되지 않음.",
+      "verification": {
+        "width": 1000,
+        "height": 1191,
+        "bytes": 55674,
+        "sha256": "ce7f574f7820a1c4570e91c584bf68d8ee0acd7bb070718062ef69472e27fe82",
+        "checkedAt": "2026-11-04T00:14:04.613Z"
+      }
+    },
+    {
+      "articleId": "court-coaching-between-rallies-20261104",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mens_Singles_Badminton_Final%2C_London_2012_%287758890090%29.jpg/1280px-Mens_Singles_Badminton_Final%2C_London_2012_%287758890090%29.jpg",
+      "alt": "2012 런던올림픽 남자단식 결승에서 네트를 사이에 둔 린단과 리총웨이",
+      "caption": "2012년 런던올림픽 남자단식 결승. 크기 조정.",
+      "credit": "Antony Stanley / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mens_Singles_Badminton_Final,_London_2012_(7758890090).jpg",
+      "kind": "photo",
+      "rights": "Antony Stanley의 2012년 8월 5일 경기 사진. Commons 파일 페이지의 CC BY-SA 2.0에 따라 저자·원본·동일 라이선스를 표시한 Wikimedia 1280px 축소본을 사용.",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verification": {
+        "width": 1280,
+        "height": 486,
+        "bytes": 197859,
+        "sha256": "e4c2de6d39269f1c0682cb83571cfc0de54c8fdb5b659eb9dc6115f32f639f80",
+        "checkedAt": "2026-11-04T00:14:04.613Z"
+      }
+    }
+  ]
+}
