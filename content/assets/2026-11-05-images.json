@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-05",
+  "images": [
+    {
+      "articleId": "lesson-forehand-cross-slice-contact-20261105",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Plenty_Of_Air_%287758869078%29.jpg/1280px-Plenty_Of_Air_%287758869078%29.jpg",
+      "alt": "리총웨이가 뒤 코트에서 라켓을 준비하고 공중에서 셔틀을 바라보는 장면",
+      "caption": "2012 런던 올림픽 남자단식 결승 리총웨이 자료사진. 크기 조정.",
+      "credit": "Antony Stanley / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plenty_Of_Air_(7758869078).jpg",
+      "rights": "Antony Stanley 촬영(2012-08-05), Wikimedia Commons의 CC BY-SA 2.0에 따라 저자·출처·라이선스·변경 표시를 유지해 사용. Commons 1280px 축소본이며 추가 편집 없음. 동일조건변경허락 준수. 특정 슬라이스 타구의 시범으로 판정하지 않음.",
+      "kind": "photo",
+      "generated": false,
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verification": {
+        "name": "photo",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Plenty_Of_Air_%287758869078%29.jpg/1280px-Plenty_Of_Air_%287758869078%29.jpg",
+        "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Plenty_Of_Air_%287758869078%29.jpg/1280px-Plenty_Of_Air_%287758869078%29.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 286140,
+        "sha256": "d50df418589052e1b77ba0ad15e09d5f1a54a779f919e1447071762a4dd62d1a",
+        "checkedAt": "2026-11-05T00:08:10.715775+00:00",
+        "file": "output/editorial/research-20261105/lesson-photo.jpg",
+        "width": 1280,
+        "height": 1215,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plenty_Of_Air_(7758869078).jpg",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-rsl-classic-tourney-20261105",
+      "url": "https://www.rsl-1928.com/Public/uploads/2022-12-14/63996d138342d.JPG",
+      "alt": "RSL Classic Tourney 셔틀콕 포장 통의 서로 다른 방향 1",
+      "caption": "RSL Classic Tourney 포장 통.",
+      "credit": "RSL International",
+      "sourceUrl": "https://www.rsl-1928.com/Product/details/pid/1/cid/12/id/7.html",
+      "rights": "RSL 제조사 제품 페이지의 사진. 별도 이용허락·CC 라이선스는 확인되지 않았다. Classic Tourney와 Classic Academy·Tourney No.1의 모델 구별 및 구매 비평에 필요한 서로 다른 방향의 제품 식별 사진 2장만 출처와 함께 제한적으로 인용한다. 개인 리뷰 사진은 사용하지 않으며 판매용 원본 제공을 목적으로 하지 않는다.",
+      "kind": "photo",
+      "licenseName": "제조사 사진 제한 인용(허가·CC 아님)",
+      "verification": {
+        "url": "https://www.rsl-1928.com/Public/uploads/2022-12-14/63996d138342d.JPG",
+        "file": "output/editorial/research-20261105/gear-rsl-classic-1.jpg",
+        "status": 200,
+        "bytes": 280325,
+        "sha256": "b4bb25860e3828b8da3c59ca60540d0730888c7f394ae0176392b1fb31a599b6",
+        "width": 1833,
+        "height": 2667,
+        "sourceUrl": "https://www.rsl-1928.com/Product/details/pid/1/cid/12/id/7.html",
+        "checkedAt": "2026-11-05T00:08:28.762962+00:00",
+        "existing178UrlUsed": false,
+        "visualReview": "view_image로 원본 2장 확인. Classic Tourney 제품 페이지의 통을 서로 다른 방향에서 촬영한 구도이며 단순 크롭/동일파일이 아님. 셔틀 단품은 보이지 않는다.",
+        "license": "별도 허가/CC 미확인. 제품 식별·비평을 위한 제한 제조사사진 인용.",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-rsl-classic-tourney-20261105",
+      "url": "https://www.rsl-1928.com/Public/uploads/2022-12-14/63996d164674e.JPG",
+      "alt": "RSL Classic Tourney 셔틀콕 포장 통의 서로 다른 방향 2",
+      "caption": "RSL Classic Tourney 포장 통의 다른 방향.",
+      "credit": "RSL International",
+      "sourceUrl": "https://www.rsl-1928.com/Product/details/pid/1/cid/12/id/7.html",
+      "rights": "RSL 제조사 제품 페이지의 사진. 별도 이용허락·CC 라이선스는 확인되지 않았다. Classic Tourney와 Classic Academy·Tourney No.1의 모델 구별 및 구매 비평에 필요한 서로 다른 방향의 제품 식별 사진 2장만 출처와 함께 제한적으로 인용한다. 개인 리뷰 사진은 사용하지 않으며 판매용 원본 제공을 목적으로 하지 않는다.",
+      "kind": "photo",
+      "licenseName": "제조사 사진 제한 인용(허가·CC 아님)",
+      "verification": {
+        "url": "https://www.rsl-1928.com/Public/uploads/2022-12-14/63996d164674e.JPG",
+        "file": "output/editorial/research-20261105/gear-rsl-classic-2.jpg",
+        "status": 200,
+        "bytes": 280294,
+        "sha256": "940b5c3d6f4c8be501ccfce3994b03f9507a18ca93677b968e1de99584e69754",
+        "width": 1833,
+        "height": 2667,
+        "sourceUrl": "https://www.rsl-1928.com/Product/details/pid/1/cid/12/id/7.html",
+        "checkedAt": "2026-11-05T00:08:28.764485+00:00",
+        "existing178UrlUsed": false,
+        "visualReview": "view_image로 원본 2장 확인. Classic Tourney 제품 페이지의 통을 서로 다른 방향에서 촬영한 구도이며 단순 크롭/동일파일이 아님. 셔틀 단품은 보이지 않는다.",
+        "license": "별도 허가/CC 미확인. 제품 식별·비평을 위한 제한 제조사사진 인용.",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-05T00:15:11.515Z"
+      }
+    }
+  ]
+}
