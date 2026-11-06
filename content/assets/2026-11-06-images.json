@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-06",
+  "images": [
+    {
+      "articleId": "lesson-backhand-in-to-out-spin-net-shot-20261106",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/LKY_SBO2022.jpg/1280px-LKY_SBO2022.jpg",
+      "alt": "로킨유가 오른발을 내디디고 가까운 셔틀에 라켓을 뻗는 모습",
+      "caption": "2022 싱가포르 오픈 남자단식 16강 로킨유 자료사진. 크기 조정.",
+      "credit": "TanDavidPhotography / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LKY_SBO2022.jpg",
+      "rights": "촬영자 TanDavidPhotography가 공개한 CC BY-SA 4.0 사진. Wikimedia Commons가 제공한 1280px 크기 조정본을 그대로 사용.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/LKY_SBO2022.jpg/1280px-LKY_SBO2022.jpg",
+        "file": "output/editorial/research-20261106/lesson-photo.jpg",
+        "status": 200,
+        "bytes": 170087,
+        "sha256": "8aab7b6f28723aab2263f31e2710bf1c14fbe846d33c45ffead5e54bba3776d0",
+        "width": 1280,
+        "height": 878,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:LKY_SBO2022.jpg",
+        "checkedAt": "2026-11-06T00:05:52.064Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "court-toss-serve-or-end-20261106",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Badminton_Court_at_IIT_Kharagpur.jpg",
+      "alt": "높이 뜬 셔틀을 향해 한 사람이 뛰어오르고 맞은편 선수가 자세를 낮춘 실내 배드민턴 코트",
+      "caption": "2015년 인도 IIT 카라그푸르 실내 배드민턴 코트",
+      "credit": "AnushkaG2509 / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_Court_at_IIT_Kharagpur.jpg",
+      "rights": "저자 자작 사진. CC BY-SA 4.0. Wikimedia Commons 원본 JPEG를 별도 수정 없이 사용.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Badminton_Court_at_IIT_Kharagpur.jpg",
+        "file": "output/editorial/research-20261106/court-photo-iit.jpg",
+        "status": 200,
+        "bytes": 217506,
+        "sha256": "c3746c8dbefc8aa94868dbc7a16007485ced29f33bdde84713809c588abebb36",
+        "width": 2048,
+        "height": 1365,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_Court_at_IIT_Kharagpur.jpg",
+        "checkedAt": "2026-11-06T09:11:49+09:00",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-06T00:19:22.275Z"
+      }
+    },
+    {
+      "articleId": "amateur-2026-687",
+      "alt": "제1회 기아자동차X스펙트럼 전국 배드민턴 대회 공개 홍보 포스터",
+      "url": "https://badmintok.com/media/contest_images/19536be7cf8d.jpg",
+      "kind": "poster",
+      "credit": "해당 대회 주최·주관 / 배드민톡 수록",
+      "rights": "대회 소식 보도와 참가 안내에 필요한 공개 홍보 포스터 1점 인용. 저작권은 주최·제작자에게 있으며, 별도 재사용 허가를 뜻하지 않음.",
+      "caption": "일정·장소·접수 조건을 확인하기 위한 대회 홍보 자료입니다. 변경 공지는 원문에서 확인하세요.",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/기아자동차X스펙트럼-배드민턴-대회/",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-06T00:19:22.277Z"
+      }
+    }
+  ]
+}
