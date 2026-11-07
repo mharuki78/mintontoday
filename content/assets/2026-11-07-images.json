@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-07",
+  "images": [
+    {
+      "articleId": "gear-babolat-x-feel-fury-ti-20261107",
+      "url": "https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_1008,h_1008/v1738160615/Product_Media/2026/Badminton/RACQUETS/601482-X_FEEL_FURY_STRUNG_NCV-100-1-Face.png",
+      "alt": "검정·빨강 X-Feel Fury Ti 라켓 전체 모습",
+      "caption": "X-Feel Fury Ti Strung, 601482.",
+      "credit": "Babolat",
+      "sourceUrl": "https://www.babolat.com/gb/x-feel-fury-ti-strung/601482.html",
+      "rights": "제품 식별과 프레임·샤프트 구조 비평에 필요한 제조사 갤러리 사진 2장만 제한 인용. 독립 촬영 각도를 골랐으며 사진 자체를 변형하지 않았다. 개별 사용 허락이나 CC 라이선스를 확보한 자료로 표시하지 않는다.",
+      "kind": "photo",
+      "verification": {
+        "url": "https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_1008,h_1008/v1738160615/Product_Media/2026/Badminton/RACQUETS/601482-X_FEEL_FURY_STRUNG_NCV-100-1-Face.png",
+        "file": "output/editorial/research-20261107/gear-photo-1.png",
+        "status": 200,
+        "bytes": 49218,
+        "sha256": "39ef8a50c67a6558645e35bd6ad44c44b4e9be4f7e18efdb244b75aee5dcf0e8",
+        "width": 1008,
+        "height": 1008,
+        "sourceUrl": "https://www.babolat.com/gb/x-feel-fury-ti-strung/601482.html",
+        "checkedAt": "2026-11-07T00:12:50.693Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-babolat-x-feel-fury-ti-20261107",
+      "url": "https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_1008,h_1008/v1738160615/Product_Media/2026/Badminton/RACQUETS/601482-X_FEEL_FURY_STRUNG_NCV-100-3-3_4_left.png",
+      "alt": "X-Feel Fury Ti 라켓의 측면에서 본 프레임과 샤프트",
+      "caption": "X-Feel Fury Ti 측면.",
+      "credit": "Babolat",
+      "sourceUrl": "https://www.babolat.com/gb/x-feel-fury-ti-strung/601482.html",
+      "rights": "제품 식별과 프레임·샤프트 구조 비평에 필요한 제조사 갤러리 사진 2장만 제한 인용. 독립 촬영 각도를 골랐으며 사진 자체를 변형하지 않았다. 개별 사용 허락이나 CC 라이선스를 확보한 자료로 표시하지 않는다.",
+      "kind": "photo",
+      "verification": {
+        "url": "https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_1008,h_1008/v1738160615/Product_Media/2026/Badminton/RACQUETS/601482-X_FEEL_FURY_STRUNG_NCV-100-3-3_4_left.png",
+        "file": "output/editorial/research-20261107/gear-photo-3.png",
+        "status": 200,
+        "bytes": 48980,
+        "sha256": "f0a490abdc5c7a835d1efd8c29f80046804a81564b990da103e020838d3b8c6b",
+        "width": 1008,
+        "height": 1008,
+        "sourceUrl": "https://www.babolat.com/gb/x-feel-fury-ti-strung/601482.html",
+        "checkedAt": "2026-11-07T00:12:50.695Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "court-catching-out-shuttle-clothing-20261107",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Shuttlecock_on_a_badminton_court.jpg/1280px-Shuttlecock_on_a_badminton_court.jpg",
+      "alt": "실내 코트의 흰 선 옆 바닥에 놓인 나일론 셔틀콕",
+      "caption": "2019년 코트 위 셔틀콕 자료사진. 크기 조정.",
+      "credit": "Syed Ahmad Fathi / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shuttlecock_on_a_badminton_court.jpg",
+      "rights": "저작자 Syed Ahmad Fathi의 CC BY-SA 4.0 공개 사진. Commons 1280px 축소본을 사용했고 크기 조정을 표시했다.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "verification": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Shuttlecock_on_a_badminton_court.jpg/1280px-Shuttlecock_on_a_badminton_court.jpg",
+        "file": "output/editorial/research-20261107/court-photo.jpg",
+        "status": 200,
+        "bytes": 125971,
+        "sha256": "19f4f10967ce6c32667a354327aa37bd1c050df0d74631141628a074aa8b5f64",
+        "width": 1280,
+        "height": 850,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shuttlecock_on_a_badminton_court.jpg",
+        "checkedAt": "2026-11-07T00:12:50.701Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-07T00:20:30.925Z"
+      }
+    }
+  ]
+}
