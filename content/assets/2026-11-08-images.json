@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-08",
+  "images": [
+    {
+      "articleId": "gear-yonex-pro-backpack-l-34l-20261108",
+      "url": "https://www.yonex.com/media/catalog/product/a/l/all_ba92412l_007-2.png",
+      "alt": "요넥스 프로 백팩 L 검정색 본체와 상단 손잡이",
+      "caption": "요넥스 프로 백팩 L 블랙.",
+      "credit": "Yonex",
+      "sourceUrl": "https://www.yonex.com/badminton/pro-backpack-l-ba92412l",
+      "rights": "해당 모델의 외형과 라켓 수납 구조를 설명하는 제조사 제품 사진 인용. 출처 표기, 원본 링크 사용.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://www.yonex.com/media/catalog/product/a/l/all_ba92412l_007-2.png",
+        "file": "output/editorial/research-20261108/yonex-black.png",
+        "status": 200,
+        "bytes": 2029680,
+        "sha256": "5fc2546b4fdb96471d2ba408c1f9f4e16bd2a025a2188a9df7484a0661556ac9",
+        "width": 1500,
+        "height": 1500,
+        "sourceUrl": "https://www.yonex.com/badminton/pro-backpack-l-ba92412l",
+        "checkedAt": "2026-11-08T00:07:22.178Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-yonex-pro-backpack-l-34l-20261108",
+      "url": "https://www.yonex.com/media/catalog/product/a/l/all_ba92412l_060-1_1_.png",
+      "alt": "요넥스 프로 백팩 L 코발트 블루에 라켓 손잡이 두 개가 위로 나온 모습",
+      "caption": "요넥스 프로 백팩 L 코발트 블루, 라켓 수납 예시.",
+      "credit": "Yonex",
+      "sourceUrl": "https://www.yonex.com/badminton/pro-backpack-l-ba92412l",
+      "rights": "해당 모델의 외형과 라켓 수납 구조를 설명하는 제조사 제품 사진 인용. 출처 표기, 원본 링크 사용.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://www.yonex.com/media/catalog/product/a/l/all_ba92412l_060-1_1_.png",
+        "file": "output/editorial/research-20261108/yonex-blue.png",
+        "status": 200,
+        "bytes": 1492140,
+        "sha256": "935f11a549ca9ac46851c284897f2d204772e3fcbfc3c43bdac50e5288f8810e",
+        "width": 1500,
+        "height": 1500,
+        "sourceUrl": "https://www.yonex.com/badminton/pro-backpack-l-ba92412l",
+        "checkedAt": "2026-11-08T00:07:23.290Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "lesson-backhand-drive-body-or-gap-20261108",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Match_Point%2C_Mens_Doubles_Final_%288035705078%29.jpg",
+      "alt": "네트를 사이에 두고 랠리를 펼치는 런던 올림픽 배드민턴 남자복식 결승 선수들",
+      "caption": "2012 런던 올림픽 배드민턴 남자복식 결승.",
+      "credit": "Antony Stanley / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Match_Point,_Mens_Doubles_Final_(8035705078).jpg",
+      "rights": "저자·원본·라이선스 표기. Commons 원본 사진을 추가 편집 없이 게재.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Match_Point%2C_Mens_Doubles_Final_%288035705078%29.jpg",
+        "file": "output/editorial/research-20261108/doubles.jpg",
+        "status": 200,
+        "bytes": 557923,
+        "sha256": "1cf0101ea172f0e0cba0e6d2706db8658437fd2b17d76bddcb302541f00b2b2d",
+        "width": 1270,
+        "height": 720,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Match_Point,_Mens_Doubles_Final_(8035705078).jpg",
+        "checkedAt": "2026-11-08T00:08:18.374Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-08T00:14:34.170Z"
+      }
+    }
+  ]
+}
