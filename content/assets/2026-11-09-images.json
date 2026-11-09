@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-09",
+  "images": [
+    {
+      "articleId": "court-shuttle-ceiling-wall-fault-20261109",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hk_swcc_sheung_wan_civic_centre_sports_badminton_court_visitors_red_ceiling_wooden_flooring_august_2019_ssg_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hk_swcc_sheung_wan_civic_centre_sports_badminton_court_visitors_red_ceiling_wooden_flooring_august_2019_ssg_01.jpg",
+      "alt": "붉은 들보와 조명, 농구 골대 아래 배드민턴 코트가 펼쳐진 실내 체육관",
+      "caption": "홍콩 셩완 스포츠센터 배드민턴 코트, 2019년.",
+      "credit": "Gutedhd Aydcgtfv Hchdgdvx / Wikimedia Commons",
+      "rights": "CC BY-SA 4.0에 따라 저자, 원본 및 라이선스 표시. Commons 원본을 추가 편집하지 않았다.",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Hk_swcc_sheung_wan_civic_centre_sports_badminton_court_visitors_red_ceiling_wooden_flooring_august_2019_ssg_01.jpg",
+        "file": "output/editorial/research-20261109/court-photo.jpg",
+        "status": 200,
+        "bytes": 2860753,
+        "sha256": "6103fe540fce7e6b02877d0f14d040695c82ad8cebea57c3dd1d7d37286b6c7c",
+        "width": 3264,
+        "height": 2448,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hk_swcc_sheung_wan_civic_centre_sports_badminton_court_visitors_red_ceiling_wooden_flooring_august_2019_ssg_01.jpg",
+        "checkedAt": "2026-11-09T00:06:23.410Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "lesson-singles-smash-placement-next-shot-20261109",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/XIX_Commonwealth_Games-2010_Delhi_Badminton_%28Men%E2%80%99s_Single%29_Chetan_Anand_of_India_in_an_action_against_Snider_of_Canada%2C_at_Sirifort_Sports_Complex%2C_in_New_Delhi_on_October_07%2C_2010.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:XIX_Commonwealth_Games-2010_Delhi_Badminton_%28Men%E2%80%99s_Single%29_Chetan_Anand_of_India_in_an_action_against_Snider_of_Canada%2C_at_Sirifort_Sports_Complex%2C_in_New_Delhi_on_October_07%2C_2010.jpg",
+      "alt": "라켓을 들고 위에서 내려오는 셔틀을 보는 체탄 아난드",
+      "caption": "체탄 아난드, 2010 델리 영연방 경기대회 남자단식.",
+      "credit": "Asish Maitra / 인도 청소년체육부·Press Information Bureau / Wikimedia Commons",
+      "rights": "Commons 원본에 명시된 GODL-India에 따라 자료 제공 기관, 촬영자, 원본 및 라이선스를 표시했다. 원본 사진을 추가 편집하지 않았다.",
+      "licenseName": "GODL-India",
+      "licenseUrl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/XIX_Commonwealth_Games-2010_Delhi_Badminton_%28Men%E2%80%99s_Single%29_Chetan_Anand_of_India_in_an_action_against_Snider_of_Canada%2C_at_Sirifort_Sports_Complex%2C_in_New_Delhi_on_October_07%2C_2010.jpg",
+        "file": "output/editorial/research-20261109/lesson-photo.jpg",
+        "status": 200,
+        "bytes": 1649609,
+        "sha256": "0ad5d1e860d5e0684624f8158f77968a64759902bc6a69a4feb08eb022b76fdb",
+        "width": 2200,
+        "height": 3266,
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:XIX_Commonwealth_Games-2010_Delhi_Badminton_%28Men%E2%80%99s_Single%29_Chetan_Anand_of_India_in_an_action_against_Snider_of_Canada%2C_at_Sirifort_Sports_Complex%2C_in_New_Delhi_on_October_07%2C_2010.jpg",
+        "checkedAt": "2026-11-09T00:06:40.535Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "news-an-homecoming-korea-open-decision-20261028",
+      "alt": "태극기가 달린 경기복을 입고 코트를 바라보는 안세영",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/An_Se-Young_%28KOR%29.jpg",
+      "kind": "photo",
+      "credit": "Nardisoero / Wikimedia Commons",
+      "rights": "Commons 원본의 CC BY-SA 4.0 조건에 따라 저자·원본·라이선스를 표시한 편집용 자료사진 사용. Commons에 공개된 추출 사진을 추가 편집 없이 그대로 사용. 실제 촬영 시점·대상으로 설명하며 오늘 국내 대회나 프랑스오픈 현장으로 소개하지 않는다.",
+      "caption": "안세영, 2022 독일오픈 자료사진.",
+      "generated": false,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Se-Young_(KOR).jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseName": "CC BY-SA 4.0",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-09T00:14:45.461Z"
+      }
+    }
+  ]
+}
