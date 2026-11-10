@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-10",
+  "images": [
+    {
+      "articleId": "court-badminton-change-ends-missed-20261110",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Ankara_4P5C4537_(28614563788).jpg",
+      "alt": "배드민턴 코트에서 혼합복식 선수들과 심판이 함께 서 있는 모습",
+      "caption": "2013 앙카라 세계 시니어 배드민턴선수권 혼합복식 선수와 심판.",
+      "credit": "Murray Foubister / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_4P5C4537_(28614563788).jpg",
+      "rights": "CC BY-SA 2.0에 따라 촬영자와 원본 및 라이선스를 표시했다. Commons 원본을 추가 편집하지 않았다.",
+      "kind": "photo",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Ankara_4P5C4537_(28614563788).jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_4P5C4537_(28614563788).jpg",
+        "file": "output/editorial/research-20261110/court.jpg",
+        "status": 200,
+        "bytes": 923233,
+        "sha256": "ad4952f618bf47064ad91cb611c655256a4db9fb6afc2c8a75e8cabf6b0a24ef",
+        "width": 4298,
+        "height": 2865,
+        "checkedAt": "2026-11-10T00:21:47.426Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-victor-gold-champion-queen-shuttlecocks-20261110",
+      "url": "https://assets.victor-shop.com/100104_g.jpg?1726233418473",
+      "sourceUrl": "https://www.victor-shop.com/en/victor-goldchampion/item-1-100104.html",
+      "alt": "녹색 띠와 모델명이 표시된 빅터 골드 챔피언 셔틀콕 통",
+      "caption": "빅터 골드 챔피언 셔틀콕 12개입 포장.",
+      "credit": "VICTOR Europe 공식 판매 페이지",
+      "kind": "photo",
+      "generated": false,
+      "rights": "비교 대상의 모델명과 포장 표기를 대조하는 데 필요한 제조사 제품 사진을 제한 인용하고 원본 링크를 표시했다.",
+      "verification": {
+        "url": "https://assets.victor-shop.com/100104_g.jpg?1726233418473",
+        "sourceUrl": "https://www.victor-shop.com/en/victor-goldchampion/item-1-100104.html",
+        "file": "output/editorial/research-20261110/gold.jpg",
+        "status": 200,
+        "bytes": 8494,
+        "sha256": "bb8ca3f48801bb4de876c86278efcd75ecdda251b7e22f87c76e866bb4aa67f7",
+        "width": 61,
+        "height": 350,
+        "checkedAt": "2026-11-10T00:21:47.431Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-victor-gold-champion-queen-shuttlecocks-20261110",
+      "url": "https://assets.victor-shop.com/101006_g.jpg?1726233424537",
+      "sourceUrl": "https://www.victor-shop.com/en/victor-queen/item-1-101006.html",
+      "alt": "분홍색 띠와 QUEEN 글자가 보이는 빅터 퀸 셔틀콕 통",
+      "caption": "빅터 퀸 셔틀콕 포장.",
+      "credit": "VICTOR Europe 공식 판매 페이지",
+      "kind": "photo",
+      "generated": false,
+      "rights": "비교 대상의 모델명과 포장 표기를 대조하는 데 필요한 제조사 제품 사진을 제한 인용하고 원본 링크를 표시했다.",
+      "verification": {
+        "url": "https://assets.victor-shop.com/101006_g.jpg?1726233424537",
+        "sourceUrl": "https://www.victor-shop.com/en/victor-queen/item-1-101006.html",
+        "file": "output/editorial/research-20261110/queen-official.jpg",
+        "status": 200,
+        "bytes": 7916,
+        "sha256": "3bea518d46b9ee6ec9f6bccb4e5012a65a2388e5f51e6a3c1f6b125160c3f644",
+        "width": 61,
+        "height": 350,
+        "checkedAt": "2026-11-10T00:21:47.432Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "amateur-2026-707",
+      "alt": "2026년 제35회 용산구청장기 배드민턴대회 공개 홍보 포스터",
+      "url": "https://badmintok.com/media/contest_images/540963acbf0d.png",
+      "kind": "poster",
+      "credit": "해당 대회 주최·주관 / 배드민톡 수록",
+      "rights": "대회 소식 보도와 참가 안내에 필요한 공개 홍보 포스터 1점 인용. 저작권은 주최·제작자에게 있으며, 별도 재사용 허가를 뜻하지 않음.",
+      "caption": "제35회 용산구청장기 배드민턴대회 포스터.",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/2026-용산구청장기-배드민턴대회/",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-10T00:23:30.886Z"
+      }
+    },
+    {
+      "articleId": "amateur-2026-593",
+      "alt": "제7회 가평 자라섬 전국 오픈 배드민턴대회 공개 홍보 포스터",
+      "url": "https://badmintok.com/media/contest_images/60d93f49314a.jpg",
+      "kind": "poster",
+      "credit": "해당 대회 주최·주관 / 배드민톡 수록",
+      "rights": "대회 소식 보도와 참가 안내에 필요한 공개 홍보 포스터 1점 인용. 저작권은 주최·제작자에게 있으며, 별도 재사용 허가를 뜻하지 않음.",
+      "caption": "일정·장소·접수 조건을 확인하기 위한 대회 홍보 자료입니다. 변경 공지는 원문에서 확인하세요.",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/가평-자라섬-배드민턴대회/",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-10T00:23:30.888Z"
+      }
+    },
+    {
+      "articleId": "amateur-2026-669",
+      "alt": "제1회 군포철쭉배 전국 배드민턴대회 공개 홍보 포스터",
+      "url": "https://badmintok.com/media/contest_images/4fdf447efbc2.png",
+      "kind": "poster",
+      "credit": "해당 대회 주최·주관 / 배드민톡 수록",
+      "rights": "대회 소식 보도와 참가 안내에 필요한 공개 홍보 포스터 1점 인용. 저작권은 주최·제작자에게 있으며, 별도 재사용 허가를 뜻하지 않음.",
+      "caption": "일정·장소·접수 조건을 확인하기 위한 대회 홍보 자료입니다. 변경 공지는 원문에서 확인하세요.",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/군포철쭉배-배드민턴대회/",
+      "verification": {
+        "sourceAccess": "Existing complete image array preserved from production baseline. No fresh image download or hash claimed. Public rendering checked separately.",
+        "checkedAt": "2026-11-10T00:23:30.888Z"
+      }
+    }
+  ]
+}
