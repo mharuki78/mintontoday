@@ -25,7 +25,9 @@ test('article graph connects canonical page, publisher and real hierarchy withou
   assert.equal(page.mainEntity['@id'],article['@id']);
   assert.equal(article.publisher['@id'],org['@id']);assert.equal(article.author['@id'],org['@id']);
   assert.equal(article.url,base+'articles/schema-test');
-  assert.equal(page.isPartOf['@id'],node(homeStructuredData(base),'WebSite')['@id']);
+  assert.deepEqual(node(data,'WebSite'),node(homeStructuredData(base),'WebSite'));
+  assert.equal(page.isPartOf['@id'],node(data,'WebSite')['@id']);
+  assert.deepEqual(article.author,{'@id':org['@id'],'@type':'Organization',name:org.name,url:org.url});
   const crumbs=node(data,'BreadcrumbList').itemListElement;
   assert.deepEqual(crumbs.map(c=>c.position),[1,2,3]);
   assert.equal(new URL(crumbs[1].item).searchParams.get('category'),post.category);

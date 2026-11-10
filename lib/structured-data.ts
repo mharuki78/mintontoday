@@ -20,6 +20,10 @@ function organization(root: string) {
   };
 }
 
+function website(root: string, publisherId: string) {
+  return { "@type": "WebSite", "@id": `${root}#website`, url: root, name: siteName, alternateName: "민턴투데이", inLanguage: "ko-KR", publisher: { "@id": publisherId } };
+}
+
 export function homeStructuredData(base: string) {
   const root = rootUrl(base);
   const org = organization(root);
@@ -27,7 +31,7 @@ export function homeStructuredData(base: string) {
     "@context": "https://schema.org",
     "@graph": [
       org,
-      { "@type": "WebSite", "@id": `${root}#website`, url: root, name: siteName, alternateName: "민턴투데이", inLanguage: "ko-KR", publisher: { "@id": org["@id"] } },
+      website(root, org["@id"]),
       { "@type": "WebPage", "@id": `${root}#webpage`, url: root, name: "Minton Today — 오늘도, 배드민턴.", inLanguage: "ko-KR", isPartOf: { "@id": `${root}#website` }, about: { "@id": org["@id"] } },
     ],
   };
@@ -39,6 +43,7 @@ export function articleStructuredData(post: Article, base: string) {
   const url = `${root}articles/${post.id}`;
   const categoryUrl = new URL(`/articles?${new URLSearchParams({ category: post.category })}`, root).href;
   const org = organization(root);
+  const site = website(root, org["@id"]);
   const images = post.images?.map((image, index) => ({
     "@type": "ImageObject", "@id": `${url}#image-${index + 1}`,
     url: new URL(image.url, root).href,
@@ -54,10 +59,11 @@ export function articleStructuredData(post: Article, base: string) {
     "@context": "https://schema.org",
     "@graph": [
       org,
+      site,
       {
         "@type": "WebPage", "@id": `${url}#webpage`, url, name: post.title,
         description: post.excerpt, inLanguage: "ko-KR",
-        isPartOf: { "@id": `${root}#website` },
+        isPartOf: { "@id": site["@id"] },
         mainEntity: { "@id": `${url}#article` },
         breadcrumb: { "@id": `${url}#breadcrumb` },
         ...(images.length ? { primaryImageOfPage: { "@id": images[0]["@id"] } } : {}),
@@ -71,7 +77,8 @@ export function articleStructuredData(post: Article, base: string) {
         ...(images.length ? { image: images } : {}),
         inLanguage: "ko-KR", articleSection: post.category, keywords: articleHashtags(post).join(", "),
         isAccessibleForFree: true,
-        author: { "@id": org["@id"] }, publisher: { "@id": org["@id"] },
+        author: { "@id": org["@id"], "@type": org["@type"], name: org.name, url: org.url },
+        publisher: { "@id": org["@id"] },
         mainEntityOfPage: { "@id": `${url}#webpage` },
         ...(citations.length ? { citation: citations } : {}),
       },
