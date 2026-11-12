@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-12",
+  "images": [
+    {
+      "articleId": "lesson-singles-backhand-crosscourt-block-20261112",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ankara_2013_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_singles_player%2C_unknown_age_class_%2811078126684%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_2013_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_singles_player,_unknown_age_class_(11078126684).jpg",
+      "alt": "빨간 유니폼을 입은 덴마크 단식 선수가 코트에서 라켓을 들고 있는 모습",
+      "caption": "2013년 앙카라 세계 시니어 배드민턴선수권 단식 선수 자료사진.",
+      "credit": "Murray Foubister · CC BY-SA 2.0",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "rights": "Commons 원본에서 Murray Foubister 저자와 CC BY-SA 2.0, Flickr 원출처 및 라이선스 검토를 확인했다. 원본 사진을 크롭·변환 없이 해당 라이선스에 따라 사용하며 화면에 맞춰 표시한다.",
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ankara_2013_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_singles_player%2C_unknown_age_class_%2811078126684%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_2013_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_singles_player,_unknown_age_class_(11078126684).jpg",
+        "file": "output/editorial/research-20261112/lesson.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 2448814,
+        "sha256": "5399729602a5a20dfabb9a0f534c609a45bf83883832d25b8dd6872c365cbd0e",
+        "width": 1414,
+        "height": 2121,
+        "checkedAt": "2026-11-12T00:05:47.160Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "court-service-feet-contact-start-20261112",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Ankara_-_BWF_World_Senior_Badminton_Championships_-_Bill_%26_Sanne_in_MX_60_%2811078016544%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_Bill_%26_Sanne_in_MX_60_(11078016544).jpg",
+      "alt": "혼합복식 서버와 리시버가 네트를 사이에 두고 서브를 준비하는 모습",
+      "caption": "2013년 앙카라 세계 시니어 배드민턴선수권 혼합복식 자료사진.",
+      "credit": "Murray Foubister · CC BY-SA 2.0",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "rights": "Commons 원본에서 Murray Foubister 저자와 CC BY-SA 2.0, Flickr 원출처 및 라이선스 검토를 확인했다. 원본 사진을 크롭·변환 없이 해당 라이선스에 따라 사용하며 화면에 맞춰 표시한다.",
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Ankara_-_BWF_World_Senior_Badminton_Championships_-_Bill_%26_Sanne_in_MX_60_%2811078016544%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_Bill_%26_Sanne_in_MX_60_(11078016544).jpg",
+        "file": "output/editorial/research-20261112/court.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 3886425,
+        "sha256": "04b297a616a29f1ff35ee3d35bead7ea6ef29820a360671d0699a14314428de5",
+        "width": 2121,
+        "height": 1414,
+        "checkedAt": "2026-11-12T00:05:47.959Z",
+        "rootVisualReview": true
+      }
+    }
+  ]
+}
