@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-13",
+  "images": [
+    {
+      "articleId": "gear-victor-ncs-max-synthetic-shuttle-20261113",
+      "url": "https://assets.victor-shop.com/202954_1_s.jpg?1772598787952",
+      "alt": "흰색 통에 NCS Max 모델명과 12개 구성이 표시된 빅터 셔틀콕 포장",
+      "caption": "VICTOR NCS Max 12개입 포장.",
+      "credit": "VICTOR Europe",
+      "sourceUrl": "https://www.victor-shop.com/en/victor-ncs-max/item-1-202954.html",
+      "rights": "제품 식별·구성 비평에 필요한 제조사 사진 한 장을 제한 인용한다. NCS·NCS Pro와 구별되는 Max 모델명 및 12개 구성을 설명하는 본문과 함께 출처를 표시한다. 공개 URL을 사용 허락으로 간주하지 않으며 전 사진 모음을 복제하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://assets.victor-shop.com/202954_1_s.jpg?1772598787952",
+        "sourceUrl": "https://www.victor-shop.com/en/victor-ncs-max/item-1-202954.html",
+        "file": "output/editorial/research-20261113/gear-1.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 58790,
+        "sha256": "1ec195c8eefe5a2301572627d30c382e342e4ca38385f2cfddade9b2a9849c31",
+        "width": 194,
+        "height": 600,
+        "checkedAt": "2026-11-13T00:18:53.372Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-victor-ncs-max-synthetic-shuttle-20261113",
+      "url": "https://assets.victor-shop.com/202954_2_s.jpg?1772598789365",
+      "alt": "카본 복합 줄기와 구멍이 있는 합성 깃으로 이루어진 빅터 NCS Max 셔틀콕",
+      "caption": "VICTOR NCS Max의 합성 깃과 줄기 구조.",
+      "credit": "VICTOR Europe",
+      "sourceUrl": "https://www.victor-shop.com/en/victor-ncs-max/item-1-202954.html",
+      "rights": "합성 깃과 분리된 줄기 구조를 비평하는 문단에 직접 필요한 제조사 실물 사진 한 장을 제한 인용한다. 개인 사용기 사진을 가져오지 않고 원본·저작권자를 표시한다. 외관으로 수명이나 비행 성능을 입증한다고 설명하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://assets.victor-shop.com/202954_2_s.jpg?1772598789365",
+        "sourceUrl": "https://www.victor-shop.com/en/victor-ncs-max/item-1-202954.html",
+        "file": "output/editorial/research-20261113/gear-2.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 153023,
+        "sha256": "b6dbb4b499de27206c5e52c4cf0b699cc9ec6e115721ec423ee639c788c980f7",
+        "width": 461,
+        "height": 600,
+        "checkedAt": "2026-11-13T00:18:53.987Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "court-eleven-point-interval-towel-20261113",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Badminton_at_the_2012_Summer_Olympics_9218.jpg",
+      "alt": "런던 올림픽 배드민턴 경기장 코트 옆에서 수건을 들고 있는 코치",
+      "caption": "2012년 런던 올림픽 배드민턴 경기장 자료사진.",
+      "credit": "Ian Patterson · CC BY 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_at_the_2012_Summer_Olympics_9218.jpg",
+      "rights": "Commons 원본에서 Ian Patterson 저자·Flickr 원출처·CC BY 2.0을 확인했다. 원본을 크롭·변환 없이 라이선스에 따라 사용하고 저자·원본·라이선스를 표시한다.",
+      "licenseName": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Badminton_at_the_2012_Summer_Olympics_9218.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badminton_at_the_2012_Summer_Olympics_9218.jpg",
+        "file": "output/editorial/research-20261113/court.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 5377771,
+        "sha256": "565016212c7f099c868f9f91c6a10d4313b7da47ac767ab9a932289037a0a2ba",
+        "width": 3456,
+        "height": 5184,
+        "checkedAt": "2026-11-13T00:18:55.660Z",
+        "rootVisualReview": true
+      }
+    }
+  ]
+}
