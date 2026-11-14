@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-14",
+  "images": [
+    {
+      "articleId": "gear-lining-axforce90-tiger-max-4u-20261114",
+      "url": "https://in.lining.studio/cdn/shop/files/01_85185a4071_7a39f0dc-56e9-498d-82cd-897d964cbceb.png?v=1749895730&width=1200",
+      "alt": "청색과 붉은 무늬가 있는 리닝 액스포스 90 타이거 맥스의 라켓 헤드",
+      "caption": "Li-Ning AXFORCE 90 Tiger Max의 헤드.",
+      "credit": "Li-Ning Studio India",
+      "sourceUrl": "https://in.lining.studio/products/axforce-90-tiger-max-4u/",
+      "rights": "Tiger Max 모델의 외관 식별과 헤드헤비 사양 비평에 필요한 제조사 제품 사진 한 장을 제한 인용한다. 원본·저작권자를 표시하며 공개 URL을 일반 사용 허가로 간주하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://in.lining.studio/cdn/shop/files/01_85185a4071_7a39f0dc-56e9-498d-82cd-897d964cbceb.png?v=1749895730&width=1200",
+        "sourceUrl": "https://in.lining.studio/products/axforce-90-tiger-max-4u/",
+        "file": "output/editorial/research-20261114/gear-1.png",
+        "status": 200,
+        "contentType": "image/png",
+        "bytes": 596114,
+        "sha256": "c0276bca53497daa567e3fd5a268eb7755f9b2dd0675775f9e20d520f7a06c45",
+        "width": 1000,
+        "height": 1000,
+        "checkedAt": "2026-11-14T00:14:13.458Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "gear-lining-axforce90-tiger-max-4u-20261114",
+      "url": "https://in.lining.studio/cdn/shop/files/03_716843e37b_d3e6a8b4-fe90-4ba5-9c2b-baf1d5970b76.png?v=1749895729&width=1200",
+      "alt": "액스포스 90 타이거 맥스의 프레임 하단과 샤프트 연결부 확대",
+      "caption": "AXFORCE 90 Tiger Max 프레임 하단과 연결부.",
+      "credit": "Li-Ning Studio India",
+      "sourceUrl": "https://in.lining.studio/products/axforce-90-tiger-max-4u/",
+      "rights": "모델명과 소재 표기가 보이는 프레임·연결부를 사양 및 사용기와 대조하는 데 필요한 제조사 제품 사진 한 장을 제한 인용한다. 개인 후기 사진은 사용하지 않으며 사진만으로 반발 성능을 입증하지 않는다.",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://in.lining.studio/cdn/shop/files/03_716843e37b_d3e6a8b4-fe90-4ba5-9c2b-baf1d5970b76.png?v=1749895729&width=1200",
+        "sourceUrl": "https://in.lining.studio/products/axforce-90-tiger-max-4u/",
+        "file": "output/editorial/research-20261114/gear-2.png",
+        "status": 200,
+        "contentType": "image/png",
+        "bytes": 214225,
+        "sha256": "e9c36e0132a538ade19e5263dc5b347ee69d81faf1add135d3b65e4e3116d168",
+        "width": 1000,
+        "height": 1000,
+        "checkedAt": "2026-11-14T00:14:13.498Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "lesson-straight-reverse-slice-drop-20261114",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Ankara_-_BWF_World_Senior_Badminton_Championships_-_animated_Russian_Vadim_Itskov_winning_the_MS_35_title_over_countryman_Konstantin_Myakishev_%2811078110625%29.jpg",
+      "alt": "2013년 앙카라 세계시니어선수권에서 라켓을 머리 뒤로 준비한 배드민턴 선수",
+      "caption": "2013년 앙카라 세계시니어선수권의 오버헤드 타구 준비 장면.",
+      "credit": "Murray Foubister / Wikimedia Commons · CC BY-SA 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_animated_Russian_Vadim_Itskov_winning_the_MS_35_title_over_countryman_Konstantin_Myakishev_(11078110625).jpg",
+      "rights": "Murray Foubister의 Flickr 원본을 Commons가 라이선스 검토한 사진. CC BY-SA 2.0에 따라 저자·원본·라이선스를 표시하고 크롭·변환 없이 사용한다. 사진만으로 실제 타구가 리버스 슬라이스라고 식별하지 않는다.",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Ankara_-_BWF_World_Senior_Badminton_Championships_-_animated_Russian_Vadim_Itskov_winning_the_MS_35_title_over_countryman_Konstantin_Myakishev_%2811078110625%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_animated_Russian_Vadim_Itskov_winning_the_MS_35_title_over_countryman_Konstantin_Myakishev_(11078110625).jpg",
+        "file": "output/editorial/research-20261114/lesson-rus.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 3164354,
+        "sha256": "4f6e5d02caab1d66132642487b92e56d9c46f51020537a84280bc390aa07dcd0",
+        "width": 2121,
+        "height": 1414,
+        "checkedAt": "2026-11-14T00:14:14.704Z",
+        "rootVisualReview": true
+      }
+    }
+  ]
+}
