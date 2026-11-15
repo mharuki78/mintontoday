@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-15",
+  "images": [
+    {
+      "articleId": "lesson-forehand-out-to-in-spin-net-20261115",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Olympics_2012_Mixed_Doubles_Final.jpg",
+      "alt": "2012년 런던 올림픽 혼합복식 결승에서 네트를 사이에 두고 경기하는 선수들",
+      "caption": "2012년 런던 올림픽 혼합복식 결승 자료사진.",
+      "credit": "Peter / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympics_2012_Mixed_Doubles_Final.jpg",
+      "rights": "Peter의 Flickr 원본을 Commons가 검토한 CC BY-SA 2.0 사진. 저자·원본·라이선스를 표시하며 크롭·변환 없이 사용한다. 과거 경기 자료사진으로 소개하고 본문 기술이나 실수의 실제 사례라고 단정하지 않는다.",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Olympics_2012_Mixed_Doubles_Final.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Olympics_2012_Mixed_Doubles_Final.jpg",
+        "file": "output/editorial/research-20261115/lesson-action.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 3999913,
+        "sha256": "40167d339756c58f2acbfe63e1e989bf419fb55ec73336b82f6b821632d22913",
+        "width": 3449,
+        "height": 2290,
+        "checkedAt": "2026-11-15T00:12:31.111Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "court-service-air-swing-missed-shuttle-20261115",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Ankara_-_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_Sinles_player%2C_Age_class_%3F%3F_%2811078024235%29.jpg",
+      "alt": "2013년 앙카라 세계시니어선수권에서 셔틀과 라켓을 몸 앞에 두고 서브를 준비하는 선수",
+      "caption": "2013년 앙카라 세계시니어선수권의 서브 준비 장면.",
+      "credit": "Murray Foubister / Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_Sinles_player,_Age_class_%3F%3F_(11078024235).jpg",
+      "rights": "Murray Foubister의 Flickr 원본을 Commons가 검토한 CC BY-SA 2.0 사진. 저자·원본·라이선스를 표시하며 크롭·변환 없이 사용한다. 과거 경기 자료사진으로 소개하고 본문 기술이나 실수의 실제 사례라고 단정하지 않는다.",
+      "licenseName": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "kind": "photo",
+      "generated": false,
+      "verification": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Ankara_-_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_Sinles_player%2C_Age_class_%3F%3F_%2811078024235%29.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankara_-_BWF_World_Senior_Badminton_Championships_-_very_strong_Danish_Sinles_player,_Age_class_%3F%3F_(11078024235).jpg",
+        "file": "output/editorial/research-20261115/court.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 2885439,
+        "sha256": "c7aa2c50de56d02ccd528be77681bcee88c4adac454f840fdafcea9de3818ca6",
+        "width": 2121,
+        "height": 1414,
+        "checkedAt": "2026-11-15T00:12:31.704Z",
+        "rootVisualReview": true
+      }
+    },
+    {
+      "articleId": "amateur-gwangmyeong-peace-cave-cup-20261205",
+      "url": "https://badmintok.com/media/contest_images/937f188bd517.jpg",
+      "alt": "제14회 광명평화동굴배 전국배드민턴대회의 2026년 12월 5~6일 일정과 참가 안내 포스터",
+      "caption": "제14회 광명평화동굴배 대회 안내 포스터.",
+      "credit": "광명시배드민턴협회 / 배드민톡 수록",
+      "sourceUrl": "https://badmintok.com/badminton-tournament/광명평화동굴배-배드민턴대회/",
+      "rights": "공개된 주최 측 홍보 포스터를 해당 행사 일정·접수 안내에 필요한 한 장으로 제한 인용한다. 배드민톡 게시본과 원본 출처를 연결하고 접수처로 오인하게 하지 않는다. 별도 개인 연락처·계좌는 본문에 옮기지 않는다.",
+      "kind": "poster",
+      "generated": false,
+      "verification": {
+        "url": "https://badmintok.com/media/contest_images/937f188bd517.jpg",
+        "sourceUrl": "https://badmintok.com/badminton-tournament/광명평화동굴배-배드민턴대회/",
+        "file": "output/editorial/research-20261115/gwangmyeong-poster.jpg",
+        "status": 200,
+        "contentType": "image/jpeg",
+        "bytes": 481371,
+        "sha256": "097a96bd432098abfa715d9ecf3ce3df35591e637cb7d49c9528cd36da38612f",
+        "width": 600,
+        "height": 802,
+        "checkedAt": "2026-11-15T00:12:31.779Z",
+        "rootVisualReview": true
+      }
+    }
+  ]
+}
