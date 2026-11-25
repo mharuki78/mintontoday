@@ -1,0 +1,48 @@
+[
+  {
+    "article": {
+      "id": "tournament-syed-modi-international-2026",
+      "art": "score",
+      "body": "나성승·왕찬이 시드 모디 인디아 인터내셔널 배드민턴 남자복식 16강에 올랐다. 두 선수는 24일 인도 럭나우에서 열린 32강에서 4번 시드 알리 파티르 레이한·데빈 아르타 와유디(인도네시아)를 21-10, 17-21, 22-20으로 꺾었다. 경기는 57분 동안 이어졌다.\n\n첫 게임을 21-10으로 따낸 나성승·왕찬은 두 번째 게임을 17-21로 내줬다. 세 번째 게임에서는 듀스 끝에 22-20으로 승부를 마쳤다.\n\n이번 대회는 인도 럭나우의 BBD U.P. 배드민턴 아카데미에서 11월 24일부터 29일까지 열린다. BWF 월드투어 슈퍼 300 등급이며 총상금은 25만 달러다. 16강 경기 시각은 25일 오전 확인한 26일 경기표에 아직 발표되지 않았다.",
+      "date": "2026-11-24",
+      "tags": [
+        "#시드모디인터내셔널",
+        "#나성승",
+        "#왕찬",
+        "#배드민턴대회"
+      ],
+      "event": {
+        "url": "https://bwfworldtour.bwfbadminton.com/tournament/5274/syed-modi-india-international-2026/results/2026-11-24",
+        "type": "국가대표 대회",
+        "venue": "인도 럭나우 BBD U.P. 배드민턴 아카데미",
+        "region": "해외",
+        "result": "나성승·왕찬이 남자복식 32강에서 레이한·와유디를 21-10, 17-21, 22-20으로 꺾고 16강에 올랐다.",
+        "status": "진행 중",
+        "endDate": "2026-11-29",
+        "checkedAt": "2026-11-25T00:03:07.234Z",
+        "startDate": "2026-11-24",
+        "registration": "관람 및 경기 시간은 주최 측 안내 참고."
+      },
+      "title": "나성승·왕찬, 시드 모디 남자복식 16강 진출…4번 시드 꺾었다",
+      "sample": false,
+      "status": "published",
+      "excerpt": "나성승·왕찬이 인도네시아의 레이한·와유디를 세 게임 끝에 이겼다. 마지막 게임은 22-20으로 마무리됐다.",
+      "sources": [
+        {
+          "name": "BWF · 11월 24일 남자복식 32강 결과",
+          "url": "https://bwfworldtour.bwfbadminton.com/tournament/5274/syed-modi-india-international-2026/results/2026-11-24"
+        },
+        {
+          "name": "BWF · 11월 26일 경기순서",
+          "url": "https://bwfworldtour.bwfbadminton.com/tournament/5274/syed-modi-india-international-2026/results/2026-11-26"
+        }
+      ],
+      "category": "대회",
+      "managedBy": "daily-editor",
+      "sourceUrl": "https://bwfworldtour.bwfbadminton.com/tournament/5274/syed-modi-india-international-2026/results/2026-11-24",
+      "updatedAt": "2026-11-25T00:03:07.234Z",
+      "sourceName": "BWF · 시드 모디 11월 24일 경기 결과"
+    },
+    "expectedHash": "20145969c712bb92a8d7f03a3855f2ee"
+  }
+]
