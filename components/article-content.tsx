@@ -33,7 +33,10 @@ export function ArticleContent({ post }: { post: Article }) {
     </dl>}
     {post.bodyDocument ? <RichContent document={post.bodyDocument} images={post.images}/> : <div className="prose">
       {paragraphs.map((p, i) => <div key={i}>
-        {p.startsWith("## ") ? <h2 id={`section-${heading++}`}>{p.slice(3)}</h2> : <p>{p}</p>}
+        {p.startsWith("## ") ? <>
+          <h2 id={`section-${heading++}`}>{p.slice(3).split("\n")[0]}</h2>
+          {p.includes("\n") && <p>{p.slice(p.indexOf("\n") + 1)}</p>}
+        </> : <p>{p}</p>}
         {i === 0 && post.images?.[0] && <ArticleImage image={post.images[0]} />}
         {i === Math.max(1, Math.floor(paragraphs.length / 2)) && post.images?.slice(1).map(img => <ArticleImage key={img.url} image={img} />)}
       </div>)}

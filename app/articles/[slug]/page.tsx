@@ -4,12 +4,19 @@ import Link from "next/link";
 import { Header, Footer, Art, ArticleCard } from "@/components/site";
 import ArticleTools from "@/components/article-tools";
 import { ArticleContent } from "@/components/article-content";
+import { ServicePractice } from "@/components/service-practice";
+import { richText, type RichNode } from "@/lib/rich-text";
 import { getPublishedArticle, getArticlePage } from "@/lib/public-content";
 import { readingTime, koreaDate } from "@/lib/content";
 import { connection } from "next/server";
 import { articleHashtags } from "@/lib/hashtags";
 import { articleStructuredData, serializeStructuredData } from "@/lib/structured-data";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, List } from "lucide-react";
+
+function documentHeadings(node: RichNode): string[] {
+  if (node.type === "heading") return [(node.content || []).map(richText).join("")];
+  return (node.content || []).flatMap(documentHeadings);
+}
 export async function generateMetadata({
   params,
 }: {
@@ -48,8 +55,11 @@ export default async function Article({
   const post = await getPublishedArticle(slug);
   if (!post) notFound();
   const related = await getArticlePage({category:post.category,excludeId:post.id,today,limit:3});
-  const paragraphs = post.body.split("\n\n");
-  const headings = paragraphs.filter((p) => p.startsWith("## "));
+  const headings = post.bodyDocument
+    ? documentHeadings(post.bodyDocument)
+    : post.body.split("\n\n").filter(p => p.startsWith("## ")).map(p => p.slice(3).split("\n")[0]);
+  const practice = post.id === "court-doubles-service-order-20261015";
+  const contents = headings.map((label, i) => <a key={i} href={`#section-${i}`}>{label}</a>);
   return (
     <>
       <Header active={post.category} />
@@ -83,8 +93,10 @@ export default async function Article({
               </div>
             )}
             <ArticleTools id={post.id} title={post.title} category={post.category} />
+            {!!contents.length && <details className="mobile-contents"><summary><List size={17}/>글 목차</summary><nav aria-label="본문 목차">{contents}</nav></details>}
+            {practice && <ServicePractice />}
             <ArticleContent post={post} />
-            {post.sourceUrl && (
+            {post.sourceUrl && !post.sources?.some(s => s.url === post.sourceUrl) && (
               <a
                 className="source-box"
                 href={post.sourceUrl}
@@ -101,8 +113,6 @@ export default async function Article({
             <div className="article-signoff">
               <img src="/logo.svg" width="40" height="40" alt="" />
               <p>
-                코트 안팎, 배드민턴의 모든 이야기.
-                <br />
                 <Link href="/about"><strong>Minton Today</strong></Link>
                 <br/><Link href="/contact">내용 정정·제보하기</Link> · <Link href="/editorial">편집 원칙</Link>
               </p>
@@ -110,14 +120,9 @@ export default async function Article({
           </article>
           <aside className="article-aside">
             {!!headings.length && <div className="toc">
-              <h2>이 글에서 만날 이야기</h2>
-              {headings.map((h, i) => (
-                <a key={h} href={`#section-${i}`}>
-                  {h.slice(3)}
-                </a>
-              ))}
+              <h2>글 목차</h2>
+              <nav aria-label="본문 목차">{contents}</nav>
             </div>}
-            <div className="reader-note"><h2>궁금한 점이 남았나요?</h2><p>틀린 기록이나 다뤘으면 하는 연습 주제를 알려주세요.</p><Link href="/contact">운영자에게 문의하기 ↗</Link><Link href="/saved">내가 저장한 글 보기 ↗</Link></div>
           </aside>
         </div>
         <section className="related">

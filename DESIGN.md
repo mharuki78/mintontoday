@@ -100,6 +100,12 @@ components:
 
 ## Overview
 
+### November 2026 public reading surfaces
+
+The public home, archive and article templates now use `app/journal.css` after the shared stylesheet. The home opens with a dated published story, its own image and a forest-green reading panel. A short beginner path, the doubles service exercise, news, category shelves and the upcoming local tournament calendar follow. The logo and existing article artwork retain their original provenance. The large promotional hero described in the original design notes below belongs to the earlier layout.
+
+Public reading pages use an off-white canvas and dark blue-grey body type. Article text is 18px on desktop and 17px on mobile. At narrow widths the article grid becomes one column and a disclosure above the story exposes its section links. The service practice board labels both participants in text, uses each team's own left and right, and respects reduced motion.
+
 **Creative North Star: "The Courtside Weekend Magazine"**
 
 Warm paper, navy lettering and gentle sport illustrations give Korean badminton reading a welcoming, precise rhythm. The inherited Ohacle cream, navy, mint and peach identity is the durable brand commitment.

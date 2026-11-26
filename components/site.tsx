@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Search, Feather } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Bookmark, Search, Feather } from "lucide-react";
 import { categories, type Article, readingTime } from "@/lib/content";
 import type { ArticlePreview } from "@/lib/article-preview";
 import { articleHashtags } from "@/lib/hashtags";
@@ -21,30 +21,17 @@ export function Logo({ small = false }: { small?: boolean }) {
     </Link>
   );
 }
-export function Header({ active = "전체 글" }: { active?: string }) {
+export function Header({ active }: { active?: string }) {
   return (
     <>
-      <div className="topline">
-        <div className="wrap">
-          <span>코트 안팎, 배드민턴의 모든 이야기</span>
-          <Link href="/about">
-            민턴투데이 소개 <ArrowUpRight size={12} />
-          </Link>
-        </div>
-      </div>
       <header className="wrap masthead">
         <Logo />
-        <p>
-          당신의 일상에
-          <br />
-          <strong>배드민턴 한 페이지.</strong>
-        </p>
         <form className="header-search" action="/articles">
           <Search size={18} />
           <input
             name="q"
             aria-label="검색어"
-            placeholder="어떤 이야기를 찾으세요?"
+            placeholder="기사·레슨 검색"
           />
           <button aria-label="검색">
             <ArrowRight size={17} />
@@ -52,16 +39,18 @@ export function Header({ active = "전체 글" }: { active?: string }) {
         </form>
         <Link
           className="mobile-search"
-          href="/articles"
+          href="/articles#article-search"
           aria-label="이야기 검색"
         >
           <Search size={21} />
         </Link>
+        <Link className="mast-saved" href="/saved" aria-label="저장한 글"><Bookmark size={19}/><span>저장한 글</span></Link>
       </header>
       <nav className="navigation" aria-label="주 메뉴">
         <div className="wrap nav-inner">
           <Link
             className={active === "전체 글" ? "active" : ""}
+            aria-current={active === "전체 글" ? "page" : undefined}
             href="/articles"
           >
             전체 글
@@ -69,15 +58,13 @@ export function Header({ active = "전체 글" }: { active?: string }) {
           {categories.map((c) => (
             <Link
               className={active === c ? "active" : ""}
+              aria-current={active === c ? "page" : undefined}
               key={c}
               href={`/articles?category=${encodeURIComponent(c)}`}
             >
               {c}
             </Link>
           ))}
-          <span className="nav-note">
-            <span /> A GOOD DAY TO PLAY
-          </span>
         </div>
       </nav>
     </>
@@ -89,11 +76,7 @@ export function Footer() {
       <div className="wrap footer-main">
         <div>
           <Logo small />
-          <p>
-            코트에서 시작해, 일상으로 이어지는 이야기.
-            <br />
-            배드민턴을 좋아하는 당신과 함께합니다.
-          </p>
+          <p>배드민턴 전문 매거진 민턴투데이</p>
         </div>
         <div className="footer-links">
           <Link href="/saved">저장한 글</Link>

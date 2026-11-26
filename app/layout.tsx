@@ -2,6 +2,8 @@ import { siteUrl } from "@/lib/site-url";
 import { publisher } from "@/lib/publisher";
 import type { Metadata } from "next";
 import "./globals.css";
+import "daisyui/components/button.css";
+import "./journal.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {

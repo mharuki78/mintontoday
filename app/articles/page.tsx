@@ -45,7 +45,6 @@ export default async function Articles({
         <div className="archive-title">
           <h1>
             {category || "모든 이야기"}
-            <span className="small-dot">.</span>
           </h1>
           <p>
             {q ? `“${q}” 검색 결과` : categoryDescriptions[category || ""] || "레슨에서 막힌 동작, 장비 선택, 동호회 생활과 경기 소식을 찾아보세요."}
@@ -59,6 +58,7 @@ export default async function Articles({
           {category === "대회" && type && <input type="hidden" name="type" value={type} />}
           {category === "대회" && region && <input type="hidden" name="region" value={region} />}
           <input
+            id="article-search"
             name="q"
             defaultValue={q}
             placeholder="관심 있는 이야기 검색"
