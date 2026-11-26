@@ -3,6 +3,7 @@ import { ArrowUpRight, ArrowRight, Bookmark, Search, Feather } from "lucide-reac
 import { categories, type Article, readingTime } from "@/lib/content";
 import type { ArticlePreview } from "@/lib/article-preview";
 import { articleHashtags } from "@/lib/hashtags";
+import { EditorialPicture } from "./editorial-picture";
 
 export function Logo({ small = false }: { small?: boolean }) {
   return (
@@ -250,7 +251,7 @@ export function ArticleCard({ post }: { post: Article | ArticlePreview }) {
         tabIndex={-1}
         aria-hidden="true"
       >
-        {post.images?.[0] ? <img className="card-photo" src={post.images[0].url} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <Art kind={post.art} />}
+        {post.images?.[0] ? <EditorialPicture className="card-photo" src={post.images[0].url} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <Art kind={post.art} />}
         {post.images?.[0]?.generated && <span className="image-origin">AI 제작 이미지</span>}
         <span className="image-link">
           <ArrowUpRight size={18} />

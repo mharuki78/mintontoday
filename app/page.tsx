@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Bookmark, Layers } from "lucide-react";
 import { connection } from "next/server";
 import { Header, Footer, ArticleCard, Art } from "@/components/site";
+import { EditorialPicture } from "@/components/editorial-picture";
 import { beginnerPath } from "@/lib/reading-paths";
 import { getArticlePage } from "@/lib/public-content";
 import { categories, koreaDate } from "@/lib/content";
@@ -32,7 +33,7 @@ export default async function Home() {
     <main id="main" className="wrap journal">
       {lead && <section className="cover" aria-labelledby="cover-title">
         <Link href={`/articles/${lead.id}`} className="cover-visual" tabIndex={-1} aria-hidden="true">
-          {picture ? <img src={picture.url} alt="" fetchPriority="high" referrerPolicy="no-referrer" /> : <Art kind={lead.art} large />}
+          {picture ? <EditorialPicture src={picture.url} alt="" fetchPriority="high" referrerPolicy="no-referrer" /> : <Art kind={lead.art} large />}
           {picture?.generated && <span className="cover-credit">AI 일러스트</span>}
         </Link>
         <div className="cover-story">
